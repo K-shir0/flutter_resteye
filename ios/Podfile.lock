@@ -1,0 +1,22 @@
+PODS:
+  - UIPiPView (0.1.0)
+
+DEPENDENCIES:
+  - UIPiPView (from `https://github.com/uakihir0/UIPiPView/`, branch `main`)
+
+EXTERNAL SOURCES:
+  UIPiPView:
+    :branch: main
+    :git: https://github.com/uakihir0/UIPiPView/
+
+CHECKOUT OPTIONS:
+  UIPiPView:
+    :commit: f3f3211956b64838ce2fef0da6f007816805f0af
+    :git: https://github.com/uakihir0/UIPiPView/
+
+SPEC CHECKSUMS:
+  UIPiPView: 5d60e5976a586cec12c411241aff3fcbd3ceb2ac
+
+PODFILE CHECKSUM: f302b09e845597a2b95489d3513f7d1ce40af8fd
+
+COCOAPODS: 1.11.3
