@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
+import 'package:flutter_resteye/core/pinp_controller.dart';
+import 'package:flutter_resteye/core/pinp_view.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -23,31 +25,6 @@ class HomePage extends StatelessWidget {
         tooltip: 'PinP',
         child: const Icon(Icons.add),
       ),
-    );
-  }
-}
-
-/// PinP を操作するためのコントローラ
-class PinPController {
-  PinPController();
-
-  final _channel =
-      const MethodChannel('jp.kshiro.resteye.flutterResteye/sample');
-
-  Future<void> toggle() async {
-    await _channel.invokeMethod('toggle');
-  }
-}
-
-/// PinP を表示できる View
-class PinPView extends StatelessWidget {
-  const PinPView({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Transform(
-      transform: Matrix4.translationValues(190, 30, 0),
-      child: const UiKitView(viewType: 'sample'),
     );
   }
 }
