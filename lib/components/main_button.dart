@@ -15,7 +15,7 @@ class RestEyeMainButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         fixedSize: const Size(300, 50),
         primary: AppColors.mainButtonBgColor,
