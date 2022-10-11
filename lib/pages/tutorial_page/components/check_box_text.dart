@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_svg/flutter_svg.dart';
-
 import 'package:flutter_resteye/constants.dart';
+
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CheckBoxText extends StatelessWidget {
   const CheckBoxText({
@@ -19,8 +20,8 @@ class CheckBoxText extends StatelessWidget {
       children: [
         // 黄色い丸
         Container(
-          width: 32,
-          height: 32,
+          width: 32.w,
+          height: 32.h,
           decoration: const BoxDecoration(
             color: AppColors.addButtonBgColor,
             shape: BoxShape.circle,
@@ -28,15 +29,15 @@ class CheckBoxText extends StatelessWidget {
           // svg をセンターに
           child: SvgPicture.asset('assets/svg_images/check.svg',
               color: AppColors.addButtonTextColor,
-              width: 22,
-              height: 18,
+              width: 30.w,
+              height: 18.h,
               fit: BoxFit.scaleDown),
         ),
-        const SizedBox(width: 16),
+        SizedBox(width: 16.h),
         Text(
           text,
-          style: const TextStyle(
-            fontSize: 18,
+          style: TextStyle(
+            fontSize: 18.sp,
             letterSpacing: 1.1,
             color: AppColors.textColor,
           ),

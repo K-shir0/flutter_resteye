@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'package:carousel_slider/carousel_slider.dart';
-
 import 'package:flutter_resteye/pages/tutorial_page/components/check_box_text.dart';
 import 'package:flutter_resteye/components/main_button.dart';
 import 'package:flutter_resteye/constants.dart';
+
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TutorialPage extends StatefulWidget {
   const TutorialPage({Key? key}) : super(key: key);
@@ -24,7 +25,7 @@ class _TutorialPageState extends State<TutorialPage> {
       backgroundColor: AppColors.bgColor,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(0, 30, 0, 36),
+          padding: EdgeInsets.fromLTRB(0, 30.h, 0, 36.h),
           child: Center(
             child: Column(
               children: [
@@ -54,22 +55,23 @@ class _TutorialPageState extends State<TutorialPage> {
                               index: 0,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
+                                children: [
                                   Text(
-                                    'これらに当てはまるなら、ドライアイの兆候かも…',
+                                    'これらに当てはまるなら、\n'
+                                    'ドライアイの兆候かも…',
                                     style: TextStyle(
-                                      fontSize: 20,
+                                      fontSize: 20.sp,
                                       fontWeight: FontWeight.bold,
                                       letterSpacing: 1.1,
                                       color: AppColors.importantTextColor,
                                     ),
                                   ),
-                                  SizedBox(height: 32),
-                                  CheckBoxText(text: '目が重たい感じがする'),
-                                  SizedBox(height: 24),
-                                  CheckBoxText(text: '目がつかれやすい'),
-                                  SizedBox(height: 24),
-                                  CheckBoxText(text: '目が乾いている気がする'),
+                                  SizedBox(height: 32.h),
+                                  const CheckBoxText(text: '目が重たい感じがする'),
+                                  SizedBox(height: 24.h),
+                                  const CheckBoxText(text: '目がつかれやすい'),
+                                  SizedBox(height: 24.h),
+                                  const CheckBoxText(text: '目が乾いている気がする'),
                                 ],
                               ),
                             ),
@@ -80,21 +82,23 @@ class _TutorialPageState extends State<TutorialPage> {
                               index: 1,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
+                                children: [
                                   Text(
                                     '[サービスの名前]とは？',
                                     style: TextStyle(
-                                      fontSize: 20,
+                                      fontSize: 20.sp,
                                       fontWeight: FontWeight.bold,
                                       letterSpacing: 1.1,
                                       color: AppColors.importantTextColor,
                                     ),
                                   ),
-                                  SizedBox(height: 8),
+                                  SizedBox(height: 8.h),
                                   Text(
-                                    '目の運動を促すバナーをつねに表示し、ドライアイを予防できるアプリです。',
+                                    '目の運動を促すバナーをつねに\n'
+                                    '表示し、ドライアイを予防できる\n'
+                                    'アプリです。',
                                     style: TextStyle(
-                                      fontSize: 16,
+                                      fontSize: 16.sp,
                                       letterSpacing: 1.1,
                                     ),
                                   )
@@ -108,21 +112,23 @@ class _TutorialPageState extends State<TutorialPage> {
                               index: 2,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
+                                children: [
                                   Text(
                                     '他のアプリも使用可能！',
                                     style: TextStyle(
-                                      fontSize: 20,
+                                      fontSize: 20.sp,
                                       fontWeight: FontWeight.bold,
                                       letterSpacing: 1.1,
                                       color: AppColors.importantTextColor,
                                     ),
                                   ),
-                                  SizedBox(height: 8),
+                                  SizedBox(height: 8.h),
                                   Text(
-                                    '[サービスの名前]以外のアプリケーションを使っていてもOK！さっそく使ってみよう！',
+                                    '[サービスの名前]以外のアプリ\n'
+                                    'ケーションを使っていてもOK！\n'
+                                    'さっそく使ってみよう！',
                                     style: TextStyle(
-                                      fontSize: 16,
+                                      fontSize: 16.sp,
                                       letterSpacing: 1.1,
                                     ),
                                   )
@@ -135,7 +141,7 @@ class _TutorialPageState extends State<TutorialPage> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 36),
+                SizedBox(height: 36.h),
                 RestEyeMainButton(
                   onPressed: () => _controller.nextPage(),
                   text: 'つぎへ',
@@ -165,14 +171,14 @@ class _ViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 0),
+      padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 0),
       child: Container(
         decoration: BoxDecoration(
           color: AppColors.cardBgColor,
           borderRadius: BorderRadius.circular(10),
         ),
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 40, 20, 24),
+          padding: EdgeInsets.fromLTRB(30.w, 40.h, 30.w, 24.h),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -185,10 +191,10 @@ class _ViewBody extends StatelessWidget {
                     GestureDetector(
                       onTap: () => controller.animateToPage(i),
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(8),
                         child: Container(
-                          width: 12,
-                          height: 12,
+                          width: 12.w,
+                          height: 12.h,
                           decoration: BoxDecoration(
                             color: current == i
                                 ? AppColors.carouselSelectedDotColor

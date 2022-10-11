@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_resteye/constants.dart';
 
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 class RestEyeMainButton extends StatelessWidget {
   const RestEyeMainButton({
     Key? key,
@@ -17,7 +19,7 @@ class RestEyeMainButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        fixedSize: const Size(300, 50),
+        fixedSize: Size(300.w, 50.h),
         primary: AppColors.mainButtonBgColor,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(32)),
@@ -25,8 +27,8 @@ class RestEyeMainButton extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: const TextStyle(
-          fontSize: 18,
+        style: TextStyle(
+          fontSize: 18.sp,
           fontWeight: FontWeight.bold,
           letterSpacing: 1.15,
           color: AppColors.mainButtonTextColor,
