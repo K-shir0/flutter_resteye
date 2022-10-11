@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_resteye/pages/home_page.dart';
+
+import 'package:flutter_resteye/pages/landing_page.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -14,7 +15,7 @@ class App extends StatelessWidget {
         return MaterialApp(
           title: 'Flutter Demo',
           theme: ThemeData(fontFamily: 'NotoSansJP'),
-          home: const HomePage(),
+          home: const LandingPage(),
         );
       },
     );
