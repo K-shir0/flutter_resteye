@@ -1,0 +1,24 @@
+import 'package:flutter/material.dart';
+
+class AppColors {
+  static const Color bgColor = Color(0xFFD1E9FF);
+
+  static const Color importantTextColor = Color(0xFF5595D1);
+  static const Color titleTextColor = Color(0xFF417FB8);
+  static const Color textColor = Color(0xFF13202D);
+
+  static const Color mainButtonBgColor = Color(0xFF417FB8);
+  static const Color mainButtonTextColor = Color(0xFFF5FAFF);
+
+  static const Color subButtonBgColor = Color(0xFFF5FAFF);
+  static const Color subButtonTextColor = Color(0xFF417FB8);
+
+  static const Color addButtonBgColor = Color(0xFFFFBD3E);
+  static const Color addButtonTextColor = Color(0xFFF5FAFF);
+
+  /// カルーセルの選択済みの色
+  static const Color carouselSelectedDotColor = Color(0xFF5595D1);
+
+  /// カルーセルの未選択の色
+  static const Color carouselUnselectedDotColor = Color(0xFFBBDEFF);
+}
