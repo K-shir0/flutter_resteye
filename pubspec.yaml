@@ -34,6 +34,19 @@ dependencies:
   flutter_screenutil: ^5.5.4
   flutter_svg: ^1.1.5
   carousel_slider: ^4.1.1
+  flutter_native_splash: ^2.2.11
+
+flutter_native_splash:
+  color: '#B8D3EC'
+  image: 'assets/images/splash.png'
+  color_dark: '#B8D3EC'
+  image_dark: 'assets/images/splash.png'
+  fullscreen: false
+  android_12:
+    icon_background_color: '#B8D3EC'
+    image: 'assets/images/splash.png'
+    icon_background_color_dark: '#B8D3EC'
+    image_dark: 'assets/images/splash.png'
 
 dev_dependencies:
   flutter_test:
@@ -53,6 +66,7 @@ dev_dependencies:
 flutter:
   assets:
     - assets/svg_images/
+    - assets/images/
 
   uses-material-design: true
 
