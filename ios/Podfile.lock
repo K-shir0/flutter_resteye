@@ -1,10 +1,19 @@
 PODS:
+  - Flutter (1.0.0)
+  - flutter_native_splash (0.0.1):
+    - Flutter
   - UIPiPView (0.1.0)
 
 DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - flutter_native_splash (from `.symlinks/plugins/flutter_native_splash/ios`)
   - UIPiPView (from `https://github.com/uakihir0/UIPiPView/`, branch `main`)
 
 EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  flutter_native_splash:
+    :path: ".symlinks/plugins/flutter_native_splash/ios"
   UIPiPView:
     :branch: main
     :git: https://github.com/uakihir0/UIPiPView/
@@ -15,8 +24,10 @@ CHECKOUT OPTIONS:
     :git: https://github.com/uakihir0/UIPiPView/
 
 SPEC CHECKSUMS:
+  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  flutter_native_splash: 52501b97d1c0a5f898d687f1646226c1f93c56ef
   UIPiPView: 5d60e5976a586cec12c411241aff3fcbd3ceb2ac
 
-PODFILE CHECKSUM: f302b09e845597a2b95489d3513f7d1ce40af8fd
+PODFILE CHECKSUM: 8df298aadf145693bd81d5b75bc01c90a68533b9
 
 COCOAPODS: 1.11.3
