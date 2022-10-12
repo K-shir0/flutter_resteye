@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_resteye/pages/index_page.dart';
 import 'package:flutter_resteye/pages/tutorial_page/components/check_box_text.dart';
 import 'package:flutter_resteye/components/main_button.dart';
 import 'package:flutter_resteye/constants.dart';
@@ -143,7 +144,19 @@ class _TutorialPageState extends State<TutorialPage> {
                 ),
                 SizedBox(height: 36.h),
                 RestEyeMainButton(
-                  onPressed: () => _controller.nextPage(),
+                  onPressed: () {
+                    if (_current == 2) {
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const IndexPage(),
+                        ),
+                        (route) => false,
+                      );
+                    } else {
+                      _controller.nextPage();
+                    }
+                  },
                   text: 'つぎへ',
                 ),
               ],
