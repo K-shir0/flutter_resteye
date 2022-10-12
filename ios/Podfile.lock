@@ -1,14 +1,10 @@
 PODS:
-  - Flutter (1.0.0)
   - UIPiPView (0.1.0)
 
 DEPENDENCIES:
-  - Flutter (from `Flutter`)
   - UIPiPView (from `https://github.com/uakihir0/UIPiPView/`, branch `main`)
 
 EXTERNAL SOURCES:
-  Flutter:
-    :path: Flutter
   UIPiPView:
     :branch: main
     :git: https://github.com/uakihir0/UIPiPView/
@@ -19,9 +15,8 @@ CHECKOUT OPTIONS:
     :git: https://github.com/uakihir0/UIPiPView/
 
 SPEC CHECKSUMS:
-  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
   UIPiPView: 5d60e5976a586cec12c411241aff3fcbd3ceb2ac
 
-PODFILE CHECKSUM: f4596cf61647b3a356f23cdff190dc9f211e4af1
+PODFILE CHECKSUM: f302b09e845597a2b95489d3513f7d1ce40af8fd
 
 COCOAPODS: 1.11.3
