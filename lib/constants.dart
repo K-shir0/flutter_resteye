@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 class AppColors {
   static const Color bgColor = Color(0xFFD1E9FF);
 
+  static const Color appBarBGColor = Color(0xFFF5FAFF);
   static const Color cardBgColor = Color(0xFFF5FAFF);
+  static const Color adBgColor = Color(0xFFd9d9d9);
 
   static const Color importantTextColor = Color(0xFF5595D1);
   static const Color titleTextColor = Color(0xFF417FB8);

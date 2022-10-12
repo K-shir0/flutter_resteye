@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../constants.dart';
+import 'package:flutter_resteye/constants.dart';
+
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RestEyeCard extends StatelessWidget {
   const RestEyeCard({
@@ -13,14 +15,18 @@ class RestEyeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 88,
-      height: 72,
+      width: 88.w,
+      height: 72.h,
       child: Card(
-        color: Colors.white, // Card自体の色
+        color: AppColors.cardBgColor,
         child: Center(
           child: Text(
             text,
-            style: const TextStyle(letterSpacing: 1.10,fontWeight: FontWeight.w500,color: AppColors.textColor),
+            style: const TextStyle(
+              letterSpacing: 1.10,
+              fontWeight: FontWeight.w500,
+              color: AppColors.textColor,
+            ),
           ),
         ),
       ),
