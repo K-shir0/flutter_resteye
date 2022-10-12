@@ -19,7 +19,7 @@ class RestEyeMainButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        fixedSize: Size(300.w, 50.h),
+        fixedSize: Size(300.w, 56.h),
         primary: AppColors.mainButtonBgColor,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(32)),
@@ -31,6 +31,7 @@ class RestEyeMainButton extends StatelessWidget {
           fontSize: 18.sp,
           fontWeight: FontWeight.bold,
           letterSpacing: 1.15,
+          height: 1.2,
           color: AppColors.mainButtonTextColor,
         ),
       ),
