@@ -16,7 +16,6 @@ class IndexPage extends StatelessWidget {
     final controller = PinPController();
 
     return Scaffold(
-      backgroundColor: AppColors.appBarBGColor,
       body: SafeArea(
         child: Container(
           color: AppColors.bgColor,
@@ -31,11 +30,12 @@ class IndexPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     IconButton(
-                      onPressed: () => {},
-                      icon: SvgPicture.asset(
-                        'assets/svg_images/question.svg',
-                      ),
-                    ),
+                        onPressed: () => {},
+                        icon: SvgPicture.asset(
+                          'assets/svg_images/question.svg',
+                        ),
+                        splashColor: Colors.transparent,
+                        highlightColor: Colors.transparent),
                     SizedBox(width: 24.w)
                   ],
                 ),
