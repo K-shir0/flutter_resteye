@@ -16,6 +16,7 @@ class IndexPage extends StatelessWidget {
     final controller = PinPController();
 
     return Scaffold(
+      backgroundColor: AppColors.appBarBGColor,
       body: SafeArea(
         child: Container(
           color: AppColors.bgColor,
