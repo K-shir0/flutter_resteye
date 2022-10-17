@@ -37,6 +37,7 @@ class _TutorialPageState extends State<TutorialPage> {
                         child: CarouselSlider(
                           carouselController: _controller,
                           options: CarouselOptions(
+                            enableInfiniteScroll: false,
                             autoPlay: false,
                             enlargeCenterPage: true,
                             viewportFraction: 1.0,
