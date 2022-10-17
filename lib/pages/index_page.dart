@@ -42,11 +42,10 @@ class IndexPage extends StatelessWidget {
                         ),
                         child: const Icon(Icons.settings),
                       ),
-                      IconButton(
-                        onPressed: () => {},
-                        icon: SvgPicture.asset(
-                          'assets/svg_images/question.svg',
-                        ),
+                      GestureDetector(
+                        onTap: () => {},
+                        child:
+                            SvgPicture.asset('assets/svg_images/question.svg'),
                       ),
                     ],
                   ),
