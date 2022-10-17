@@ -30,13 +30,10 @@ class IndexPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    IconButton(
-                        onPressed: () => {},
-                        icon: SvgPicture.asset(
-                          'assets/svg_images/question.svg',
-                        ),
-                        splashColor: Colors.transparent,
-                        highlightColor: Colors.transparent),
+                    GestureDetector(
+                      onTap: () => {},
+                      child: SvgPicture.asset('assets/svg_images/question.svg'),
+                    ),
                     SizedBox(width: 24.w)
                   ],
                 ),
