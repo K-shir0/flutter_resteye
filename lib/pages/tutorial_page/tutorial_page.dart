@@ -64,7 +64,7 @@ class _TutorialPageState extends State<TutorialPage> {
                                     'ドライアイの兆候かも…',
                                     style: TextStyle(
                                       fontSize: 20.sp,
-                                      fontWeight: FontWeight.bold,
+                                      fontWeight: FontWeight.w900,
                                       letterSpacing: 1.1,
                                       color: AppColors.importantTextColor,
                                     ),
@@ -90,7 +90,7 @@ class _TutorialPageState extends State<TutorialPage> {
                                     '[サービスの名前]とは？',
                                     style: TextStyle(
                                       fontSize: 20.sp,
-                                      fontWeight: FontWeight.bold,
+                                      fontWeight: FontWeight.w900,
                                       letterSpacing: 1.1,
                                       color: AppColors.importantTextColor,
                                     ),
@@ -120,7 +120,7 @@ class _TutorialPageState extends State<TutorialPage> {
                                     '他のアプリも使用可能！',
                                     style: TextStyle(
                                       fontSize: 20.sp,
-                                      fontWeight: FontWeight.bold,
+                                      fontWeight: FontWeight.w900,
                                       letterSpacing: 1.1,
                                       color: AppColors.importantTextColor,
                                     ),
