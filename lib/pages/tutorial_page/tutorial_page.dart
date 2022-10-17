@@ -8,7 +8,6 @@ import 'package:flutter_resteye/constants.dart';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class TutorialPage extends StatefulWidget {
   const TutorialPage({Key? key}) : super(key: key);
