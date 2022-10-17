@@ -4,6 +4,7 @@ import 'package:flutter_resteye/core/pinp_controller.dart';
 import 'package:flutter_resteye/core/pinp_view.dart';
 import 'package:flutter_resteye/components/_components.dart';
 import 'package:flutter_resteye/constants.dart';
+import 'package:flutter_resteye/pages/setting_page.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -27,15 +28,26 @@ class IndexPage extends StatelessWidget {
                 width: double.infinity,
                 height: 56.h,
                 color: AppColors.appBarBGColor,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    GestureDetector(
-                      onTap: () => {},
-                      child: SvgPicture.asset('assets/svg_images/question.svg'),
-                    ),
-                    SizedBox(width: 24.w)
-                  ],
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      GestureDetector(
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SettingPage(),
+                          ),
+                        ),
+                        child: const Icon(Icons.settings),
+                      ),
+                      GestureDetector(
+                        onTap: () => {},
+                        child: SvgPicture.asset('assets/svg_images/question.svg'),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               Padding(
