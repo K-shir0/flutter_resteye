@@ -22,7 +22,6 @@ class IndexPage extends StatelessWidget {
         child: Container(
           color: AppColors.bgColor,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
                 width: double.infinity,
@@ -51,78 +50,81 @@ class IndexPage extends StatelessWidget {
                   ),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 40.w),
-                child: Column(
-                  children: [
-                    Column(
-                      children: [
-                        SizedBox(height: 32.h),
-                        Container(
-                          color: AppColors.appBarBGColor,
-                          child: ConstrainedBox(
-                            constraints: BoxConstraints(
-                                maxHeight: 152.h, maxWidth: 304.w),
-                            child: const PinPView(),
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 40.w),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        children: [
+                          SizedBox(height: 32.h),
+                          Container(
+                            color: AppColors.appBarBGColor,
+                            child: ConstrainedBox(
+                              constraints: BoxConstraints(
+                                  maxHeight: 152.h, maxWidth: 304.w),
+                              child: const PinPView(),
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 40.h),
-                        RestEyeMainButton(
-                          onPressed: () => controller.toggle(),
-                          text: '〇〇をはじめる',
-                        ),
-                        SizedBox(height: 24.h),
-                        RestEyeSubButton(
-                          onPressed: () => controller.toggle(),
-                          text: "〇〇を終わる",
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        TextButton(
-                          onPressed: () => {},
-                          child: Text("動画を変更する",
+                          SizedBox(height: 40.h),
+                          RestEyeMainButton(
+                            onPressed: () => controller.toggle(),
+                            text: '〇〇をはじめる',
+                          ),
+                          SizedBox(height: 24.h),
+                          RestEyeSubButton(
+                            onPressed: () => controller.toggle(),
+                            text: "〇〇を終わる",
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          TextButton(
+                            onPressed: () => {},
+                            child: Text("動画を変更する",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  color: AppColors.titleTextColor,
+                                  letterSpacing: 1.15,
+                                  fontSize: 16.sp,
+                                )),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: const [
+                              RestEyeCard(text: '動画'),
+                              RestEyeCard(text: '動画'),
+                              RestEyeCard(text: '動画'),
+                            ],
+                          ),
+                          SizedBox(height: 16.h),
+                          ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              fixedSize: Size(120.w, 32.h),
+                              primary: AppColors.addButtonBgColor,
+                              shape: const RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(32)),
+                              ),
+                            ),
+                            child: Text(
+                              "追加する",
                               style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                color: AppColors.titleTextColor,
-                                letterSpacing: 1.15,
                                 fontSize: 16.sp,
-                              )),
-                        ),
-                        SizedBox(height: 16.h),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            RestEyeCard(text: '動画'),
-                            RestEyeCard(text: '動画'),
-                            RestEyeCard(text: '動画'),
-                          ],
-                        ),
-                        SizedBox(height: 16.h),
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            fixedSize: Size(120.w, 32.h),
-                            primary: AppColors.addButtonBgColor,
-                            shape: const RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(32)),
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 1.15,
+                                color: AppColors.addButtonTextColor,
+                              ),
                             ),
                           ),
-                          child: Text(
-                            "追加する",
-                            style: TextStyle(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 1.15,
-                              color: AppColors.addButtonTextColor,
-                            ),
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
+                          SizedBox(height: 32.h),
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ),
               Container(
