@@ -44,7 +44,8 @@ class IndexPage extends StatelessWidget {
                       ),
                       GestureDetector(
                         onTap: () => {},
-                        child: SvgPicture.asset('assets/svg_images/question.svg'),
+                        child:
+                            SvgPicture.asset('assets/svg_images/question.svg'),
                       ),
                     ],
                   ),
