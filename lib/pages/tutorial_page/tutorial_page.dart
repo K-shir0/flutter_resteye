@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_resteye/core/initialize.dart';
 
 import 'package:flutter_resteye/pages/index_page.dart';
 import 'package:flutter_resteye/pages/tutorial_page/components/check_box_text.dart';
@@ -7,6 +8,7 @@ import 'package:flutter_resteye/constants.dart';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class TutorialPage extends StatefulWidget {
   const TutorialPage({Key? key}) : super(key: key);
@@ -144,8 +146,10 @@ class _TutorialPageState extends State<TutorialPage> {
                 ),
                 SizedBox(height: 36.h),
                 RestEyeMainButton(
-                  onPressed: () {
+                  onPressed: () async {
                     if (_current == 2) {
+                      saveInitializeStatus(true);
+
                       Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
