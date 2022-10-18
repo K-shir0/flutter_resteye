@@ -5,6 +5,7 @@ import 'package:flutter_resteye/constants.dart';
 import 'package:flutter_resteye/pages/tutorial_page/tutorial_page.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -22,7 +23,7 @@ class LandingPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  'スマホをやめられない方のためのドライアイ予防アプリ',
+                  AppLocalizations.of(context)!.title,
                   style: TextStyle(
                     fontSize: 20.sp,
                     fontWeight: FontWeight.bold,
@@ -37,7 +38,7 @@ class LandingPage extends StatelessWidget {
                       builder: (context) => const TutorialPage(),
                     ),
                   ),
-                  text: '〇〇をはじめる',
+                  text: AppLocalizations.of(context)!.startButton,
                 ),
               ],
             ),

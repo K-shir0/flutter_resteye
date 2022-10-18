@@ -8,6 +8,7 @@ import 'package:flutter_resteye/constants.dart';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TutorialPage extends StatefulWidget {
   const TutorialPage({Key? key}) : super(key: key);
@@ -60,8 +61,7 @@ class _TutorialPageState extends State<TutorialPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'これらに当てはまるなら、\n'
-                                    'ドライアイの兆候かも…',
+                                    AppLocalizations.of(context)!.subTitle,
                                     style: TextStyle(
                                       fontSize: 20.sp,
                                       fontWeight: FontWeight.w900,
@@ -70,11 +70,17 @@ class _TutorialPageState extends State<TutorialPage> {
                                     ),
                                   ),
                                   SizedBox(height: 32.h),
-                                  const CheckBoxText(text: '目が重たい感じがする'),
+                                  CheckBoxText(
+                                      text: AppLocalizations.of(context)!
+                                          .eyeHeavyText),
                                   SizedBox(height: 24.h),
-                                  const CheckBoxText(text: '目がつかれやすい'),
+                                  CheckBoxText(
+                                      text: AppLocalizations.of(context)!
+                                          .eyeTiredText),
                                   SizedBox(height: 24.h),
-                                  const CheckBoxText(text: '目が乾いている気がする'),
+                                  CheckBoxText(
+                                      text: AppLocalizations.of(context)!
+                                          .eyeDryText),
                                 ],
                               ),
                             ),
@@ -87,7 +93,7 @@ class _TutorialPageState extends State<TutorialPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    '[サービスの名前]とは？',
+                                    AppLocalizations.of(context)!.whatAppTitle,
                                     style: TextStyle(
                                       fontSize: 20.sp,
                                       fontWeight: FontWeight.w900,
@@ -97,9 +103,8 @@ class _TutorialPageState extends State<TutorialPage> {
                                   ),
                                   SizedBox(height: 8.h),
                                   Text(
-                                    '目の運動を促すバナーをつねに\n'
-                                    '表示し、ドライアイを予防できる\n'
-                                    'アプリです。',
+                                    AppLocalizations.of(context)!
+                                        .whatAppDescription,
                                     style: TextStyle(
                                       fontSize: 16.sp,
                                       letterSpacing: 1.1,
@@ -117,7 +122,7 @@ class _TutorialPageState extends State<TutorialPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    '他のアプリも使用可能！',
+                                    AppLocalizations.of(context)!.usageAppTitle,
                                     style: TextStyle(
                                       fontSize: 20.sp,
                                       fontWeight: FontWeight.w900,
@@ -127,9 +132,8 @@ class _TutorialPageState extends State<TutorialPage> {
                                   ),
                                   SizedBox(height: 8.h),
                                   Text(
-                                    '[サービスの名前]以外のアプリ\n'
-                                    'ケーションを使っていてもOK！\n'
-                                    'さっそく使ってみよう！',
+                                    AppLocalizations.of(context)!
+                                        .usageAppDescription,
                                     style: TextStyle(
                                       fontSize: 16.sp,
                                       letterSpacing: 1.1,
@@ -161,7 +165,7 @@ class _TutorialPageState extends State<TutorialPage> {
                       _controller.nextPage();
                     }
                   },
-                  text: 'つぎへ',
+                  text: AppLocalizations.of(context)!.nextButton,
                 ),
               ],
             ),

@@ -8,6 +8,7 @@ import 'package:flutter_resteye/pages/setting_page.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class IndexPage extends StatelessWidget {
   const IndexPage({Key? key}) : super(key: key);
@@ -71,12 +72,12 @@ class IndexPage extends StatelessWidget {
                           SizedBox(height: 40.h),
                           RestEyeMainButton(
                             onPressed: () => controller.toggle(),
-                            text: '〇〇をはじめる',
+                            text: AppLocalizations.of(context)!.startButton,
                           ),
                           SizedBox(height: 24.h),
                           RestEyeSubButton(
                             onPressed: () => controller.toggle(),
-                            text: "〇〇を終わる",
+                            text: AppLocalizations.of(context)!.endButton,
                           ),
                         ],
                       ),
@@ -84,7 +85,8 @@ class IndexPage extends StatelessWidget {
                         children: [
                           TextButton(
                             onPressed: () => {},
-                            child: Text("動画を変更する",
+                            child: Text(
+                                AppLocalizations.of(context)!.changeVideoButton,
                                 style: TextStyle(
                                   fontWeight: FontWeight.w600,
                                   color: AppColors.titleTextColor,
@@ -94,10 +96,13 @@ class IndexPage extends StatelessWidget {
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: const [
-                              RestEyeCard(text: '動画'),
-                              RestEyeCard(text: '動画'),
-                              RestEyeCard(text: '動画'),
+                            children: [
+                              RestEyeCard(
+                                  text: AppLocalizations.of(context)!.video),
+                              RestEyeCard(
+                                  text: AppLocalizations.of(context)!.video),
+                              RestEyeCard(
+                                  text: AppLocalizations.of(context)!.video),
                             ],
                           ),
                           SizedBox(height: 16.h),
@@ -112,7 +117,7 @@ class IndexPage extends StatelessWidget {
                               ),
                             ),
                             child: Text(
-                              "追加する",
+                              AppLocalizations.of(context)!.addButton,
                               style: TextStyle(
                                 fontSize: 16.sp,
                                 fontWeight: FontWeight.bold,
@@ -132,7 +137,7 @@ class IndexPage extends StatelessWidget {
                 width: double.infinity,
                 height: 74.0.h,
                 color: AppColors.adBgColor,
-                child: Text("広告バナーが入ります",
+                child: Text(AppLocalizations.of(context)!.ad,
                     style: TextStyle(
                       fontSize: 16.sp,
                       fontWeight: FontWeight.bold,
