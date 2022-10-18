@@ -37,6 +37,10 @@ dependencies:
   flutter_native_splash: ^2.2.11
   shared_preferences: ^2.0.15
 
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.17.0
+
 flutter_native_splash:
   color: '#B8D3EC'
   image: 'assets/images/splash.png'
@@ -70,6 +74,8 @@ flutter:
     - assets/images/
 
   uses-material-design: true
+
+  generate: true
 
   fonts:
     - family: NotoSansJP
