@@ -20,7 +20,7 @@ class RestEyeSubButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         fixedSize: Size(264.w, 56.h),
-        primary: AppColors.subButtonBgColor,
+        backgroundColor: AppColors.subButtonBgColor,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(32)),
         ),
