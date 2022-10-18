@@ -104,7 +104,7 @@ class IndexPage extends StatelessWidget {
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
                               fixedSize: Size(120.w, 32.h),
-                              primary: AppColors.addButtonBgColor,
+                              backgroundColor: AppColors.addButtonBgColor,
                               shape: const RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(32)),
