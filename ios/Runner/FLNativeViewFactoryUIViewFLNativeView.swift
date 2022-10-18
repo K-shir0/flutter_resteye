@@ -34,7 +34,7 @@ class FLNativeViewFactory: NSObject, FlutterPlatformViewFactory {
 class FLNativeView: NSObject, FlutterPlatformView {
     private var _view: UIView
     
-    private let timeLabel = UILabel()
+    private let imageView = UIImageView()
     
     private var timer: Timer!
     
@@ -58,35 +58,34 @@ class FLNativeView: NSObject, FlutterPlatformView {
         let width = CGFloat(240)
         
         let margin = ((_view.bounds.width - width) / 2)
-        pipView.frame = .init(x: margin, y: 0, width: width, height: 40)
-        pipView.backgroundColor = .red
+        pipView.frame = .init(x: margin, y: 0, width: width, height: 120)
+        pipView.backgroundColor = .white
         pipView.center = _view.center
         _view.addSubview(pipView)
         
         /// Time Label on PiPView
-        timeLabel.frame = .init(x: 10, y: 0, width: width - 20, height: 40)
-        timeLabel.textColor = .white
-        pipView.addSubview(timeLabel)
+        let openImage = UIImage(named: "open")!
+        let closeImage = UIImage(named: "close")!
+        imageView.image = openImage
+        imageView.frame = .init(x: 10, y: 0, width: width - 20, height: 120)
         
-        if #available(iOS 13.0, *) {
-            timeLabel.font = .monospacedSystemFont(ofSize: 30, weight: .medium)
-            timeLabel.adjustsFontSizeToFitWidth = true
-        }
+        
+        pipView.addSubview(imageView)
         
         let calendar = Calendar.current
         
         /// Time Label  shows now.
-        timer = Timer(timeInterval: (0.1 / 60.0), repeats: true) { [weak self] _ in
+        timer = Timer(timeInterval: (0.1 / 20.0), repeats: true) { [weak self] _ in
             guard let self = self else { return }
             //                        self.timeLabel.text = self.formatter.string(from: Date())
             
             let second = calendar.component(.second, from: Date())
             
-            /// 6秒に一回
+            /// 3秒に一回
             if (second % 3 == 0) {
-                self.timeLabel.text = "テスト"
+                self.imageView.image = closeImage
             } else {
-                self.timeLabel.text = ""
+                self.imageView.image = openImage
             }
         }
         RunLoop.main.add(timer, forMode: .default)

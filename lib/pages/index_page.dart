@@ -22,6 +22,7 @@ class IndexPage extends StatelessWidget {
         child: Container(
           color: AppColors.bgColor,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
                 width: double.infinity,
@@ -60,7 +61,7 @@ class IndexPage extends StatelessWidget {
                         children: [
                           SizedBox(height: 32.h),
                           Container(
-                            color: AppColors.appBarBGColor,
+                            color: AppColors.pinpBgColor,
                             child: ConstrainedBox(
                               constraints: BoxConstraints(
                                   maxHeight: 152.h, maxWidth: 304.w),
