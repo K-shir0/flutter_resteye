@@ -5,6 +5,7 @@ import 'package:flutter_resteye/pages/index_page.dart';
 
 import 'package:flutter_resteye/pages/landing_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -16,6 +17,8 @@ class App extends StatelessWidget {
       builder: (BuildContext context, Widget? child) {
         return MaterialApp(
           title: 'Flutter Demo',
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
           theme: ThemeData(fontFamily: 'NotoSansJP'),
           home: const _Body(),
         );
