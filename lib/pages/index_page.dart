@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:flutter_resteye/core/pinp_controller.dart';
 import 'package:flutter_resteye/core/pinp_view.dart';
@@ -68,10 +69,16 @@ class IndexPage extends StatelessWidget {
                           SizedBox(height: 32.h),
                           Container(
                             color: AppColors.pinpBgColor,
-                            child: ConstrainedBox(
-                              constraints: BoxConstraints(
-                                  maxHeight: 152.h, maxWidth: 304.w),
-                              child: const PinPView(),
+                            child: GestureDetector(
+                              onLongPress: () {
+                                HapticFeedback.heavyImpact();
+                                controller.toggle();
+                              },
+                              child: ConstrainedBox(
+                                constraints: BoxConstraints(
+                                    maxHeight: 152.h, maxWidth: 304.w),
+                                child: const PinPView(),
+                              ),
                             ),
                           ),
                           SizedBox(height: 40.h),
