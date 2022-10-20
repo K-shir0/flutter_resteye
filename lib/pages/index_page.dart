@@ -5,6 +5,7 @@ import 'package:flutter_resteye/core/pinp_view.dart';
 import 'package:flutter_resteye/components/_components.dart';
 import 'package:flutter_resteye/constants.dart';
 import 'package:flutter_resteye/pages/setting_page.dart';
+import 'package:flutter_resteye/pages/tutorial_page/tutorial_page.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -44,7 +45,11 @@ class IndexPage extends StatelessWidget {
                         child: const Icon(Icons.settings),
                       ),
                       GestureDetector(
-                        onTap: () => {},
+                        onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const TutorialPage(),
+                            )),
                         child:
                             SvgPicture.asset('assets/svg_images/question.svg'),
                       ),
