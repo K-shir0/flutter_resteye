@@ -11,5 +11,9 @@ void main() {
 
   // 画面の向き上部固定
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
+  //ステータスバーの色固定
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark
+      .copyWith(statusBarBrightness: Brightness.light));
   runApp(const App());
 }
