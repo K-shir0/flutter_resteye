@@ -12,8 +12,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class IndexPage extends StatelessWidget {
+class IndexPage extends StatefulWidget {
   const IndexPage({Key? key}) : super(key: key);
+
+  @override
+  State<IndexPage> createState() => _IndexPageState();
+}
+
+class _IndexPageState extends State<IndexPage> {
+  var _showPinP = true;
 
   @override
   Widget build(BuildContext context) {
@@ -37,20 +44,11 @@ class IndexPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       GestureDetector(
-                        onTap: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const SettingPage(),
-                          ),
-                        ),
+                        onTap: () => _toPage(context, const SettingPage()),
                         child: const Icon(Icons.settings),
                       ),
                       GestureDetector(
-                        onTap: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const TutorialPage(),
-                            )),
+                        onTap: () => _toPage(context, const TutorialPage()),
                         child:
                             SvgPicture.asset('assets/svg_images/question.svg'),
                       ),
@@ -77,7 +75,9 @@ class IndexPage extends StatelessWidget {
                               child: ConstrainedBox(
                                 constraints: BoxConstraints(
                                     maxHeight: 152.h, maxWidth: 304.w),
-                                child: const PinPView(),
+                                child: _showPinP
+                                    ? const PinPView()
+                                    : SizedBox(height: 152.h),
                               ),
                             ),
                           ),
@@ -161,5 +161,22 @@ class IndexPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  /// 別ページに遷移する際に PinP が残るので非表示にする
+  ///
+  //  その後ポップしてきた場合に非表示になったままになるので
+  //  フラグを変えて表示する
+  Future<void> _toPage(BuildContext context, Widget page) async {
+    setState(() => _showPinP = false);
+
+    await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => page,
+      ),
+    );
+
+    setState(() => _showPinP = true);
   }
 }
