@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -20,12 +22,34 @@ class IndexPage extends StatefulWidget {
 }
 
 class _IndexPageState extends State<IndexPage> {
+  final _controller = PinPController();
+
+  /// PinP がアクティブかどうか
+  var _isPictureInPictureActive = false;
   var _showPinP = true;
 
   @override
-  Widget build(BuildContext context) {
-    final controller = PinPController();
+  void initState() {
+    super.initState();
 
+    // タイマーをセットし定期的に PinP の状態をチェックする
+    // 状態が変わっていれば setState する
+    Timer.periodic(
+      const Duration(microseconds: 500),
+      (Timer timer) async {
+        final result = await _controller.isPictureInPictureActive();
+
+        if (_isPictureInPictureActive != result) {
+          setState(() {
+            _isPictureInPictureActive = result;
+          });
+        }
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.appBarBGColor,
       body: SafeArea(
@@ -70,7 +94,7 @@ class _IndexPageState extends State<IndexPage> {
                             child: GestureDetector(
                               onLongPress: () {
                                 HapticFeedback.heavyImpact();
-                                controller.toggle();
+                                _controller.toggle();
                               },
                               child: ConstrainedBox(
                                 constraints: BoxConstraints(
@@ -82,65 +106,72 @@ class _IndexPageState extends State<IndexPage> {
                             ),
                           ),
                           SizedBox(height: 40.h),
-                          RestEyeMainButton(
-                            onPressed: () => controller.toggle(),
-                            text: AppLocalizations.of(context)!.startButton,
-                          ),
-                          SizedBox(height: 24.h),
-                          RestEyeSubButton(
-                            onPressed: () => controller.toggle(),
-                            text: AppLocalizations.of(context)!.endButton,
+                          !_isPictureInPictureActive
+                              ? RestEyeMainButton(
+                                  onPressed: () => _controller.toggle(),
+                                  text:
+                                      AppLocalizations.of(context)!.startButton,
+                                )
+                              : RestEyeSubButton(
+                                  onPressed: () => _controller.toggle(),
+                                  text: AppLocalizations.of(context)!.endButton,
+                                ),
+                          SizedBox(height: 64.h),
+                          Column(
+                            children: [
+                              TextButton(
+                                onPressed: () => {},
+                                child: Text(
+                                    AppLocalizations.of(context)!
+                                        .changeVideoButton,
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      color: AppColors.titleTextColor,
+                                      letterSpacing: 1.15,
+                                      fontSize: 16.sp,
+                                    )),
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  RestEyeCard(
+                                      text:
+                                          AppLocalizations.of(context)!.video),
+                                  RestEyeCard(
+                                      text:
+                                          AppLocalizations.of(context)!.video),
+                                  RestEyeCard(
+                                      text:
+                                          AppLocalizations.of(context)!.video),
+                                ],
+                              ),
+                              SizedBox(height: 16.h),
+                              ElevatedButton(
+                                onPressed: () {},
+                                style: ElevatedButton.styleFrom(
+                                  fixedSize: Size(120.w, 32.h),
+                                  backgroundColor: AppColors.addButtonBgColor,
+                                  shape: const RoundedRectangleBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(32)),
+                                  ),
+                                ),
+                                child: Text(
+                                  AppLocalizations.of(context)!.addButton,
+                                  style: TextStyle(
+                                    fontSize: 16.sp,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 1.15,
+                                    color: AppColors.addButtonTextColor,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: 32.h),
+                            ],
                           ),
                         ],
                       ),
-                      Column(
-                        children: [
-                          TextButton(
-                            onPressed: () => {},
-                            child: Text(
-                                AppLocalizations.of(context)!.changeVideoButton,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  color: AppColors.titleTextColor,
-                                  letterSpacing: 1.15,
-                                  fontSize: 16.sp,
-                                )),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              RestEyeCard(
-                                  text: AppLocalizations.of(context)!.video),
-                              RestEyeCard(
-                                  text: AppLocalizations.of(context)!.video),
-                              RestEyeCard(
-                                  text: AppLocalizations.of(context)!.video),
-                            ],
-                          ),
-                          SizedBox(height: 16.h),
-                          ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                              fixedSize: Size(120.w, 32.h),
-                              backgroundColor: AppColors.addButtonBgColor,
-                              shape: const RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(32)),
-                              ),
-                            ),
-                            child: Text(
-                              AppLocalizations.of(context)!.addButton,
-                              style: TextStyle(
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 1.15,
-                                color: AppColors.addButtonTextColor,
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: 32.h),
-                        ],
-                      )
                     ],
                   ),
                 ),
@@ -165,8 +196,8 @@ class _IndexPageState extends State<IndexPage> {
 
   /// 別ページに遷移する際に PinP が残るので非表示にする
   ///
-  //  その後ポップしてきた場合に非表示になったままになるので
-  //  フラグを変えて表示する
+  ///  その後ポップしてきた場合に非表示になったままになるので
+  ///  フラグを変えて表示する
   Future<void> _toPage(BuildContext context, Widget page) async {
     setState(() => _showPinP = false);
 

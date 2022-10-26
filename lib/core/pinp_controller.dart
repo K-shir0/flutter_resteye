@@ -10,4 +10,10 @@ class PinPController {
   Future<void> toggle() async {
     await _channel.invokeMethod('toggle');
   }
+
+  /// PinP がアクティブかどうかをチェックする
+  Future<bool> isPictureInPictureActive() async {
+    return await _channel.invokeMethod<bool>('isPictureInPictureActive') ??
+        false;
+  }
 }

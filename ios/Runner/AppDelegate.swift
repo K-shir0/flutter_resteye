@@ -33,6 +33,10 @@ import Flutter
                     pipView.stopPictureInPicture()
                 }
             }
+            
+            if call.method == "isPictureInPictureActive" {
+                result(pipView.isPictureInPictureActive())
+            }
         })
         
         return super.application(application, didFinishLaunchingWithOptions: launchOptions)
