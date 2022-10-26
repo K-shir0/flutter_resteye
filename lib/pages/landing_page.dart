@@ -8,14 +8,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:page_transition/page_transition.dart';
 
-class LandingPage extends StatefulWidget {
+class LandingPage extends StatelessWidget {
   const LandingPage({Key? key}) : super(key: key);
 
-  @override
-  State<LandingPage> createState() => _LandingPageState();
-}
-
-class _LandingPageState extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
