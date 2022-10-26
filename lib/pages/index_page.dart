@@ -35,7 +35,7 @@ class _IndexPageState extends State<IndexPage> {
     // タイマーをセットし定期的に PinP の状態をチェックする
     // 状態が変わっていれば setState する
     Timer.periodic(
-      const Duration(microseconds: 500),
+      const Duration(microseconds: 200),
       (Timer timer) async {
         final result = await _controller.isPictureInPictureActive();
 

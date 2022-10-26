@@ -74,6 +74,8 @@ class FLNativeView: NSObject, FlutterPlatformView {
         
         let calendar = Calendar.current
         
+        var pipClose = false
+        
         /// Time Label  shows now.
         timer = Timer(timeInterval: (0.1 / 20.0), repeats: true) { [weak self] _ in
             guard let self = self else { return }
@@ -83,9 +85,17 @@ class FLNativeView: NSObject, FlutterPlatformView {
             
             /// 3秒に一回
             if (second % 3 == 0) {
-                self.imageView.image = closeImage
+                if (!pipClose) {
+                    self.imageView.image = closeImage
+                    pipView.render()
+                    pipClose = true
+                }
             } else {
-                self.imageView.image = openImage
+                if (pipClose) {
+                    self.imageView.image = openImage
+                    pipView.render()
+                    pipClose = false
+                }
             }
         }
         RunLoop.main.add(timer, forMode: .default)

@@ -28,7 +28,7 @@ import Flutter
             
             if call.method == "toggle" {
                 if (!pipView.isPictureInPictureActive()) {
-                    pipView.startPictureInPicture(withRefreshInterval: (0.1 / 60.0))
+                    pipView.startPictureInPictureWithManualCallRender()
                 } else {
                     pipView.stopPictureInPicture()
                 }
