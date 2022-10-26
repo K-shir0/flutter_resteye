@@ -6,10 +6,16 @@ import 'package:flutter_resteye/pages/tutorial_page/tutorial_page.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:page_transition/page_transition.dart';
 
-class LandingPage extends StatelessWidget {
+class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
 
+  @override
+  State<LandingPage> createState() => _LandingPageState();
+}
+
+class _LandingPageState extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,8 +40,11 @@ class LandingPage extends StatelessWidget {
                 RestEyeMainButton(
                   onPressed: () => Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => const TutorialPage(),
+                    PageTransition(
+                      type: PageTransitionType.fade,
+                      child: const TutorialPage(),
+                      duration: const Duration(milliseconds: 400),
+                      isIos: true,
                     ),
                   ),
                   text: AppLocalizations.of(context)!.startButton,
