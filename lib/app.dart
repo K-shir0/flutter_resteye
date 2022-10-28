@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_resteye/core/initialize.dart';
@@ -12,6 +14,8 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final locale = Platform.localeName;
+
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       builder: (BuildContext context, Widget? child) {
@@ -19,7 +23,8 @@ class App extends StatelessWidget {
           title: 'Flutter Demo',
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
-          theme: ThemeData(fontFamily: 'NotoSansJP'),
+          theme: ThemeData(
+              fontFamily: locale == "ja_JP" ? 'NotoSansJP' : "Roboto"),
           home: const _Body(),
         );
       },
