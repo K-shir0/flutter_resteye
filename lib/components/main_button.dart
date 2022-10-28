@@ -9,10 +9,14 @@ class RestEyeMainButton extends StatelessWidget {
     Key? key,
     this.onPressed,
     required this.text,
+    this.buttonColor,
+    this.textColor,
   }) : super(key: key);
 
   final void Function()? onPressed;
   final String text;
+  final Color? buttonColor;
+  final Color? textColor;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +24,7 @@ class RestEyeMainButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         fixedSize: Size(300.w, 56.h),
-        backgroundColor: AppColors.mainButtonBgColor,
+        backgroundColor: buttonColor ?? AppColors.mainButtonBgColor,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(32)),
         ),
@@ -32,7 +36,7 @@ class RestEyeMainButton extends StatelessWidget {
           fontWeight: FontWeight.bold,
           letterSpacing: 1.15,
           height: 1.2,
-          color: AppColors.mainButtonTextColor,
+          color: textColor ?? AppColors.mainButtonTextColor,
         ),
       ),
     );
