@@ -15,6 +15,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final locale = Platform.localeName;
+
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       builder: (BuildContext context, Widget? child) {
