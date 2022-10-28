@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_resteye/core/initialize.dart';
 
+import 'package:flutter_resteye/core/initialize.dart';
 import 'package:flutter_resteye/pages/index_page.dart';
 import 'package:flutter_resteye/pages/tutorial_page/components/check_box_text.dart';
 import 'package:flutter_resteye/components/main_button.dart';
@@ -149,30 +149,42 @@ class _TutorialPageState extends State<TutorialPage> {
                   ),
                 ),
                 SizedBox(height: 36.h),
-                RestEyeMainButton(
-                  onPressed: () async {
-                    if (_current == 2) {
-                      saveInitializeStatus(true);
-
-                      Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const IndexPage(),
-                        ),
-                        (route) => false,
-                      );
-                    } else {
-                      _controller.nextPage();
-                    }
-                  },
-                  text: AppLocalizations.of(context)!.nextButton,
-                ),
+                // 最後の画面の時だけボタンの色を変えて目立たせる
+                _current != 2
+                    ? RestEyeMainButton(
+                        onPressed: _onNext,
+                        text: AppLocalizations.of(context)!.nextButton,
+                      )
+                    : RestEyeMainButton(
+                        onPressed: _onNext,
+                        text: AppLocalizations.of(context)!.startAppButton,
+                        buttonColor: AppColors.addButtonBgColor,
+                        textColor: AppColors.addButtonTextColor,
+                      ),
               ],
             ),
           ),
         ),
       ),
     );
+  }
+
+  /// 次のページに進む処理
+  /// ページの最後になったら [Navigator] で [IndexPage] に遷移する
+  void _onNext() {
+    if (_current == 2) {
+      saveInitializeStatus(true);
+
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const IndexPage(),
+        ),
+        (route) => false,
+      );
+    } else {
+      _controller.nextPage();
+    }
   }
 }
 
