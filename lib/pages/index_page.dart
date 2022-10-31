@@ -117,59 +117,59 @@ class _IndexPageState extends State<IndexPage> {
                                   text: AppLocalizations.of(context)!.endButton,
                                 ),
                           SizedBox(height: 64.h),
-                          Column(
-                            children: [
-                              TextButton(
-                                onPressed: () => {},
-                                child: Text(
-                                    AppLocalizations.of(context)!
-                                        .changeVideoButton,
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                      color: AppColors.titleTextColor,
-                                      letterSpacing: 1.15,
-                                      fontSize: 16.sp,
-                                    )),
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  RestEyeCard(
-                                      text:
-                                          AppLocalizations.of(context)!.video),
-                                  RestEyeCard(
-                                      text:
-                                          AppLocalizations.of(context)!.video),
-                                  RestEyeCard(
-                                      text:
-                                          AppLocalizations.of(context)!.video),
-                                ],
-                              ),
-                              SizedBox(height: 16.h),
-                              ElevatedButton(
-                                onPressed: () {},
-                                style: ElevatedButton.styleFrom(
-                                  fixedSize: Size(120.w, 32.h),
-                                  backgroundColor: AppColors.addButtonBgColor,
-                                  shape: const RoundedRectangleBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(32)),
-                                  ),
-                                ),
-                                child: Text(
-                                  AppLocalizations.of(context)!.addButton,
-                                  style: TextStyle(
-                                    fontSize: 16.sp,
-                                    fontWeight: FontWeight.bold,
-                                    letterSpacing: 1.15,
-                                    color: AppColors.addButtonTextColor,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(height: 32.h),
-                            ],
-                          ),
+                          // Column(
+                          //   children: [
+                          //     TextButton(
+                          //       onPressed: () => {},
+                          //       child: Text(
+                          //           AppLocalizations.of(context)!
+                          //               .changeVideoButton,
+                          //           style: TextStyle(
+                          //             fontWeight: FontWeight.w600,
+                          //             color: AppColors.titleTextColor,
+                          //             letterSpacing: 1.15,
+                          //             fontSize: 16.sp,
+                          //           )),
+                          //     ),
+                          //     Row(
+                          //       mainAxisAlignment:
+                          //           MainAxisAlignment.spaceBetween,
+                          //       children: [
+                          //         RestEyeCard(
+                          //             text:
+                          //                 AppLocalizations.of(context)!.video),
+                          //         RestEyeCard(
+                          //             text:
+                          //                 AppLocalizations.of(context)!.video),
+                          //         RestEyeCard(
+                          //             text:
+                          //                 AppLocalizations.of(context)!.video),
+                          //       ],
+                          //     ),
+                          //     SizedBox(height: 16.h),
+                          //     ElevatedButton(
+                          //       onPressed: () {},
+                          //       style: ElevatedButton.styleFrom(
+                          //         fixedSize: Size(120.w, 32.h),
+                          //         backgroundColor: AppColors.addButtonBgColor,
+                          //         shape: const RoundedRectangleBorder(
+                          //           borderRadius:
+                          //               BorderRadius.all(Radius.circular(32)),
+                          //         ),
+                          //       ),
+                          //       child: Text(
+                          //         AppLocalizations.of(context)!.addButton,
+                          //         style: TextStyle(
+                          //           fontSize: 16.sp,
+                          //           fontWeight: FontWeight.bold,
+                          //           letterSpacing: 1.15,
+                          //           color: AppColors.addButtonTextColor,
+                          //         ),
+                          //       ),
+                          //     ),
+                          //     SizedBox(height: 32.h),
+                          //   ],
+                          // ),
                         ],
                       ),
                     ],
