@@ -7,7 +7,7 @@ import 'package:flutter_resteye/core/pinp_controller.dart';
 import 'package:flutter_resteye/core/pinp_view.dart';
 import 'package:flutter_resteye/components/_components.dart';
 import 'package:flutter_resteye/constants.dart';
-import 'package:flutter_resteye/pages/setting_page.dart';
+// import 'package:flutter_resteye/pages/setting_page.dart';
 import 'package:flutter_resteye/pages/tutorial_page/tutorial_page.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -65,12 +65,12 @@ class _IndexPageState extends State<IndexPage> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      GestureDetector(
-                        onTap: () => _toPage(context, const SettingPage()),
-                        child: const Icon(Icons.settings),
-                      ),
+                      // GestureDetector(
+                      //   onTap: () => _toPage(context, const SettingPage()),
+                      //   child: const Icon(Icons.settings),
+                      // ),
                       GestureDetector(
                         onTap: () => _toPage(context, const TutorialPage()),
                         child:
