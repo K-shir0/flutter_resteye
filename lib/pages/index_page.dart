@@ -176,17 +176,17 @@ class _IndexPageState extends State<IndexPage> {
                   ),
                 ),
               ),
-              Container(
-                width: double.infinity,
-                height: 74.0.h,
-                color: AppColors.adBgColor,
-                child: Text(AppLocalizations.of(context)!.ad,
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.center),
-              )
+              // Container(
+              //   width: double.infinity,
+              //   height: 74.0.h,
+              //   color: AppColors.adBgColor,
+              //   child: Text(AppLocalizations.of(context)!.ad,
+              //       style: TextStyle(
+              //         fontSize: 16.sp,
+              //         fontWeight: FontWeight.bold,
+              //       ),
+              //       textAlign: TextAlign.center),
+              // )
             ],
           ),
         ),
