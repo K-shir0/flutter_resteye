@@ -7,7 +7,7 @@ import 'package:flutter_resteye/core/pinp_controller.dart';
 import 'package:flutter_resteye/core/pinp_view.dart';
 import 'package:flutter_resteye/components/_components.dart';
 import 'package:flutter_resteye/constants.dart';
-import 'package:flutter_resteye/pages/setting_page.dart';
+// import 'package:flutter_resteye/pages/setting_page.dart';
 import 'package:flutter_resteye/pages/tutorial_page/tutorial_page.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -65,12 +65,12 @@ class _IndexPageState extends State<IndexPage> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      GestureDetector(
-                        onTap: () => _toPage(context, const SettingPage()),
-                        child: const Icon(Icons.settings),
-                      ),
+                      // GestureDetector(
+                      //   onTap: () => _toPage(context, const SettingPage()),
+                      //   child: const Icon(Icons.settings),
+                      // ),
                       GestureDetector(
                         onTap: () => _toPage(context, const TutorialPage()),
                         child:
@@ -117,76 +117,76 @@ class _IndexPageState extends State<IndexPage> {
                                   text: AppLocalizations.of(context)!.endButton,
                                 ),
                           SizedBox(height: 64.h),
-                          Column(
-                            children: [
-                              TextButton(
-                                onPressed: () => {},
-                                child: Text(
-                                    AppLocalizations.of(context)!
-                                        .changeVideoButton,
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                      color: AppColors.titleTextColor,
-                                      letterSpacing: 1.15,
-                                      fontSize: 16.sp,
-                                    )),
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  RestEyeCard(
-                                      text:
-                                          AppLocalizations.of(context)!.video),
-                                  RestEyeCard(
-                                      text:
-                                          AppLocalizations.of(context)!.video),
-                                  RestEyeCard(
-                                      text:
-                                          AppLocalizations.of(context)!.video),
-                                ],
-                              ),
-                              SizedBox(height: 16.h),
-                              ElevatedButton(
-                                onPressed: () {},
-                                style: ElevatedButton.styleFrom(
-                                  fixedSize: Size(120.w, 32.h),
-                                  backgroundColor: AppColors.addButtonBgColor,
-                                  shape: const RoundedRectangleBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(32)),
-                                  ),
-                                ),
-                                child: Text(
-                                  AppLocalizations.of(context)!.addButton,
-                                  style: TextStyle(
-                                    fontSize: 16.sp,
-                                    fontWeight: FontWeight.bold,
-                                    letterSpacing: 1.15,
-                                    color: AppColors.addButtonTextColor,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(height: 32.h),
-                            ],
-                          ),
+                          // Column(
+                          //   children: [
+                          //     TextButton(
+                          //       onPressed: () => {},
+                          //       child: Text(
+                          //           AppLocalizations.of(context)!
+                          //               .changeVideoButton,
+                          //           style: TextStyle(
+                          //             fontWeight: FontWeight.w600,
+                          //             color: AppColors.titleTextColor,
+                          //             letterSpacing: 1.15,
+                          //             fontSize: 16.sp,
+                          //           )),
+                          //     ),
+                          //     Row(
+                          //       mainAxisAlignment:
+                          //           MainAxisAlignment.spaceBetween,
+                          //       children: [
+                          //         RestEyeCard(
+                          //             text:
+                          //                 AppLocalizations.of(context)!.video),
+                          //         RestEyeCard(
+                          //             text:
+                          //                 AppLocalizations.of(context)!.video),
+                          //         RestEyeCard(
+                          //             text:
+                          //                 AppLocalizations.of(context)!.video),
+                          //       ],
+                          //     ),
+                          //     SizedBox(height: 16.h),
+                          //     ElevatedButton(
+                          //       onPressed: () {},
+                          //       style: ElevatedButton.styleFrom(
+                          //         fixedSize: Size(120.w, 32.h),
+                          //         backgroundColor: AppColors.addButtonBgColor,
+                          //         shape: const RoundedRectangleBorder(
+                          //           borderRadius:
+                          //               BorderRadius.all(Radius.circular(32)),
+                          //         ),
+                          //       ),
+                          //       child: Text(
+                          //         AppLocalizations.of(context)!.addButton,
+                          //         style: TextStyle(
+                          //           fontSize: 16.sp,
+                          //           fontWeight: FontWeight.bold,
+                          //           letterSpacing: 1.15,
+                          //           color: AppColors.addButtonTextColor,
+                          //         ),
+                          //       ),
+                          //     ),
+                          //     SizedBox(height: 32.h),
+                          //   ],
+                          // ),
                         ],
                       ),
                     ],
                   ),
                 ),
               ),
-              Container(
-                width: double.infinity,
-                height: 74.0.h,
-                color: AppColors.adBgColor,
-                child: Text(AppLocalizations.of(context)!.ad,
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.center),
-              )
+              // Container(
+              //   width: double.infinity,
+              //   height: 74.0.h,
+              //   color: AppColors.adBgColor,
+              //   child: Text(AppLocalizations.of(context)!.ad,
+              //       style: TextStyle(
+              //         fontSize: 16.sp,
+              //         fontWeight: FontWeight.bold,
+              //       ),
+              //       textAlign: TextAlign.center),
+              // )
             ],
           ),
         ),
