@@ -60,13 +60,15 @@ class _TutorialPageState extends State<TutorialPage> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    AppLocalizations.of(context)!.subTitle,
-                                    style: TextStyle(
-                                      fontSize: 20.sp,
-                                      fontWeight: FontWeight.w900,
-                                      letterSpacing: 1.1,
-                                      color: AppColors.importantTextColor,
+                                  Center(
+                                    child: Text(
+                                      AppLocalizations.of(context)!.subTitle,
+                                      style: TextStyle(
+                                        fontSize: 20.sp,
+                                        fontWeight: FontWeight.w900,
+                                        letterSpacing: 1.1,
+                                        color: AppColors.importantTextColor,
+                                      ),
                                     ),
                                   ),
                                   SizedBox(height: 32.h),
@@ -92,13 +94,15 @@ class _TutorialPageState extends State<TutorialPage> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    AppLocalizations.of(context)!.whatAppTitle,
-                                    style: TextStyle(
-                                      fontSize: 20.sp,
-                                      fontWeight: FontWeight.w900,
-                                      letterSpacing: 1.1,
-                                      color: AppColors.importantTextColor,
+                                  Center(
+                                    child: Text(
+                                      AppLocalizations.of(context)!.whatAppTitle,
+                                      style: TextStyle(
+                                        fontSize: 20.sp,
+                                        fontWeight: FontWeight.w900,
+                                        letterSpacing: 1.1,
+                                        color: AppColors.importantTextColor,
+                                      ),
                                     ),
                                   ),
                                   SizedBox(height: 8.h),
@@ -121,13 +125,15 @@ class _TutorialPageState extends State<TutorialPage> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    AppLocalizations.of(context)!.usageAppTitle,
-                                    style: TextStyle(
-                                      fontSize: 20.sp,
-                                      fontWeight: FontWeight.w900,
-                                      letterSpacing: 1.1,
-                                      color: AppColors.importantTextColor,
+                                  Center(
+                                    child: Text(
+                                      AppLocalizations.of(context)!.usageAppTitle,
+                                      style: TextStyle(
+                                        fontSize: 20.sp,
+                                        fontWeight: FontWeight.w900,
+                                        letterSpacing: 1.1,
+                                        color: AppColors.importantTextColor,
+                                      ),
                                     ),
                                   ),
                                   SizedBox(height: 8.h),
