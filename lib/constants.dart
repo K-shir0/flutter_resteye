@@ -10,6 +10,10 @@ class AppColors {
   /// 広告
   static const Color adBgColor = Color(0xFFd9d9d9);
 
+  /// 設定アイコン
+  static const Color settingBgColor = Color(0xFFFFFFFF);
+  static const Color settingShadowColor = Color(0xFF13202D);
+
   static const Color importantTextColor = Color(0xFF5595D1);
   static const Color titleTextColor = Color(0xFF417FB8);
   static const Color textColor = Color(0xFF13202D);
