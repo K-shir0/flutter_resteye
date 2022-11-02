@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_resteye/components/_components.dart';
@@ -7,9 +8,19 @@ import 'package:flutter_resteye/pages/tutorial_page/tutorial_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({Key? key}) : super(key: key);
+
+  Future<void> _launchInBrowser(Uri url) async {
+    if (!await launchUrl(
+      url,
+      mode: LaunchMode.externalApplication,
+    )) {
+      throw 'Could not launch $url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,17 +43,56 @@ class LandingPage extends StatelessWidget {
                     color: AppColors.textColor,
                   ),
                 ),
-                RestEyeMainButton(
-                  onPressed: () => Navigator.push(
-                    context,
-                    PageTransition(
-                      type: PageTransitionType.fade,
-                      child: const TutorialPage(),
-                      duration: const Duration(milliseconds: 400),
-                      isIos: true,
+                Column(
+                  children: [
+                    RichText(
+                      text: TextSpan(
+                        style: TextStyle(
+                          fontSize: 12.sp,
+                          color: AppColors.textColor,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1.3,
+                        ),
+                        children: [
+                          TextSpan(
+                            text: '利用規約',
+                            style: const TextStyle(
+                              decoration: TextDecoration.underline,
+                            ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () => _launchInBrowser(
+                                    Uri.parse('https://flutter.dev/'),
+                                  ),
+                          ),
+                          const TextSpan(text: '・'),
+                          TextSpan(
+                            text: 'プライバシーポリシー',
+                            style: const TextStyle(
+                              decoration: TextDecoration.underline,
+                            ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () => _launchInBrowser(
+                                    Uri.parse('https://flutter.dev/'),
+                                  ),
+                          ),
+                          const TextSpan(text: 'に同意のもと\n利用を開始してください'),
+                        ],
+                      ),
                     ),
-                  ),
-                  text: AppLocalizations.of(context)!.startButton,
+                    SizedBox(height: 16.h),
+                    RestEyeMainButton(
+                      onPressed: () => Navigator.push(
+                        context,
+                        PageTransition(
+                          type: PageTransitionType.fade,
+                          child: const TutorialPage(),
+                          duration: const Duration(milliseconds: 400),
+                          isIos: true,
+                        ),
+                      ),
+                      text: AppLocalizations.of(context)!.startButton,
+                    ),
+                  ],
                 ),
               ],
             ),
