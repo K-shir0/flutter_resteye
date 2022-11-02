@@ -72,7 +72,7 @@ class _IndexPageState extends State<IndexPage> {
                         width: 32.w,
                         height: 32.h,
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: AppColors.settingBgColor,
                           shape: BoxShape.circle,
                           boxShadow: [
                             BoxShadow(
