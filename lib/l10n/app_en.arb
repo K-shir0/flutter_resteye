@@ -17,9 +17,9 @@
   "video": "Video",
   "addButton": "Add",
   "ad": "Ad banners will be included.",
-  "rulesAgree": "I agree to the ",
-  "termsOfUse0": "Terms of Use",
-  "privacyPolicy0": "\nPrivacy Policy",
-  "rulesDescription": " Please start using the site.",
-  "rulesOf": " of"
+  "rulesAgree1": "I agree to the ",
+  "rulesAgree2": "Terms of Use",
+  "rulesAgree3": " of",
+  "rulesAgree4": "\nPrivacy Policy",
+  "rulesAgree5": " Please start using the site."
 }

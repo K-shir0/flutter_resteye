@@ -55,9 +55,9 @@ class LandingPage extends StatelessWidget {
                         ),
                         children: [
                           TextSpan(
-                              text: AppLocalizations.of(context)!.rulesAgree),
+                              text: AppLocalizations.of(context)!.rulesAgree1),
                           TextSpan(
-                            text: AppLocalizations.of(context)!.termsOfUse0,
+                            text: AppLocalizations.of(context)!.rulesAgree2,
                             style: const TextStyle(
                               decoration: TextDecoration.underline,
                             ),
@@ -67,9 +67,9 @@ class LandingPage extends StatelessWidget {
                                         'https://github.com/K-shir0/K-shir0/wiki/Resteye-%E5%88%A9%E7%94%A8%E8%A6%8F%E7%B4%84'),
                                   ),
                           ),
-                          TextSpan(text: AppLocalizations.of(context)!.rulesOf),
+                          TextSpan(text: AppLocalizations.of(context)!.rulesAgree3),
                           TextSpan(
-                            text: AppLocalizations.of(context)!.privacyPolicy0,
+                            text: AppLocalizations.of(context)!.rulesAgree4,
                             style: const TextStyle(
                               decoration: TextDecoration.underline,
                             ),
@@ -81,7 +81,7 @@ class LandingPage extends StatelessWidget {
                           ),
                           TextSpan(
                               text: AppLocalizations.of(context)!
-                                  .rulesDescription),
+                                  .rulesAgree5),
                         ],
                       ),
                     ),

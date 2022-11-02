@@ -17,9 +17,9 @@
   "video": "動画",
   "addButton": "追加する",
   "ad": "広告バナーが入ります",
-  "rulesAgree": "",
-  "termsOfUse0": "利用規約",
-  "privacyPolicy0": "プライバシーポリシー",
-  "rulesDescription": "に同意のもと\n利用を開始してください",
-  "rulesOf": "・"
+  "rulesAgree1": "",
+  "rulesAgree2": "利用規約",
+  "rulesAgree3": "・",
+  "rulesAgree4": "プライバシーポリシー",
+  "rulesAgree5": "に同意のもと\n利用を開始してください"
 }
