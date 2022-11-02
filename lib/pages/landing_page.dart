@@ -57,7 +57,7 @@ class LandingPage extends StatelessWidget {
                           TextSpan(
                               text: AppLocalizations.of(context)!.rulesAgree),
                           TextSpan(
-                            text: AppLocalizations.of(context)!.termsOfUse,
+                            text: AppLocalizations.of(context)!.termsOfUse0,
                             style: const TextStyle(
                               decoration: TextDecoration.underline,
                             ),
@@ -69,7 +69,7 @@ class LandingPage extends StatelessWidget {
                           ),
                           TextSpan(text: AppLocalizations.of(context)!.rulesOf),
                           TextSpan(
-                            text: AppLocalizations.of(context)!.privacyPolicy,
+                            text: AppLocalizations.of(context)!.privacyPolicy0,
                             style: const TextStyle(
                               decoration: TextDecoration.underline,
                             ),
