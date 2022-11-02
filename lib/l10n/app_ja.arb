@@ -16,5 +16,10 @@
   "changeVideoButton": "動画を変更する",
   "video": "動画",
   "addButton": "追加する",
-  "ad": "広告バナーが入ります"
+  "ad": "広告バナーが入ります",
+  "rulesAgree": "",
+  "termsOfUse": "利用規約",
+  "privacyPolicy": "プライバシーポリシー",
+  "rulesDescription": "に同意のもと\n利用を開始してください",
+  "rulesOf": "・"
 }
