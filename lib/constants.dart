@@ -12,6 +12,7 @@ class AppColors {
 
   /// 設定アイコン
   static const Color settingBgColor = Color(0xFFFFFFFF);
+  static const Color settingShadowColor = Color(0xFF13202D);
 
   static const Color importantTextColor = Color(0xFF5595D1);
   static const Color titleTextColor = Color(0xFF417FB8);

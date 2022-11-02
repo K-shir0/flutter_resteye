@@ -76,7 +76,7 @@ class _IndexPageState extends State<IndexPage> {
                           shape: BoxShape.circle,
                           boxShadow: [
                             BoxShadow(
-                              color: AppColors.textColor.withOpacity(0.1),
+                              color: AppColors.settingShadowColor.withOpacity(0.2),
                               blurRadius: 4,
                               spreadRadius: 1,
                             ),
