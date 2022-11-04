@@ -7,6 +7,7 @@ import 'package:flutter_resteye/pages/tutorial_page/tutorial_page.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -34,14 +35,23 @@ class LandingPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
-                  AppLocalizations.of(context)!.title,
-                  style: TextStyle(
-                    fontSize: 20.sp,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1.1,
-                    color: AppColors.textColor,
-                  ),
+                Column(
+                  children: [
+                    SizedBox(height: 120.h),
+                    SvgPicture.asset(
+                      "assets/svg_images/logo.svg",
+                      fit: BoxFit.scaleDown,
+                    ),
+                    Text(
+                      AppLocalizations.of(context)!.title,
+                      style: TextStyle(
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1.1,
+                        color: AppColors.textColor,
+                      ),
+                    ),
+                  ],
                 ),
                 Column(
                   children: [
@@ -67,7 +77,8 @@ class LandingPage extends StatelessWidget {
                                         'https://github.com/K-shir0/K-shir0/wiki/Resteye-%E5%88%A9%E7%94%A8%E8%A6%8F%E7%B4%84'),
                                   ),
                           ),
-                          TextSpan(text: AppLocalizations.of(context)!.rulesAgree3),
+                          TextSpan(
+                              text: AppLocalizations.of(context)!.rulesAgree3),
                           TextSpan(
                             text: AppLocalizations.of(context)!.rulesAgree4,
                             style: const TextStyle(
@@ -80,8 +91,7 @@ class LandingPage extends StatelessWidget {
                                   ),
                           ),
                           TextSpan(
-                              text: AppLocalizations.of(context)!
-                                  .rulesAgree5),
+                              text: AppLocalizations.of(context)!.rulesAgree5),
                         ],
                       ),
                     ),
