@@ -16,5 +16,10 @@
   "changeVideoButton": "Change video",
   "video": "Video",
   "addButton": "Add",
-  "ad": "Ad banners will be included."
+  "ad": "Ad banners will be included.",
+  "rulesAgree1": "I agree to the ",
+  "rulesAgree2": "Terms of Use",
+  "rulesAgree3": " of",
+  "rulesAgree4": "\nPrivacy Policy",
+  "rulesAgree5": " Please start using the site."
 }
