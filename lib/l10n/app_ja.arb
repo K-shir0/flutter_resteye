@@ -22,9 +22,7 @@
   "rulesAgree3": "・",
   "rulesAgree4": "プライバシーポリシー",
   "rulesAgree5": "に同意のもと\n利用を開始してください",
-  "settingRulesAgree1": "アプリを評価",
-  "settingRulesAgree2": "お問い合わせ",
-  "settingRulesAgree3": "利用規約",
-  "settingRulesAgree4": "プライバシーポリシー",
-  "settingRulesAgree5": "バージョン情報 "
+  "settingTermsOfUse": "利用規約",
+  "settingPrivacyPolicy": "プライバシーポリシー",
+  "settingVersionInformation": "バージョン情報 "
 }
