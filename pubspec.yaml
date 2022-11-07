@@ -51,6 +51,9 @@ flutter_icons:
   ios: true
   image_path: 'assets/icons/icon.png'
 
+# スプラッシュ設定
+# 以下のコマンドで実行
+# flutter pub run flutter_native_splash:create
 flutter_native_splash:
   color: '#B8D3EC'
   image: 'assets/images/splash.png'
