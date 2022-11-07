@@ -43,6 +43,14 @@ dependencies:
   page_transition: ^2.0.9
   url_launcher: ^6.1.6
 
+# アイコン設定
+# 以下のコマンドで実行
+# flutter pub run flutter_launcher_icons:main
+flutter_icons:
+  android: false
+  ios: true
+  image_path: 'assets/icons/icon.png'
+
 flutter_native_splash:
   color: '#B8D3EC'
   image: 'assets/images/splash.png'
@@ -65,6 +73,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  flutter_launcher_icons: ^0.10.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -89,5 +98,5 @@ flutter:
           weight: 900
 
     - family: Roboto
-      fonts :
+      fonts:
         - asset: assets/fonts/Roboto-Regular.ttf
