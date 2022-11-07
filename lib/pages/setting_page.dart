@@ -33,25 +33,7 @@ class SettingPage extends StatelessWidget {
             onTap: () => saveInitializeStatus(false),
           ),
           ListTile(
-            title: Text(AppLocalizations.of(context)!.settingRulesAgree1),
-            leading: const Icon(Icons.star),
-            trailing: const Icon(
-              Icons.arrow_forward_ios,
-              size: 24,
-            ),
-            onTap: () => {},
-          ),
-          ListTile(
-            title: Text(AppLocalizations.of(context)!.settingRulesAgree2),
-            leading: const Icon(Icons.email),
-            trailing: const Icon(
-              Icons.arrow_forward_ios,
-              size: 24,
-            ),
-            onTap: () => {},
-          ),
-          ListTile(
-            title: Text(AppLocalizations.of(context)!.settingRulesAgree3),
+            title: Text(AppLocalizations.of(context)!.settingTermsOfUse),
             leading: const Icon(Icons.article),
             trailing: const Icon(
               Icons.arrow_forward_ios,
@@ -63,7 +45,7 @@ class SettingPage extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: Text(AppLocalizations.of(context)!.settingRulesAgree4),
+            title: Text(AppLocalizations.of(context)!.settingPrivacyPolicy),
             leading: const Icon(Icons.pan_tool),
             trailing: const Icon(
               Icons.arrow_forward_ios,
@@ -76,7 +58,7 @@ class SettingPage extends StatelessWidget {
           ),
           ListTile(
             title: Text(
-                AppLocalizations.of(context)!.settingRulesAgree5 + appVersion),
+                AppLocalizations.of(context)!.settingVersionInformation + appVersion),
           )
         ],
       ),
