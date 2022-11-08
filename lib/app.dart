@@ -1,13 +1,15 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
+
 import 'package:flutter_resteye/core/initialize.dart';
 import 'package:flutter_resteye/pages/index_page.dart';
-
 import 'package:flutter_resteye/pages/landing_page.dart';
+
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -59,6 +61,15 @@ class _Body extends StatelessWidget {
 
   Future<bool> _initializedStatus() async {
     final initializedStatus = getInitializeStatus();
+
+    //ロゴ画像をキャッシュ
+    await precachePicture(
+      ExactAssetPicture(
+        SvgPicture.svgStringDecoderBuilder,
+        'assets/svg_images/logo.svg',
+      ),
+      null,
+    );
 
     // スプラッシュを削除
     FlutterNativeSplash.remove();
