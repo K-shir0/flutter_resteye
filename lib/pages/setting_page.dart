@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_resteye/core/initialize.dart';
-import 'package:flutter_resteye/utils/url_launcher.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import 'package:flutter_resteye/utils/url_launcher.dart';
 
 class SettingPage extends StatelessWidget {
   const SettingPage({super.key});
