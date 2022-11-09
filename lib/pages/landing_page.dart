@@ -4,24 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_resteye/components/_components.dart';
 import 'package:flutter_resteye/constants.dart';
 import 'package:flutter_resteye/pages/tutorial_page/tutorial_page.dart';
+import 'package:flutter_resteye/utils/url_launcher.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({Key? key}) : super(key: key);
-
-  Future<void> _launchInBrowser(Uri url) async {
-    if (!await launchUrl(
-      url,
-      mode: LaunchMode.externalApplication,
-    )) {
-      throw 'Could not launch $url';
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,23 +25,14 @@ class LandingPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Column(
-                  children: [
-                    SizedBox(height: 120.h),
-                    SvgPicture.asset(
-                      "assets/svg_images/logo.svg",
-                      fit: BoxFit.scaleDown,
-                    ),
-                    Text(
-                      AppLocalizations.of(context)!.title,
-                      style: TextStyle(
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 1.1,
-                        color: AppColors.textColor,
-                      ),
-                    ),
-                  ],
+                Text(
+                  AppLocalizations.of(context)!.title,
+                  style: TextStyle(
+                    fontSize: 20.sp,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 1.1,
+                    color: AppColors.textColor,
+                  ),
                 ),
                 Column(
                   children: [
@@ -72,26 +53,22 @@ class LandingPage extends StatelessWidget {
                               decoration: TextDecoration.underline,
                             ),
                             recognizer: TapGestureRecognizer()
-                              ..onTap = () => _launchInBrowser(
-                                    Uri.parse(
-                                        'https://github.com/K-shir0/K-shir0/wiki/Resteye-%E5%88%A9%E7%94%A8%E8%A6%8F%E7%B4%84'),
-                                  ),
+                              ..onTap = () =>
+                                  RestEyeUrlLancher.launchInBrowserTermsOfUse(),
                           ),
-                          TextSpan(
-                              text: AppLocalizations.of(context)!.rulesAgree3),
+                          TextSpan(text: AppLocalizations.of(context)!.rulesAgree3),
                           TextSpan(
                             text: AppLocalizations.of(context)!.rulesAgree4,
                             style: const TextStyle(
                               decoration: TextDecoration.underline,
                             ),
                             recognizer: TapGestureRecognizer()
-                              ..onTap = () => _launchInBrowser(
-                                    Uri.parse(
-                                        'https://github.com/K-shir0/K-shir0/wiki/Resteye-%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC'),
-                                  ),
+                              ..onTap = () => RestEyeUrlLancher
+                                  .launchInBrowserPrivacyPolicy(),
                           ),
                           TextSpan(
-                              text: AppLocalizations.of(context)!.rulesAgree5),
+                              text: AppLocalizations.of(context)!
+                                  .rulesAgree5),
                         ],
                       ),
                     ),
