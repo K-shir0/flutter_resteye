@@ -110,13 +110,13 @@ class _IndexPageState extends State<IndexPage> {
                       Column(
                         children: [
                           SizedBox(height: 32.h),
-                          Container(
-                            color: AppColors.pinpBgColor,
-                            child: GestureDetector(
-                              onLongPress: () {
-                                HapticFeedback.heavyImpact();
-                                _controller.toggle();
-                              },
+                          GestureDetector(
+                            onLongPress: () {
+                              HapticFeedback.heavyImpact();
+                              _controller.toggle();
+                            },
+                            child: Container(
+                              color: AppColors.pinpBgColor,
                               child: ConstrainedBox(
                                 constraints: BoxConstraints(
                                     maxHeight: 152.h, maxWidth: 304.w),
