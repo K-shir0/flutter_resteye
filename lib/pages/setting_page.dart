@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_resteye/constants.dart';
 
-import 'package:flutter_resteye/core/initialize.dart';
 import 'package:flutter_resteye/utils/url_launcher.dart';
 
 class SettingPage extends StatelessWidget {
@@ -11,17 +11,12 @@ class SettingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context)!.settingAppBar),
+        backgroundColor: AppColors.settingAppBarColor,
+      ),
       body: ListView(
         children: [
-          ListTile(
-            title: const Text('設定リセット（デバッグ）'),
-            leading: const Icon(Icons.restart_alt),
-            trailing: const Icon(
-              Icons.arrow_forward_ios,
-              size: 24,
-            ),
-            onTap: () => saveInitializeStatus(false),
-          ),
           ListTile(
             title: Text(AppLocalizations.of(context)!.settingTermsOfUse),
             leading: const Icon(Icons.article),
