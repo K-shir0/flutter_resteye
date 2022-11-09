@@ -27,10 +27,11 @@ class RestEyeSubButton extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: TextStyle(
-          fontSize: 16.sp,
+        style: const TextStyle(
+          fontSize: 16,
           fontWeight: FontWeight.bold,
           letterSpacing: 1.15,
+          height: 1.3,
           color: AppColors.subButtonTextColor,
         ),
       ),
