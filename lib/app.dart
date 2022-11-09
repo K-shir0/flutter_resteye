@@ -62,7 +62,7 @@ class _Body extends StatelessWidget {
   Future<bool> _initializedStatus() async {
     final initializedStatus = getInitializeStatus();
 
-    //ロゴ画像をキャッシュ
+    // ロゴ画像をキャッシュ
     await precachePicture(
       ExactAssetPicture(
         SvgPicture.svgStringDecoderBuilder,
