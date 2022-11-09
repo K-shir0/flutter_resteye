@@ -22,7 +22,7 @@ class SettingPage extends StatelessWidget {
             leading: const Icon(Icons.article),
             trailing: const Icon(
               Icons.arrow_forward_ios,
-              size: 24,
+              size: 16,
             ),
             onTap: () => RestEyeUrlLauncher.launchInBrowserTermsOfUse(),
           ),
@@ -31,7 +31,7 @@ class SettingPage extends StatelessWidget {
             leading: const Icon(Icons.pan_tool),
             trailing: const Icon(
               Icons.arrow_forward_ios,
-              size: 24,
+              size: 16,
             ),
             onTap: () => RestEyeUrlLauncher.launchInBrowserPrivacyPolicy(),
           ),
