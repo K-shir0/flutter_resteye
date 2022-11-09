@@ -8,7 +8,6 @@ import 'package:flutter_resteye/utils/url_launcher.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:page_transition/page_transition.dart';
 
 class LandingPage extends StatelessWidget {
@@ -26,23 +25,14 @@ class LandingPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Column(
-                  children: [
-                    SizedBox(height: 120.h),
-                    SvgPicture.asset(
-                      "assets/svg_images/logo.svg",
-                      fit: BoxFit.scaleDown,
-                    ),
-                    Text(
-                      AppLocalizations.of(context)!.title,
-                      style: TextStyle(
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 1.1,
-                        color: AppColors.textColor,
-                      ),
-                    ),
-                  ],
+                Text(
+                  AppLocalizations.of(context)!.title,
+                  style: TextStyle(
+                    fontSize: 20.sp,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 1.1,
+                    color: AppColors.textColor,
+                  ),
                 ),
                 Column(
                   children: [
@@ -66,8 +56,7 @@ class LandingPage extends StatelessWidget {
                               ..onTap = () =>
                                   RestEyeUrlLancher.launchInBrowserTermsOfUse(),
                           ),
-                          TextSpan(
-                              text: AppLocalizations.of(context)!.rulesAgree3),
+                          TextSpan(text: AppLocalizations.of(context)!.rulesAgree3),
                           TextSpan(
                             text: AppLocalizations.of(context)!.rulesAgree4,
                             style: const TextStyle(
@@ -78,7 +67,8 @@ class LandingPage extends StatelessWidget {
                                   .launchInBrowserPrivacyPolicy(),
                           ),
                           TextSpan(
-                              text: AppLocalizations.of(context)!.rulesAgree5),
+                              text: AppLocalizations.of(context)!
+                                  .rulesAgree5),
                         ],
                       ),
                     ),
