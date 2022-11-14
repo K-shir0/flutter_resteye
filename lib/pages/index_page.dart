@@ -7,6 +7,7 @@ import 'package:flutter_resteye/core/pinp_controller.dart';
 import 'package:flutter_resteye/core/pinp_view.dart';
 import 'package:flutter_resteye/components/_components.dart';
 import 'package:flutter_resteye/constants.dart';
+import 'package:flutter_resteye/core/selected_assets.dart';
 import 'package:flutter_resteye/pages/setting_page.dart';
 import 'package:flutter_resteye/pages/tutorial_page/tutorial_page.dart';
 
@@ -76,7 +77,8 @@ class _IndexPageState extends State<IndexPage> {
                           shape: BoxShape.circle,
                           boxShadow: [
                             BoxShadow(
-                              color: AppColors.settingShadowColor.withOpacity(0.2),
+                              color:
+                                  AppColors.settingShadowColor.withOpacity(0.2),
                               blurRadius: 4,
                               spreadRadius: 1,
                             ),
@@ -119,7 +121,7 @@ class _IndexPageState extends State<IndexPage> {
                               color: AppColors.pinpBgColor,
                               child: ConstrainedBox(
                                 constraints: BoxConstraints(
-                                    maxHeight: 152.h, maxWidth: 304.w),
+                                    maxHeight: 148.h, maxWidth: 304.w),
                                 child: _showPinP
                                     ? const PinPView()
                                     : SizedBox(height: 152.h),
@@ -138,59 +140,54 @@ class _IndexPageState extends State<IndexPage> {
                                   text: AppLocalizations.of(context)!.endButton,
                                 ),
                           SizedBox(height: 64.h),
-                          // Column(
-                          //   children: [
-                          //     TextButton(
-                          //       onPressed: () => {},
-                          //       child: Text(
-                          //           AppLocalizations.of(context)!
-                          //               .changeVideoButton,
-                          //           style: TextStyle(
-                          //             fontWeight: FontWeight.w600,
-                          //             color: AppColors.titleTextColor,
-                          //             letterSpacing: 1.15,
-                          //             fontSize: 16.sp,
-                          //           )),
-                          //     ),
-                          //     Row(
-                          //       mainAxisAlignment:
-                          //           MainAxisAlignment.spaceBetween,
-                          //       children: [
-                          //         RestEyeCard(
-                          //             text:
-                          //                 AppLocalizations.of(context)!.video),
-                          //         RestEyeCard(
-                          //             text:
-                          //                 AppLocalizations.of(context)!.video),
-                          //         RestEyeCard(
-                          //             text:
-                          //                 AppLocalizations.of(context)!.video),
-                          //       ],
-                          //     ),
-                          //     SizedBox(height: 16.h),
-                          //     ElevatedButton(
-                          //       onPressed: () {},
-                          //       style: ElevatedButton.styleFrom(
-                          //         fixedSize: Size(120.w, 32.h),
-                          //         backgroundColor: AppColors.addButtonBgColor,
-                          //         shape: const RoundedRectangleBorder(
-                          //           borderRadius:
-                          //               BorderRadius.all(Radius.circular(32)),
-                          //         ),
-                          //       ),
-                          //       child: Text(
-                          //         AppLocalizations.of(context)!.addButton,
-                          //         style: TextStyle(
-                          //           fontSize: 16.sp,
-                          //           fontWeight: FontWeight.bold,
-                          //           letterSpacing: 1.15,
-                          //           color: AppColors.addButtonTextColor,
-                          //         ),
-                          //       ),
-                          //     ),
-                          //     SizedBox(height: 32.h),
-                          //   ],
-                          // ),
+                          Column(
+                            children: [
+                              Text(
+                                AppLocalizations.of(context)!.changeVideoButton,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  color: AppColors.titleTextColor,
+                                  letterSpacing: 1.15,
+                                  fontSize: 16.sp,
+                                ),
+                              ),
+                              SizedBox(height: 16.h),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  GestureDetector(
+                                    onTap: () {
+                                      saveSelectedAssetsNumber(0);
+                                      _controller.setAsset(0);
+                                    },
+                                    child: const RestEyeCard(
+                                      asset: 'assets/images/open@3x.png',
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: () {
+                                      saveSelectedAssetsNumber(1);
+                                      _controller.setAsset(1);
+                                    },
+                                    child: const RestEyeCard(
+                                      asset: 'assets/images/open_boy@3x.png',
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: () {
+                                      saveSelectedAssetsNumber(2);
+                                      _controller.setAsset(2);
+                                    },
+                                    child: const RestEyeCard(
+                                      asset: 'assets/images/open_girl@3x.png',
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: 32.h),
+                            ],
+                          ),
                         ],
                       ),
                     ],

@@ -9,8 +9,6 @@ import SwiftUI
 import UIKit
 import UIPiPView
 
-let pipView = UIPiPView()
-
 class SampleViewController: UIViewController {
     private let timeLabel = UILabel()
     

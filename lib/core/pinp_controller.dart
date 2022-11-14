@@ -7,6 +7,11 @@ class PinPController {
   final _channel =
       const MethodChannel('jp.kshiro.resteye.flutterResteye/sample');
 
+  // アセットを設定する
+  Future<void> setAsset(int assetNumber) async {
+    await _channel.invokeMethod('setAsset', assetNumber);
+  }
+
   Future<void> toggle() async {
     await _channel.invokeMethod('toggle');
   }
