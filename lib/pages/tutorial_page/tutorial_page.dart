@@ -96,7 +96,8 @@ class _TutorialPageState extends State<TutorialPage> {
                                 children: [
                                   Center(
                                     child: Text(
-                                      AppLocalizations.of(context)!.whatAppTitle,
+                                      AppLocalizations.of(context)!
+                                          .whatAppTitle,
                                       style: TextStyle(
                                         fontSize: 20.sp,
                                         fontWeight: FontWeight.w900,
@@ -113,7 +114,16 @@ class _TutorialPageState extends State<TutorialPage> {
                                       fontSize: 16.sp,
                                       letterSpacing: 1.1,
                                     ),
-                                  )
+                                  ),
+                                  SizedBox(height: 32.h),
+                                  Center(
+                                    child: Image.asset(
+                                      'assets/images/what_resteye_mock.png',
+                                      height: 296.h,
+                                      width: 176.w,
+                                      fit: BoxFit.scaleDown,
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
@@ -127,7 +137,8 @@ class _TutorialPageState extends State<TutorialPage> {
                                 children: [
                                   Center(
                                     child: Text(
-                                      AppLocalizations.of(context)!.usageAppTitle,
+                                      AppLocalizations.of(context)!
+                                          .usageAppTitle,
                                       style: TextStyle(
                                         fontSize: 20.sp,
                                         fontWeight: FontWeight.w900,
@@ -144,7 +155,16 @@ class _TutorialPageState extends State<TutorialPage> {
                                       fontSize: 16.sp,
                                       letterSpacing: 1.1,
                                     ),
-                                  )
+                                  ),
+                                  SizedBox(height: 32.h),
+                                  Center(
+                                    child: Image.asset(
+                                      'assets/images/usage_resteye_mock.png',
+                                      height: 296.h,
+                                      width: 160.w,
+                                      fit: BoxFit.scaleDown,
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
