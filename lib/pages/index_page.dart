@@ -86,18 +86,25 @@ class _IndexPageState extends State<IndexPage> {
                         ),
                         child: GestureDetector(
                           onTap: () => _toPage(context, const SettingPage()),
-                          child: SvgPicture.asset(
-                            'assets/svg_images/setting.svg',
-                            width: 24.w,
-                            height: 24.h,
-                            fit: BoxFit.scaleDown,
+                          child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: SvgPicture.asset(
+                              'assets/svg_images/setting.svg',
+                              width: 24.w,
+                              height: 24.h,
+                              fit: BoxFit.scaleDown,
+                            ),
                           ),
                         ),
                       ),
                       GestureDetector(
                         onTap: () => _toPage(context, const TutorialPage()),
-                        child:
-                            SvgPicture.asset('assets/svg_images/question.svg'),
+                        child: SvgPicture.asset(
+                          'assets/svg_images/question.svg',
+                          width: 32.w,
+                          height: 32.h,
+                          fit: BoxFit.scaleDown,
+                        ),
                       ),
                     ],
                   ),
