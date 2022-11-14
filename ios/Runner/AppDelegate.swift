@@ -26,6 +26,13 @@ import Flutter
                 controller.present(nextController!, animated: true, completion: nil)
             }
             
+            
+            if call.method == "setAsset" {
+                guard let args = call.arguments as? Int else {return}
+                assetNumber = args
+                
+            }
+            
             if call.method == "toggle" {
                 if (!pipView.isPictureInPictureActive()) {
                     pipView.startPictureInPictureWithManualCallRender()

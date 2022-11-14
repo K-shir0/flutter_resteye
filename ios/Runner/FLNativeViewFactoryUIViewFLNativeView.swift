@@ -7,6 +7,10 @@
 
 import Flutter
 import UIKit
+import UIPiPView
+
+let pipView = UIPiPView()
+var assetNumber = 0
 
 class FLNativeViewFactory: NSObject, FlutterPlatformViewFactory {
     private var messenger: FlutterBinaryMessenger
@@ -54,6 +58,28 @@ class FLNativeView: NSObject, FlutterPlatformView {
         return _view
     }
     
+    func setOpenImage(){
+        switch(assetNumber) {
+        case 1:
+            self.imageView.image = UIImage(named: "open_boy")!
+        case 2:
+            self.imageView.image = UIImage(named: "open_girl")!
+        default:
+            self.imageView.image = UIImage(named: "open")!
+        }
+    }
+    
+    func setCloseImage(){
+        switch(assetNumber) {
+        case 1:
+            self.imageView.image = UIImage(named: "close_boy")!
+        case 2:
+            self.imageView.image = UIImage(named: "close_girl")!
+        default:
+            self.imageView.image = UIImage(named: "close")!
+        }
+    }
+    
     func createNativeView(view _view: UIView){
         let width = CGFloat(240)
         
@@ -64,9 +90,7 @@ class FLNativeView: NSObject, FlutterPlatformView {
         _view.addSubview(pipView)
         
         /// Time Label on PiPView
-        let openImage = UIImage(named: "open")!
-        let closeImage = UIImage(named: "close")!
-        imageView.image = openImage
+        self.setOpenImage()
         imageView.frame = .init(x: 10, y: 0, width: width - 20, height: 120)
         
         
@@ -86,13 +110,13 @@ class FLNativeView: NSObject, FlutterPlatformView {
             /// 3秒に一回
             if (second % 3 == 0) {
                 if (!pipClose) {
-                    self.imageView.image = closeImage
+                    self.setCloseImage()
                     pipView.render()
                     pipClose = true
                 }
             } else {
                 if (pipClose) {
-                    self.imageView.image = openImage
+                    self.setOpenImage()
                     pipView.render()
                     pipClose = false
                 }

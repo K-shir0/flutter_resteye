@@ -7,28 +7,19 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class RestEyeCard extends StatelessWidget {
   const RestEyeCard({
     Key? key,
-    required this.text,
+    required this.asset,
   }) : super(key: key);
 
-  final String text;
+  final String asset;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 88.w,
+      width: 96.w,
       height: 72.h,
       child: Card(
-        color: AppColors.cardBgColor,
-        child: Center(
-          child: Text(
-            text,
-            style: const TextStyle(
-              letterSpacing: 1.10,
-              fontWeight: FontWeight.w500,
-              color: AppColors.textColor,
-            ),
-          ),
-        ),
+        color: AppColors.pinpBgColor,
+        child: Image.asset(asset),
       ),
     );
   }
