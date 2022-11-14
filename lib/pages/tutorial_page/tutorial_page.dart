@@ -120,7 +120,7 @@ class _TutorialPageState extends State<TutorialPage> {
                                     child: Image.asset(
                                       'assets/images/what_resteye_mock.png',
                                       height: 296.h,
-                                      width: 176.w,
+                                      width: 160.w,
                                       fit: BoxFit.scaleDown,
                                     ),
                                   ),
