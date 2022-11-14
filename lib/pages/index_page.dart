@@ -7,6 +7,7 @@ import 'package:flutter_resteye/core/pinp_controller.dart';
 import 'package:flutter_resteye/core/pinp_view.dart';
 import 'package:flutter_resteye/components/_components.dart';
 import 'package:flutter_resteye/constants.dart';
+import 'package:flutter_resteye/core/selected_assets.dart';
 import 'package:flutter_resteye/pages/setting_page.dart';
 import 'package:flutter_resteye/pages/tutorial_page/tutorial_page.dart';
 
@@ -156,19 +157,28 @@ class _IndexPageState extends State<IndexPage> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   GestureDetector(
-                                    onTap: () => _controller.setAsset(0),
+                                    onTap: () {
+                                      saveSelectedAssetsNumber(0);
+                                      _controller.setAsset(0);
+                                    },
                                     child: const RestEyeCard(
                                       asset: 'assets/images/open@3x.png',
                                     ),
                                   ),
                                   GestureDetector(
-                                    onTap: () => _controller.setAsset(1),
+                                    onTap: () {
+                                      saveSelectedAssetsNumber(1);
+                                      _controller.setAsset(1);
+                                    },
                                     child: const RestEyeCard(
                                       asset: 'assets/images/open_boy@3x.png',
                                     ),
                                   ),
                                   GestureDetector(
-                                    onTap: () => _controller.setAsset(2),
+                                    onTap: () {
+                                      saveSelectedAssetsNumber(2);
+                                      _controller.setAsset(2);
+                                    },
                                     child: const RestEyeCard(
                                       asset: 'assets/images/open_girl@3x.png',
                                     ),
