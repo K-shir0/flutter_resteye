@@ -91,40 +91,43 @@ class _TutorialPageState extends State<TutorialPage> {
                               controller: _controller,
                               current: _current,
                               index: 1,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Center(
-                                    child: Text(
-                                      AppLocalizations.of(context)!
-                                          .whatAppTitle,
-                                      style: TextStyle(
-                                        fontSize: 20.sp,
-                                        fontWeight: FontWeight.w900,
-                                        letterSpacing: 1.1,
-                                        color: AppColors.importantTextColor,
+                              child: Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Center(
+                                      child: Text(
+                                        AppLocalizations.of(context)!
+                                            .whatAppTitle,
+                                        style: TextStyle(
+                                          fontSize: 20.sp,
+                                          fontWeight: FontWeight.w900,
+                                          letterSpacing: 1.1,
+                                          color: AppColors.importantTextColor,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  SizedBox(height: 8.h),
-                                  Text(
-                                    AppLocalizations.of(context)!
-                                        .whatAppDescription,
-                                    style: TextStyle(
-                                      fontSize: 16.sp,
-                                      letterSpacing: 1.1,
+                                    SizedBox(height: 8.h),
+                                    Text(
+                                      AppLocalizations.of(context)!
+                                          .whatAppDescription,
+                                      style: TextStyle(
+                                        fontSize: 16.sp,
+                                        letterSpacing: 1.1,
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(height: 48.h),
-                                  Center(
-                                    child: Image.asset(
-                                      'assets/images/what_resteye_mock.png',
-                                      height: 296.h,
-                                      width: 160.w,
-                                      fit: BoxFit.scaleDown,
+                                    Expanded(
+                                      child: Center(
+                                        child: Image.asset(
+                                          'assets/images/what_resteye_mock.png',
+                                          height: 296.h,
+                                          width: 160.w,
+                                          fit: BoxFit.scaleDown,
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                             // View3
@@ -132,40 +135,43 @@ class _TutorialPageState extends State<TutorialPage> {
                               controller: _controller,
                               current: _current,
                               index: 2,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Center(
-                                    child: Text(
-                                      AppLocalizations.of(context)!
-                                          .usageAppTitle,
-                                      style: TextStyle(
-                                        fontSize: 20.sp,
-                                        fontWeight: FontWeight.w900,
-                                        letterSpacing: 1.1,
-                                        color: AppColors.importantTextColor,
+                              child: Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Center(
+                                      child: Text(
+                                        AppLocalizations.of(context)!
+                                            .usageAppTitle,
+                                        style: TextStyle(
+                                          fontSize: 20.sp,
+                                          fontWeight: FontWeight.w900,
+                                          letterSpacing: 1.1,
+                                          color: AppColors.importantTextColor,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  SizedBox(height: 8.h),
-                                  Text(
-                                    AppLocalizations.of(context)!
-                                        .usageAppDescription,
-                                    style: TextStyle(
-                                      fontSize: 16.sp,
-                                      letterSpacing: 1.1,
+                                    SizedBox(height: 8.h),
+                                    Text(
+                                      AppLocalizations.of(context)!
+                                          .usageAppDescription,
+                                      style: TextStyle(
+                                        fontSize: 16.sp,
+                                        letterSpacing: 1.1,
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(height: 48.h),
-                                  Center(
-                                    child: Image.asset(
-                                      'assets/images/usage_resteye_mock.png',
-                                      height: 296.h,
-                                      width: 160.w,
-                                      fit: BoxFit.scaleDown,
+                                    Expanded(
+                                      child: Center(
+                                        child: Image.asset(
+                                          'assets/images/usage_resteye_mock.png',
+                                          height: 296.h,
+                                          width: 160.w,
+                                          fit: BoxFit.scaleDown,
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ],
