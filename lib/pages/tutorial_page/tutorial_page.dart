@@ -115,7 +115,7 @@ class _TutorialPageState extends State<TutorialPage> {
                                       letterSpacing: 1.1,
                                     ),
                                   ),
-                                  SizedBox(height: 32.h),
+                                  SizedBox(height: 48.h),
                                   Center(
                                     child: Image.asset(
                                       'assets/images/what_resteye_mock.png',
@@ -156,7 +156,7 @@ class _TutorialPageState extends State<TutorialPage> {
                                       letterSpacing: 1.1,
                                     ),
                                   ),
-                                  SizedBox(height: 32.h),
+                                  SizedBox(height: 48.h),
                                   Center(
                                     child: Image.asset(
                                       'assets/images/usage_resteye_mock.png',
