@@ -29,9 +29,14 @@ class _IndexPageState extends State<IndexPage> {
   var _isPictureInPictureActive = false;
   var _showPinP = true;
 
+  /// どの動画が選択されているか
+  var _selectedMovie = -1;
+
   @override
   void initState() {
     super.initState();
+
+    _initMovie();
 
     // タイマーをセットし定期的に PinP の状態をチェックする
     // 状態が変わっていれば setState する
@@ -167,27 +172,39 @@ class _IndexPageState extends State<IndexPage> {
                                     onTap: () {
                                       saveSelectedAssetsNumber(0);
                                       _controller.setAsset(0);
+                                      setState(() => _selectedMovie = 0);
                                     },
-                                    child: const RestEyeCard(
+                                    child: RestEyeCard(
                                       asset: 'assets/images/open@3x.png',
+                                      color: _selectedMovie == 0
+                                          ? AppColors.movieSelectedColor
+                                          : AppColors.movieUnSelectedColor,
                                     ),
                                   ),
                                   GestureDetector(
                                     onTap: () {
                                       saveSelectedAssetsNumber(1);
                                       _controller.setAsset(1);
+                                      setState(() => _selectedMovie = 1);
                                     },
-                                    child: const RestEyeCard(
+                                    child: RestEyeCard(
                                       asset: 'assets/images/open_boy@3x.png',
+                                      color: _selectedMovie == 1
+                                          ? AppColors.movieSelectedColor
+                                          : AppColors.movieUnSelectedColor,
                                     ),
                                   ),
                                   GestureDetector(
                                     onTap: () {
                                       saveSelectedAssetsNumber(2);
                                       _controller.setAsset(2);
+                                      setState(() => _selectedMovie = 2);
                                     },
-                                    child: const RestEyeCard(
+                                    child: RestEyeCard(
                                       asset: 'assets/images/open_girl@3x.png',
+                                      color: _selectedMovie == 2
+                                          ? AppColors.movieSelectedColor
+                                          : AppColors.movieUnSelectedColor,
                                     ),
                                   ),
                                 ],
@@ -234,5 +251,11 @@ class _IndexPageState extends State<IndexPage> {
     );
 
     setState(() => _showPinP = true);
+  }
+
+  /// 再起動時に選択されていた動画を初期化する
+  Future<void> _initMovie() async {
+    var selectAssetsNumber  = await getSelectedAssetsNumber();
+    setState(() => _selectedMovie = selectAssetsNumber);
   }
 }

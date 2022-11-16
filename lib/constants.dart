@@ -33,4 +33,7 @@ class AppColors {
 
   /// カルーセルの未選択の色
   static const Color carouselUnselectedDotColor = Color(0xFFBBDEFF);
+
+  static const Color movieSelectedColor = Color(0xFF417FB8);
+  static const Color movieUnSelectedColor = Color(0xFFFFFFFF);
 }
