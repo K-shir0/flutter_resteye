@@ -36,8 +36,6 @@ class _IndexPageState extends State<IndexPage> {
   void initState() {
     super.initState();
 
-    _initMovie();
-
     // タイマーをセットし定期的に PinP の状態をチェックする
     // 状態が変わっていれば setState する
     Timer.periodic(
@@ -52,6 +50,8 @@ class _IndexPageState extends State<IndexPage> {
         }
       },
     );
+
+    _initMovie();
   }
 
   @override
@@ -255,7 +255,7 @@ class _IndexPageState extends State<IndexPage> {
 
   /// 再起動時に選択されていた動画を初期化する
   Future<void> _initMovie() async {
-    var selectAssetsNumber  = await getSelectedAssetsNumber();
+    var selectAssetsNumber = await getSelectedAssetsNumber();
     setState(() => _selectedMovie = selectAssetsNumber);
   }
 }
