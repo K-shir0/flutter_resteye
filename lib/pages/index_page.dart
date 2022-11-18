@@ -51,7 +51,7 @@ class _IndexPageState extends State<IndexPage> {
       },
     );
 
-    _initMovie();
+    _initSelectedMovieState();
   }
 
   @override
@@ -176,9 +176,7 @@ class _IndexPageState extends State<IndexPage> {
                                     },
                                     child: RestEyeCard(
                                       asset: 'assets/images/open@3x.png',
-                                      color: _selectedMovie == 0
-                                          ? AppColors.movieSelectedColor
-                                          : AppColors.movieUnSelectedColor,
+                                      selected: _selectedMovie == 0,
                                     ),
                                   ),
                                   GestureDetector(
@@ -189,9 +187,7 @@ class _IndexPageState extends State<IndexPage> {
                                     },
                                     child: RestEyeCard(
                                       asset: 'assets/images/open_boy@3x.png',
-                                      color: _selectedMovie == 1
-                                          ? AppColors.movieSelectedColor
-                                          : AppColors.movieUnSelectedColor,
+                                      selected: _selectedMovie == 1,
                                     ),
                                   ),
                                   GestureDetector(
@@ -202,9 +198,7 @@ class _IndexPageState extends State<IndexPage> {
                                     },
                                     child: RestEyeCard(
                                       asset: 'assets/images/open_girl@3x.png',
-                                      color: _selectedMovie == 2
-                                          ? AppColors.movieSelectedColor
-                                          : AppColors.movieUnSelectedColor,
+                                      selected: _selectedMovie == 2,
                                     ),
                                   ),
                                 ],
@@ -254,7 +248,7 @@ class _IndexPageState extends State<IndexPage> {
   }
 
   /// 再起動時に選択されていた動画を初期化する
-  Future<void> _initMovie() async {
+  Future<void> _initSelectedMovieState() async {
     var selectAssetsNumber = await getSelectedAssetsNumber();
     setState(() => _selectedMovie = selectAssetsNumber);
   }
