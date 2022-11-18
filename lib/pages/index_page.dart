@@ -29,6 +29,9 @@ class _IndexPageState extends State<IndexPage> {
   var _isPictureInPictureActive = false;
   var _showPinP = true;
 
+  /// どの動画が選択されているか
+  var _selectedMovie = -1;
+
   @override
   void initState() {
     super.initState();
@@ -47,6 +50,8 @@ class _IndexPageState extends State<IndexPage> {
         }
       },
     );
+
+    _initSelectedMovieState();
   }
 
   @override
@@ -167,27 +172,33 @@ class _IndexPageState extends State<IndexPage> {
                                     onTap: () {
                                       saveSelectedAssetsNumber(0);
                                       _controller.setAsset(0);
+                                      setState(() => _selectedMovie = 0);
                                     },
-                                    child: const RestEyeCard(
+                                    child: RestEyeCard(
                                       asset: 'assets/images/open@3x.png',
+                                      selected: _selectedMovie == 0,
                                     ),
                                   ),
                                   GestureDetector(
                                     onTap: () {
                                       saveSelectedAssetsNumber(1);
                                       _controller.setAsset(1);
+                                      setState(() => _selectedMovie = 1);
                                     },
-                                    child: const RestEyeCard(
+                                    child: RestEyeCard(
                                       asset: 'assets/images/open_boy@3x.png',
+                                      selected: _selectedMovie == 1,
                                     ),
                                   ),
                                   GestureDetector(
                                     onTap: () {
                                       saveSelectedAssetsNumber(2);
                                       _controller.setAsset(2);
+                                      setState(() => _selectedMovie = 2);
                                     },
-                                    child: const RestEyeCard(
+                                    child: RestEyeCard(
                                       asset: 'assets/images/open_girl@3x.png',
+                                      selected: _selectedMovie == 2,
                                     ),
                                   ),
                                 ],
@@ -234,5 +245,11 @@ class _IndexPageState extends State<IndexPage> {
     );
 
     setState(() => _showPinP = true);
+  }
+
+  /// 再起動時に選択されていた動画を初期化する
+  Future<void> _initSelectedMovieState() async {
+    var selectAssetsNumber = await getSelectedAssetsNumber();
+    setState(() => _selectedMovie = selectAssetsNumber);
   }
 }
