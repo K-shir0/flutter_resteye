@@ -3,11 +3,13 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'package:flutter_resteye/components/number_of_times_used.dart';
 import 'package:flutter_resteye/core/pinp_controller.dart';
 import 'package:flutter_resteye/core/pinp_view.dart';
 import 'package:flutter_resteye/components/_components.dart';
 import 'package:flutter_resteye/constants.dart';
 import 'package:flutter_resteye/core/selected_assets.dart';
+import 'package:flutter_resteye/core/usege_time.dart';
 import 'package:flutter_resteye/pages/setting_page.dart';
 import 'package:flutter_resteye/pages/tutorial_page/tutorial_page.dart';
 
@@ -22,7 +24,7 @@ class IndexPage extends StatefulWidget {
   State<IndexPage> createState() => _IndexPageState();
 }
 
-class _IndexPageState extends State<IndexPage> {
+class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
   final _controller = PinPController();
 
   /// PinP がアクティブかどうか
@@ -32,9 +34,21 @@ class _IndexPageState extends State<IndexPage> {
   /// どの動画が選択されているか
   var _selectedMovie = -1;
 
+  /// 使用時間
+  var _usageTime = 0;
+
+  /// 連続使用回数
+  var _numberOfConsecutiveUses = 0;
+
+  /// 使用時間の状態を更新するタイマー
+  Timer? _usageTimeRenewTimer;
+
   @override
   void initState() {
     super.initState();
+    // アプリのライフサイクルを監視するために必要
+    // -> with WidgetsBindingObserver
+    WidgetsBinding.instance.addObserver(this);
 
     // タイマーをセットし定期的に PinP の状態をチェックする
     // 状態が変わっていれば setState する
@@ -51,7 +65,39 @@ class _IndexPageState extends State<IndexPage> {
       },
     );
 
+    // タイマーを初期化
+    setUsageRenewTimer();
+
+    // 使用時間と選択している画像の状態を初期化
+    _updateUsageState();
     _initSelectedMovieState();
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+
+    // アプリを離れたときにタイマーを止める
+    // バックグラウンドで使用時間を取得し続けると重くなるため
+    switch (state) {
+      // 再開したとき
+      case AppLifecycleState.resumed:
+        setUsageRenewTimer();
+        break;
+      // 止めたとき
+      case AppLifecycleState.paused:
+      case AppLifecycleState.inactive:
+        _usageTimeRenewTimer?.cancel();
+        break;
+      case AppLifecycleState.detached:
+        break;
+    }
   }
 
   @override
@@ -247,9 +293,30 @@ class _IndexPageState extends State<IndexPage> {
     setState(() => _showPinP = true);
   }
 
+  /// 使用状況更新用タイマー
+  void setUsageRenewTimer() async {
+    _usageTimeRenewTimer = Timer.periodic(const Duration(seconds: 3), (timer) {
+      // フロントが完成次第削除
+      print('使用時間: $_usageTime秒');
+      print('まばたきの回数: ${_usageTime / 3}回');
+
+      _updateUsageState();
+    });
+  }
+
+  /// 使用状況を更新
+  Future<void> _updateUsageState() async {
+    final usageTime = await getUsageTime();
+    final numberOfConsecutiveUses = await getNumberOfTimesUsed();
+    setState(() {
+      _usageTime = usageTime;
+      _numberOfConsecutiveUses = numberOfConsecutiveUses;
+    });
+  }
+
   /// 再起動時に選択されていた動画を初期化する
   Future<void> _initSelectedMovieState() async {
-    var selectAssetsNumber = await getSelectedAssetsNumber();
+    final selectAssetsNumber = await getSelectedAssetsNumber();
     setState(() => _selectedMovie = selectAssetsNumber);
   }
 }

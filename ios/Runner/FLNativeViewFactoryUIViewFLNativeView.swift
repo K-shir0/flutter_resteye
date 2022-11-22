@@ -100,11 +100,10 @@ class FLNativeView: NSObject, FlutterPlatformView {
         
         var pipClose = false
         
-        /// Time Label  shows now.
-        timer = Timer(timeInterval: (0.1 / 20.0), repeats: true) { [weak self] _ in
+        /// Time Label  shows now. (0.1 / 20.0)
+        timer = Timer(timeInterval: 1, repeats: true) { [weak self] _ in
             guard let self = self else { return }
-            //                        self.timeLabel.text = self.formatter.string(from: Date())
-            
+
             let second = calendar.component(.second, from: Date())
             
             /// 3秒に一回
@@ -112,6 +111,12 @@ class FLNativeView: NSObject, FlutterPlatformView {
                 if (!pipClose) {
                     self.setCloseImage()
                     pipView.render()
+                    
+                    if (pipView.isPictureInPictureActive()) {
+                        let usageTime = UserDefaults.standard.integer(forKey: "flutter.usageTime") ?? 0
+                        UserDefaults.standard.set(usageTime + 3, forKey: "flutter.usageTime")
+                    }
+                    
                     pipClose = true
                 }
             } else {
