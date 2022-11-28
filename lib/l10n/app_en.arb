@@ -23,5 +23,12 @@
   "rulesAgree5": " Please start using the site.",
   "settingAppBar": "Setting",
   "settingTermsOfUse": "Terms of Use",
-  "settingPrivacyPolicy": "Privacy Policy"
+  "settingPrivacyPolicy": "Privacy Policy",
+  "usageRecordTitle": "Usage Record",
+  "usageRecordLabel1": "Consecutive days of use",
+  "usageRecordUtil1": "day",
+  "usageRecordLabel2": "Today's usage time",
+  "usageRecordUtil2": "min.",
+  "usageRecordLabel3": "Amount of blinking done",
+  "usageRecordUtil3": "times"
 }
