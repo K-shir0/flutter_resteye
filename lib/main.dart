@@ -35,6 +35,10 @@ void main() async {
       // 1日以上の場合は使用回数を1増加
       incrementNumberOfTimesUsed();
     }
+
+    print(diffUsedDays);
+
+    saveUsageTime(0);
   }
   // 最終使用時間を更新
   saveLastUsedTime();

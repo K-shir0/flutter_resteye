@@ -228,7 +228,7 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
                                               "assets/svg_images/calendar.svg",
                                           label: AppLocalizations.of(context)!
                                               .usageRecordLabel1,
-                                          value: _numberOfConsecutiveUses,
+                                          value: _numberOfConsecutiveUses + 1,
                                           unit: AppLocalizations.of(context)!
                                               .usageRecordUtil1,
                                         ),
