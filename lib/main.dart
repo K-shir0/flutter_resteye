@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 
 import 'package:flutter_resteye/app.dart';
 import 'package:flutter_resteye/components/number_of_times_used.dart';
-import 'package:flutter_resteye/core/last_used_time.dart';
+import 'package:flutter_resteye/core/_core.dart';
 
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 

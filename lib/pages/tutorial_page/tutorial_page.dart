@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_resteye/core/initialize.dart';
+import 'package:flutter_resteye/core/_core.dart';
 import 'package:flutter_resteye/pages/index_page.dart';
 import 'package:flutter_resteye/pages/tutorial_page/components/check_box_text.dart';
 import 'package:flutter_resteye/components/main_button.dart';

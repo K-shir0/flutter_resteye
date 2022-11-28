@@ -2,9 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
-import 'package:flutter_resteye/core/initialize.dart';
-import 'package:flutter_resteye/core/pinp_controller.dart';
-import 'package:flutter_resteye/core/selected_assets.dart';
+import 'package:flutter_resteye/core/_core.dart';
 import 'package:flutter_resteye/pages/index_page.dart';
 import 'package:flutter_resteye/pages/landing_page.dart';
 
