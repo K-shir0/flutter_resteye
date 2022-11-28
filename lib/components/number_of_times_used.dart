@@ -2,6 +2,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 const _key = "numberOfTimesUsed";
 
+/// 使用回数をリセット
+Future<void> resetNumberOfTimesUsed() async {
+  final prefs = await SharedPreferences.getInstance();
+  prefs.setInt(_key, 0);
+}
+
 /// 使用回数を増加する
 Future<void> incrementNumberOfTimesUsed() async {
   final prefs = await SharedPreferences.getInstance();
