@@ -210,7 +210,8 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
                               child: Column(
                                 children: [
                                   Text(
-                                    AppLocalizations.of(context)!.usageRecordTitle,
+                                    AppLocalizations.of(context)!
+                                        .usageRecordTitle,
                                     style: TextStyle(
                                       color: AppColors.titleTextColor,
                                       fontSize: 16.sp,
@@ -224,26 +225,31 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
                                     child: Wrap(
                                       alignment: WrapAlignment.spaceBetween,
                                       runSpacing: 8.h,
-                                      children:  [
+                                      children: [
                                         RestEyeUsageRecordCard(
                                           asset:
-                                          "assets/svg_images/calendar.svg",
-                                          label: AppLocalizations.of(context)!.usageRecordLabel1,
+                                              "assets/svg_images/calendar.svg",
+                                          label: AppLocalizations.of(context)!
+                                              .usageRecordLabel1,
                                           value: _numberOfConsecutiveUses,
-                                          unit: AppLocalizations.of(context)!.usageRecordUtil1,
+                                          unit: AppLocalizations.of(context)!
+                                              .usageRecordUtil1,
                                         ),
                                         RestEyeUsageRecordCard(
-                                          asset:
-                                          "assets/svg_images/clock.svg",
-                                          label: AppLocalizations.of(context)!.usageRecordLabel2,
+                                          asset: "assets/svg_images/clock.svg",
+                                          label: AppLocalizations.of(context)!
+                                              .usageRecordLabel2,
                                           value: _usageTime,
-                                          unit: AppLocalizations.of(context)!.usageRecordUtil2,
+                                          unit: AppLocalizations.of(context)!
+                                              .usageRecordUtil2,
                                         ),
                                         RestEyeUsageRecordCard(
                                           asset: "assets/svg_images/eye.svg",
-                                          label: AppLocalizations.of(context)!.usageRecordLabel3,
+                                          label: AppLocalizations.of(context)!
+                                              .usageRecordLabel3,
                                           value: _numberOfBlinks,
-                                          unit: AppLocalizations.of(context)!.usageRecordUtil3,
+                                          unit: AppLocalizations.of(context)!
+                                              .usageRecordUtil3,
                                         ),
                                       ],
                                     ),
