@@ -36,8 +36,6 @@ void main() async {
       incrementNumberOfTimesUsed();
     }
 
-    print(diffUsedDays);
-
     saveUsageTime(0);
   }
   // 最終使用時間を更新
