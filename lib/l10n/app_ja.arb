@@ -23,5 +23,12 @@
   "rulesAgree5": "に同意のもと\n利用を開始してください",
   "settingAppBar": "設定",
   "settingTermsOfUse": "利用規約",
-  "settingPrivacyPolicy": "プライバシーポリシー"
+  "settingPrivacyPolicy": "プライバシーポリシー",
+  "usageRecordTitle": "利用記録",
+  "usageRecordLabel1": "連続利用日数",
+  "usageRecordUtil1": "日目",
+  "usageRecordLabel2": "今日の利用時間",
+  "usageRecordUtil2": "分",
+  "usageRecordLabel3": "まばたき出来た量",
+  "usageRecordUtil3": "回"
 }

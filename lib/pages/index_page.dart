@@ -37,6 +37,9 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
   /// 連続使用回数
   var _numberOfConsecutiveUses = 0;
 
+  /// まばたきの回数
+  var _numberOfBlinks = 0;
+
   /// 使用時間の状態を更新するタイマー
   Timer? _usageTimeRenewTimer;
 
@@ -194,7 +197,65 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
                                   onPressed: () => _controller.toggle(),
                                   text: AppLocalizations.of(context)!.endButton,
                                 ),
-                          SizedBox(height: 64.h),
+                          SizedBox(height: 32.h),
+                          Card(
+                            color: AppColors.cardBgColor,
+                            elevation: 0,
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 20.w, vertical: 8.h),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    AppLocalizations.of(context)!
+                                        .usageRecordTitle,
+                                    style: TextStyle(
+                                      color: AppColors.titleTextColor,
+                                      fontSize: 16.sp,
+                                      letterSpacing: 1.15,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                  SizedBox(height: 8.h),
+                                  SizedBox(
+                                    width: double.infinity,
+                                    child: Wrap(
+                                      alignment: WrapAlignment.spaceBetween,
+                                      runSpacing: 8.h,
+                                      children: [
+                                        RestEyeUsageRecordCard(
+                                          asset:
+                                              "assets/svg_images/calendar.svg",
+                                          label: AppLocalizations.of(context)!
+                                              .usageRecordLabel1,
+                                          value: _numberOfConsecutiveUses,
+                                          unit: AppLocalizations.of(context)!
+                                              .usageRecordUtil1,
+                                        ),
+                                        RestEyeUsageRecordCard(
+                                          asset: "assets/svg_images/clock.svg",
+                                          label: AppLocalizations.of(context)!
+                                              .usageRecordLabel2,
+                                          value: _usageTime,
+                                          unit: AppLocalizations.of(context)!
+                                              .usageRecordUtil2,
+                                        ),
+                                        RestEyeUsageRecordCard(
+                                          asset: "assets/svg_images/eye.svg",
+                                          label: AppLocalizations.of(context)!
+                                              .usageRecordLabel3,
+                                          value: _numberOfBlinks,
+                                          unit: AppLocalizations.of(context)!
+                                              .usageRecordUtil3,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 32.h),
                           Column(
                             children: [
                               Text(
@@ -293,10 +354,6 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
   /// 使用状況更新用タイマー
   void setUsageRenewTimer() async {
     _usageTimeRenewTimer = Timer.periodic(const Duration(seconds: 3), (timer) {
-      // フロントが完成次第削除
-      print('使用時間: $_usageTime秒');
-      print('まばたきの回数: ${_usageTime / 3}回');
-
       _updateUsageState();
     });
   }
@@ -306,8 +363,9 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
     final usageTime = await getUsageTime();
     final numberOfConsecutiveUses = await getNumberOfTimesUsed();
     setState(() {
-      _usageTime = usageTime;
+      _usageTime = usageTime ~/ 60;
       _numberOfConsecutiveUses = numberOfConsecutiveUses;
+      _numberOfBlinks = usageTime ~/ 3;
     });
   }
 
