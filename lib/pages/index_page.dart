@@ -357,10 +357,6 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
   /// 使用状況更新用タイマー
   void setUsageRenewTimer() async {
     _usageTimeRenewTimer = Timer.periodic(const Duration(seconds: 3), (timer) {
-      // フロントが完成次第削除
-      print('使用時間: $_usageTime秒');
-      print('まばたきの回数: ${_usageTime / 3}回');
-
       _updateUsageState();
     });
   }
