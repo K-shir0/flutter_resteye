@@ -4,12 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:flutter_resteye/components/number_of_times_used.dart';
-import 'package:flutter_resteye/core/pinp_controller.dart';
-import 'package:flutter_resteye/core/pinp_view.dart';
+import 'package:flutter_resteye/core/_core.dart';
 import 'package:flutter_resteye/components/_components.dart';
 import 'package:flutter_resteye/constants.dart';
-import 'package:flutter_resteye/core/selected_assets.dart';
-import 'package:flutter_resteye/core/usege_time.dart';
 import 'package:flutter_resteye/pages/setting_page.dart';
 import 'package:flutter_resteye/pages/tutorial_page/tutorial_page.dart';
 
