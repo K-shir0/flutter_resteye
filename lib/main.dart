@@ -38,7 +38,7 @@ void main() async {
 
     saveUsageTime(0);
   }
-  // 最終使用時間を更新
+  // 最終使用日時を更新
   saveLastUsedTime();
 
   runApp(const App());
