@@ -30,7 +30,7 @@ import Flutter
             if call.method == "setAsset" {
                 guard let args = call.arguments as? Int else {return}
                 assetNumber = args
-                
+                pinpToggled = true
             }
             
             if call.method == "toggle" {

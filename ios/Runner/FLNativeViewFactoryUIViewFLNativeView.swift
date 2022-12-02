@@ -11,6 +11,7 @@ import UIPiPView
 
 let pipView = UIPiPView()
 var assetNumber = 0
+var pinpToggled = false
 
 class FLNativeViewFactory: NSObject, FlutterPlatformViewFactory {
     private var messenger: FlutterBinaryMessenger
@@ -105,6 +106,15 @@ class FLNativeView: NSObject, FlutterPlatformView {
             guard let self = self else { return }
 
             let second = calendar.component(.second, from: Date())
+            
+            // 押した瞬間に画像が切り替わるようにする
+            if (pinpToggled) {
+                if (pipClose) {
+                    self.setCloseImage()
+                } else {
+                    self.setOpenImage()
+                }
+            }
             
             /// 3秒に一回
             if (second % 3 == 0) {
