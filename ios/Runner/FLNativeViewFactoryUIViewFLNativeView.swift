@@ -11,6 +11,8 @@ import UIPiPView
 
 let pipView = UIPiPView()
 var assetNumber = 0
+var openUIImage = UIImage(named: "open")!
+var closeUIImage = UIImage(named: "close")!
 
 class FLNativeViewFactory: NSObject, FlutterPlatformViewFactory {
     private var messenger: FlutterBinaryMessenger
@@ -61,23 +63,27 @@ class FLNativeView: NSObject, FlutterPlatformView {
     func setOpenImage(){
         switch(assetNumber) {
         case 1:
-            self.imageView.image = UIImage(named: "open_boy")!
+            openUIImage = UIImage(named: "open_boy")!
         case 2:
-            self.imageView.image = UIImage(named: "open_girl")!
+            openUIImage = UIImage(named: "open_girl")!
         default:
-            self.imageView.image = UIImage(named: "open")!
+            openUIImage = UIImage(named: "open")!
         }
+        
+        self.imageView.image = openUIImage
     }
     
     func setCloseImage(){
         switch(assetNumber) {
         case 1:
-            self.imageView.image = UIImage(named: "close_boy")!
+            closeUIImage = UIImage(named: "close_boy")!
         case 2:
-            self.imageView.image = UIImage(named: "close_girl")!
+            closeUIImage = UIImage(named: "close_girl")!
         default:
-            self.imageView.image = UIImage(named: "close")!
+            closeUIImage = UIImage(named: "close")!
         }
+        
+        self.imageView.image = closeUIImage
     }
     
     func createNativeView(view _view: UIView){
