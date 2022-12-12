@@ -1,7 +1,10 @@
+import 'package:firebase_core/firebase_core.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:flutter_resteye/app.dart';
+import 'package:flutter_resteye/firebase_options.dart';
 import 'package:flutter_resteye/components/number_of_times_used.dart';
 import 'package:flutter_resteye/core/_core.dart';
 
@@ -9,6 +12,11 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  // Firebase 初期化
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   // 画面の向き上部固定

@@ -1,5 +1,7 @@
 import 'package:flutter/services.dart';
 
+import 'package:flutter_resteye/core/analytics.dart';
+
 /// PinP を操作するためのコントローラ
 class PinPController {
   PinPController();
@@ -13,6 +15,8 @@ class PinPController {
   }
 
   Future<void> toggle() async {
+    logPictureInPictureToggleEvent();
+
     await _channel.invokeMethod('toggle');
   }
 

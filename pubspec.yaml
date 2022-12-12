@@ -41,6 +41,8 @@ dependencies:
     sdk: flutter
   intl: ^0.17.0
   page_transition: ^2.0.9
+  firebase_core: ^2.1.1
+  firebase_analytics: ^10.0.4
   url_launcher: ^6.1.6
 
 # アイコン設定
