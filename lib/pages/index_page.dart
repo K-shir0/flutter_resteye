@@ -102,232 +102,235 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [AppColors.appBarBGColor, AppColors.bgColor],
-            stops: [0.5, 0.5],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
+    return AnnotatedRegion(
+      value: SystemUiOverlayStyle.dark,
+      child: Scaffold(
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [AppColors.appBarBGColor, AppColors.bgColor],
+              stops: [0.5, 0.5],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
           ),
-        ),
-        child: SafeArea(
-          child: Container(
-            color: AppColors.bgColor,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  width: double.infinity,
-                  height: 56.h,
-                  color: AppColors.appBarBGColor,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 24),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Container(
-                          margin: const EdgeInsets.only(right: 16),
-                          width: 32.w,
-                          height: 32.h,
-                          decoration: BoxDecoration(
-                            color: AppColors.settingBgColor,
-                            shape: BoxShape.circle,
-                            boxShadow: [
-                              BoxShadow(
-                                color: AppColors.settingShadowColor
-                                    .withOpacity(0.2),
-                                blurRadius: 4,
-                                spreadRadius: 1,
+          child: SafeArea(
+            child: Container(
+              color: AppColors.bgColor,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    width: double.infinity,
+                    height: 56.h,
+                    color: AppColors.appBarBGColor,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 24),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Container(
+                            margin: const EdgeInsets.only(right: 16),
+                            width: 32.w,
+                            height: 32.h,
+                            decoration: BoxDecoration(
+                              color: AppColors.settingBgColor,
+                              shape: BoxShape.circle,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: AppColors.settingShadowColor
+                                      .withOpacity(0.2),
+                                  blurRadius: 4,
+                                  spreadRadius: 1,
+                                ),
+                              ],
+                            ),
+                            child: GestureDetector(
+                              onTap: () => _toPage(context, const SettingPage()),
+                              child: Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: SvgPicture.asset(
+                                  'assets/svg_images/setting.svg',
+                                  width: 24.w,
+                                  height: 24.h,
+                                  fit: BoxFit.scaleDown,
+                                ),
+                              ),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () => _toPage(context, const TutorialPage()),
+                            child: SvgPicture.asset(
+                              'assets/svg_images/question.svg',
+                              width: 32.w,
+                              height: 32.h,
+                              fit: BoxFit.scaleDown,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 40.w),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            children: [
+                              SizedBox(height: 32.h),
+                              GestureDetector(
+                                onLongPress: () {
+                                  HapticFeedback.heavyImpact();
+                                  _controller.toggle();
+                                },
+                                child: Container(
+                                  color: AppColors.pinpBgColor,
+                                  child: ConstrainedBox(
+                                    constraints: BoxConstraints(
+                                        maxHeight: 148.h, maxWidth: 304.w),
+                                    child: _showPinP
+                                        ? const PinPView()
+                                        : SizedBox(height: 152.h),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: 40.h),
+                              !_isPictureInPictureActive
+                                  ? RestEyeMainButton(
+                                      onPressed: () => _controller.toggle(),
+                                      text: AppLocalizations.of(context)!
+                                          .startButton,
+                                    )
+                                  : RestEyeSubButton(
+                                      onPressed: () => _controller.toggle(),
+                                      text:
+                                          AppLocalizations.of(context)!.endButton,
+                                    ),
+                              SizedBox(height: 32.h),
+                              Card(
+                                color: AppColors.cardBgColor,
+                                elevation: 0,
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 20.w, vertical: 8.h),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        AppLocalizations.of(context)!
+                                            .usageRecordTitle,
+                                        style: TextStyle(
+                                          color: AppColors.titleTextColor,
+                                          fontSize: 16.sp,
+                                          letterSpacing: 1.15,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                      SizedBox(height: 8.h),
+                                      SizedBox(
+                                        width: double.infinity,
+                                        child: Wrap(
+                                          alignment: WrapAlignment.spaceBetween,
+                                          runSpacing: 8.h,
+                                          children: [
+                                            RestEyeUsageRecordCard(
+                                              asset:
+                                                  "assets/svg_images/calendar.svg",
+                                              label: AppLocalizations.of(context)!
+                                                  .usageRecordLabel1,
+                                              value: _numberOfConsecutiveUses + 1,
+                                              unit: AppLocalizations.of(context)!
+                                                  .usageRecordUtil1,
+                                            ),
+                                            RestEyeUsageRecordCard(
+                                              asset:
+                                                  "assets/svg_images/clock.svg",
+                                              label: AppLocalizations.of(context)!
+                                                  .usageRecordLabel2,
+                                              value: _usageTime,
+                                              unit: AppLocalizations.of(context)!
+                                                  .usageRecordUtil2,
+                                            ),
+                                            RestEyeUsageRecordCard(
+                                              asset: "assets/svg_images/eye.svg",
+                                              label: AppLocalizations.of(context)!
+                                                  .usageRecordLabel3,
+                                              value: _numberOfBlinks,
+                                              unit: AppLocalizations.of(context)!
+                                                  .usageRecordUtil3,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: 32.h),
+                              Column(
+                                children: [
+                                  Text(
+                                    AppLocalizations.of(context)!
+                                        .changeVideoButton,
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      color: AppColors.titleTextColor,
+                                      letterSpacing: 1.15,
+                                      fontSize: 16.sp,
+                                    ),
+                                  ),
+                                  SizedBox(height: 16.h),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {
+                                          saveSelectedAssetsNumber(0);
+                                          _controller.setAsset(0);
+                                          setState(() => _selectedMovie = 0);
+                                        },
+                                        child: RestEyeCard(
+                                          asset: 'assets/images/open@3x.png',
+                                          selected: _selectedMovie == 0,
+                                        ),
+                                      ),
+                                      GestureDetector(
+                                        onTap: () {
+                                          saveSelectedAssetsNumber(1);
+                                          _controller.setAsset(1);
+                                          setState(() => _selectedMovie = 1);
+                                        },
+                                        child: RestEyeCard(
+                                          asset: 'assets/images/open_boy@3x.png',
+                                          selected: _selectedMovie == 1,
+                                        ),
+                                      ),
+                                      GestureDetector(
+                                        onTap: () {
+                                          saveSelectedAssetsNumber(2);
+                                          _controller.setAsset(2);
+                                          setState(() => _selectedMovie = 2);
+                                        },
+                                        child: RestEyeCard(
+                                          asset: 'assets/images/open_girl@3x.png',
+                                          selected: _selectedMovie == 2,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 32.h),
+                                ],
                               ),
                             ],
                           ),
-                          child: GestureDetector(
-                            onTap: () => _toPage(context, const SettingPage()),
-                            child: Padding(
-                              padding: const EdgeInsets.all(4.0),
-                              child: SvgPicture.asset(
-                                'assets/svg_images/setting.svg',
-                                width: 24.w,
-                                height: 24.h,
-                                fit: BoxFit.scaleDown,
-                              ),
-                            ),
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () => _toPage(context, const TutorialPage()),
-                          child: SvgPicture.asset(
-                            'assets/svg_images/question.svg',
-                            width: 32.w,
-                            height: 32.h,
-                            fit: BoxFit.scaleDown,
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 40.w),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          children: [
-                            SizedBox(height: 32.h),
-                            GestureDetector(
-                              onLongPress: () {
-                                HapticFeedback.heavyImpact();
-                                _controller.toggle();
-                              },
-                              child: Container(
-                                color: AppColors.pinpBgColor,
-                                child: ConstrainedBox(
-                                  constraints: BoxConstraints(
-                                      maxHeight: 148.h, maxWidth: 304.w),
-                                  child: _showPinP
-                                      ? const PinPView()
-                                      : SizedBox(height: 152.h),
-                                ),
-                              ),
-                            ),
-                            SizedBox(height: 40.h),
-                            !_isPictureInPictureActive
-                                ? RestEyeMainButton(
-                                    onPressed: () => _controller.toggle(),
-                                    text: AppLocalizations.of(context)!
-                                        .startButton,
-                                  )
-                                : RestEyeSubButton(
-                                    onPressed: () => _controller.toggle(),
-                                    text:
-                                        AppLocalizations.of(context)!.endButton,
-                                  ),
-                            SizedBox(height: 32.h),
-                            Card(
-                              color: AppColors.cardBgColor,
-                              elevation: 0,
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 20.w, vertical: 8.h),
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      AppLocalizations.of(context)!
-                                          .usageRecordTitle,
-                                      style: TextStyle(
-                                        color: AppColors.titleTextColor,
-                                        fontSize: 16.sp,
-                                        letterSpacing: 1.15,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                    SizedBox(height: 8.h),
-                                    SizedBox(
-                                      width: double.infinity,
-                                      child: Wrap(
-                                        alignment: WrapAlignment.spaceBetween,
-                                        runSpacing: 8.h,
-                                        children: [
-                                          RestEyeUsageRecordCard(
-                                            asset:
-                                                "assets/svg_images/calendar.svg",
-                                            label: AppLocalizations.of(context)!
-                                                .usageRecordLabel1,
-                                            value: _numberOfConsecutiveUses + 1,
-                                            unit: AppLocalizations.of(context)!
-                                                .usageRecordUtil1,
-                                          ),
-                                          RestEyeUsageRecordCard(
-                                            asset:
-                                                "assets/svg_images/clock.svg",
-                                            label: AppLocalizations.of(context)!
-                                                .usageRecordLabel2,
-                                            value: _usageTime,
-                                            unit: AppLocalizations.of(context)!
-                                                .usageRecordUtil2,
-                                          ),
-                                          RestEyeUsageRecordCard(
-                                            asset: "assets/svg_images/eye.svg",
-                                            label: AppLocalizations.of(context)!
-                                                .usageRecordLabel3,
-                                            value: _numberOfBlinks,
-                                            unit: AppLocalizations.of(context)!
-                                                .usageRecordUtil3,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            SizedBox(height: 32.h),
-                            Column(
-                              children: [
-                                Text(
-                                  AppLocalizations.of(context)!
-                                      .changeVideoButton,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    color: AppColors.titleTextColor,
-                                    letterSpacing: 1.15,
-                                    fontSize: 16.sp,
-                                  ),
-                                ),
-                                SizedBox(height: 16.h),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    GestureDetector(
-                                      onTap: () {
-                                        saveSelectedAssetsNumber(0);
-                                        _controller.setAsset(0);
-                                        setState(() => _selectedMovie = 0);
-                                      },
-                                      child: RestEyeCard(
-                                        asset: 'assets/images/open@3x.png',
-                                        selected: _selectedMovie == 0,
-                                      ),
-                                    ),
-                                    GestureDetector(
-                                      onTap: () {
-                                        saveSelectedAssetsNumber(1);
-                                        _controller.setAsset(1);
-                                        setState(() => _selectedMovie = 1);
-                                      },
-                                      child: RestEyeCard(
-                                        asset: 'assets/images/open_boy@3x.png',
-                                        selected: _selectedMovie == 1,
-                                      ),
-                                    ),
-                                    GestureDetector(
-                                      onTap: () {
-                                        saveSelectedAssetsNumber(2);
-                                        _controller.setAsset(2);
-                                        setState(() => _selectedMovie = 2);
-                                      },
-                                      child: RestEyeCard(
-                                        asset: 'assets/images/open_girl@3x.png',
-                                        selected: _selectedMovie == 2,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(height: 32.h),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
