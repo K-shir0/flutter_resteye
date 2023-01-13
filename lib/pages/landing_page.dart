@@ -63,8 +63,8 @@ class LandingPage extends StatelessWidget {
                               decoration: TextDecoration.underline,
                             ),
                             recognizer: TapGestureRecognizer()
-                              ..onTap = () =>
-                                  RestEyeUrlLauncher.launchInBrowserTermsOfUse(),
+                              ..onTap = () => RestEyeUrlLauncher
+                                  .launchInBrowserTermsOfUse(),
                           ),
                           TextSpan(
                               text: AppLocalizations.of(context)!.rulesAgree3),
