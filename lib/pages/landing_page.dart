@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_resteye/components/_components.dart';
 import 'package:flutter_resteye/constants.dart';
 import 'package:flutter_resteye/pages/tutorial_page/tutorial_page.dart';
-import 'package:flutter_resteye/utils/url_launcher.dart';
+import 'package:flutter_resteye/utils/_utils.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -63,8 +63,8 @@ class LandingPage extends StatelessWidget {
                               decoration: TextDecoration.underline,
                             ),
                             recognizer: TapGestureRecognizer()
-                              ..onTap = () =>
-                                  RestEyeUrlLauncher.launchInBrowserTermsOfUse(),
+                              ..onTap = () => RestEyeUrlLauncher
+                                  .launchInBrowserTermsOfUse(),
                           ),
                           TextSpan(
                               text: AppLocalizations.of(context)!.rulesAgree3),

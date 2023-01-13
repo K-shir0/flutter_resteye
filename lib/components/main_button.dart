@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_resteye/constants.dart';
+import 'package:flutter_resteye/utils/_utils.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -32,7 +33,7 @@ class RestEyeMainButton extends StatelessWidget {
       child: Text(
         text,
         style: TextStyle(
-          fontSize: 18,
+          fontSize: 18.sp,
           fontWeight: FontWeight.bold,
           letterSpacing: 1.15,
           height: 1.3,
