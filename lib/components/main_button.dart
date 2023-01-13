@@ -33,7 +33,7 @@ class RestEyeMainButton extends StatelessWidget {
       child: Text(
         text,
         style: TextStyle(
-          fontSize: 18.sp,
+          fontSize: 16.sp,
           fontWeight: FontWeight.bold,
           letterSpacing: 1.15,
           height: 1.3,

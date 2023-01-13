@@ -259,7 +259,7 @@ class _ViewBody extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(8),
                         child: Container(
-                          width: 12.w,
+                          width: 12,
                           height: 12.h,
                           decoration: BoxDecoration(
                             color: current == i
