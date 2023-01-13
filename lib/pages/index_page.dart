@@ -147,7 +147,8 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
                               ],
                             ),
                             child: GestureDetector(
-                              onTap: () => _toPage(context, const SettingPage()),
+                              onTap: () =>
+                                  _toPage(context, const SettingPage()),
                               child: Padding(
                                 padding: const EdgeInsets.all(4.0),
                                 child: SvgPicture.asset(
@@ -206,8 +207,8 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
                                     )
                                   : RestEyeSubButton(
                                       onPressed: () => _controller.toggle(),
-                                      text:
-                                          AppLocalizations.of(context)!.endButton,
+                                      text: AppLocalizations.of(context)!
+                                          .endButton,
                                     ),
                               SizedBox(height: 32.h),
                               Card(
@@ -238,28 +239,36 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
                                             RestEyeUsageRecordCard(
                                               asset:
                                                   "assets/svg_images/calendar.svg",
-                                              label: AppLocalizations.of(context)!
-                                                  .usageRecordLabel1,
-                                              value: _numberOfConsecutiveUses + 1,
-                                              unit: AppLocalizations.of(context)!
-                                                  .usageRecordUtil1,
+                                              label:
+                                                  AppLocalizations.of(context)!
+                                                      .usageRecordLabel1,
+                                              value:
+                                                  _numberOfConsecutiveUses + 1,
+                                              unit:
+                                                  AppLocalizations.of(context)!
+                                                      .usageRecordUtil1,
                                             ),
                                             RestEyeUsageRecordCard(
                                               asset:
                                                   "assets/svg_images/clock.svg",
-                                              label: AppLocalizations.of(context)!
-                                                  .usageRecordLabel2,
+                                              label:
+                                                  AppLocalizations.of(context)!
+                                                      .usageRecordLabel2,
                                               value: _usageTime,
-                                              unit: AppLocalizations.of(context)!
-                                                  .usageRecordUtil2,
+                                              unit:
+                                                  AppLocalizations.of(context)!
+                                                      .usageRecordUtil2,
                                             ),
                                             RestEyeUsageRecordCard(
-                                              asset: "assets/svg_images/eye.svg",
-                                              label: AppLocalizations.of(context)!
-                                                  .usageRecordLabel3,
+                                              asset:
+                                                  "assets/svg_images/eye.svg",
+                                              label:
+                                                  AppLocalizations.of(context)!
+                                                      .usageRecordLabel3,
                                               value: _numberOfBlinks,
-                                              unit: AppLocalizations.of(context)!
-                                                  .usageRecordUtil3,
+                                              unit:
+                                                  AppLocalizations.of(context)!
+                                                      .usageRecordUtil3,
                                             ),
                                           ],
                                         ),
@@ -304,7 +313,8 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
                                           setState(() => _selectedMovie = 1);
                                         },
                                         child: RestEyeCard(
-                                          asset: 'assets/images/open_boy@3x.png',
+                                          asset:
+                                              'assets/images/open_boy@3x.png',
                                           selected: _selectedMovie == 1,
                                         ),
                                       ),
@@ -315,7 +325,8 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
                                           setState(() => _selectedMovie = 2);
                                         },
                                         child: RestEyeCard(
-                                          asset: 'assets/images/open_girl@3x.png',
+                                          asset:
+                                              'assets/images/open_girl@3x.png',
                                           selected: _selectedMovie == 2,
                                         ),
                                       ),

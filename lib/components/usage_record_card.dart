@@ -51,10 +51,12 @@ class RestEyeUsageRecordCard extends StatelessWidget {
         ),
         Row(
           mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             SizedBox(width: 20.w),
             Text(
               value.toString(),
+              strutStyle: const StrutStyle(height: 1.3),
               style: TextStyle(
                 fontSize: 24.sp,
                 color: AppColors.textColor,
@@ -64,11 +66,14 @@ class RestEyeUsageRecordCard extends StatelessWidget {
             ),
             Text(
               unit,
+              strutStyle: StrutStyle(
+                fontSize: 24.sp,
+                height: 1.3,
+              ),
               style: TextStyle(
                 fontSize: 12.sp,
                 color: AppColors.textColor,
                 fontWeight: FontWeight.bold,
-                height: 1.3.h,
               ),
             ),
           ],
