@@ -5,6 +5,7 @@ import 'package:flutter_resteye/pages/index_page.dart';
 import 'package:flutter_resteye/pages/tutorial_page/components/check_box_text.dart';
 import 'package:flutter_resteye/components/main_button.dart';
 import 'package:flutter_resteye/constants.dart';
+import 'package:flutter_resteye/utils/_utils.dart';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

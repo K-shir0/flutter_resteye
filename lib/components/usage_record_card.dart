@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_resteye/constants.dart';
+import 'package:flutter_resteye/utils/font_util.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -67,7 +68,7 @@ class RestEyeUsageRecordCard extends StatelessWidget {
                 fontSize: 12.sp,
                 color: AppColors.textColor,
                 fontWeight: FontWeight.bold,
-                height: 2.h,
+                height: 1.3.h,
               ),
             ),
           ],
