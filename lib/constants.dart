@@ -15,6 +15,8 @@ class AppColors {
   static const Color settingShadowColor = Color(0xFF13202D);
   static const Color settingAppBarColor = Color(0xFF417FB8);
 
+  static const Color questionBgColor = Color(0xFF417FB8);
+
   static const Color importantTextColor = Color(0xFF5595D1);
   static const Color titleTextColor = Color(0xFF417FB8);
   static const Color textColor = Color(0xFF13202D);
