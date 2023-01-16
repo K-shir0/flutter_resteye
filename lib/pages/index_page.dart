@@ -130,25 +130,24 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Container(
-                            margin: const EdgeInsets.only(right: 16),
-                            width: 32.w,
-                            height: 32.h,
-                            decoration: BoxDecoration(
-                              color: AppColors.settingBgColor,
-                              shape: BoxShape.circle,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: AppColors.settingShadowColor
-                                      .withOpacity(0.2),
-                                  blurRadius: 4,
-                                  spreadRadius: 1,
-                                ),
-                              ],
-                            ),
-                            child: GestureDetector(
-                              onTap: () =>
-                                  _toPage(context, const SettingPage()),
+                          GestureDetector(
+                            onTap: () => _toPage(context, const SettingPage()),
+                            child: Container(
+                              margin: const EdgeInsets.only(right: 16),
+                              width: 32.w,
+                              height: 32.h,
+                              decoration: BoxDecoration(
+                                color: AppColors.settingBgColor,
+                                shape: BoxShape.circle,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: AppColors.settingShadowColor
+                                        .withOpacity(0.2),
+                                    blurRadius: 4,
+                                    spreadRadius: 1,
+                                  ),
+                                ],
+                              ),
                               child: Padding(
                                 padding: const EdgeInsets.all(4.0),
                                 child: SvgPicture.asset(
@@ -162,11 +161,22 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
                           ),
                           GestureDetector(
                             onTap: () => _toPage(context, const TutorialPage()),
-                            child: SvgPicture.asset(
-                              'assets/svg_images/question.svg',
+                            child: Container(
                               width: 32.w,
                               height: 32.h,
-                              fit: BoxFit.scaleDown,
+                              decoration: const BoxDecoration(
+                                color: AppColors.questionBgColor,
+                                shape: BoxShape.circle,
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: SvgPicture.asset(
+                                  'assets/svg_images/question.svg',
+                                  width: 24.w,
+                                  height: 24.h,
+                                  fit: BoxFit.scaleDown,
+                                ),
+                              ),
                             ),
                           ),
                         ],
