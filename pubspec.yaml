@@ -44,6 +44,7 @@ dependencies:
   firebase_core: ^2.1.1
   firebase_analytics: ^10.0.4
   url_launcher: ^6.1.6
+  google_mobile_ads: ^2.3.0
 
 # アイコン設定
 # 以下のコマンドで実行
