@@ -43,7 +43,13 @@ PODS:
     - GoogleUtilities/UserDefaults (~> 7.8)
     - PromisesObjC (~> 2.1)
   - Flutter (1.0.0)
+  - flutter_app_badger (1.3.0):
+    - Flutter
+  - flutter_local_notifications (0.0.1):
+    - Flutter
   - flutter_native_splash (0.0.1):
+    - Flutter
+  - flutter_native_timezone (0.0.1):
     - Flutter
   - GoogleAppMeasurement (10.0.0):
     - GoogleAppMeasurement/AdIdSupport (= 10.0.0)
@@ -100,7 +106,10 @@ DEPENDENCIES:
   - firebase_analytics (from `.symlinks/plugins/firebase_analytics/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - Flutter (from `Flutter`)
+  - flutter_app_badger (from `.symlinks/plugins/flutter_app_badger/ios`)
+  - flutter_local_notifications (from `.symlinks/plugins/flutter_local_notifications/ios`)
   - flutter_native_splash (from `.symlinks/plugins/flutter_native_splash/ios`)
+  - flutter_native_timezone (from `.symlinks/plugins/flutter_native_timezone/ios`)
   - shared_preferences_ios (from `.symlinks/plugins/shared_preferences_ios/ios`)
   - UIPiPView (from `https://github.com/uakihir0/UIPiPView/`, branch `main`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
@@ -124,8 +133,14 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/firebase_core/ios"
   Flutter:
     :path: Flutter
+  flutter_app_badger:
+    :path: ".symlinks/plugins/flutter_app_badger/ios"
+  flutter_local_notifications:
+    :path: ".symlinks/plugins/flutter_local_notifications/ios"
   flutter_native_splash:
     :path: ".symlinks/plugins/flutter_native_splash/ios"
+  flutter_native_timezone:
+    :path: ".symlinks/plugins/flutter_native_timezone/ios"
   shared_preferences_ios:
     :path: ".symlinks/plugins/shared_preferences_ios/ios"
   UIPiPView:
@@ -148,7 +163,10 @@ SPEC CHECKSUMS:
   FirebaseCoreInternal: 96d75228e10fd369564da51bd898414eb0f54df5
   FirebaseInstallations: 7f1c9ae6bd9df6abe9c74124b38fa8740aba5df4
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  flutter_app_badger: b87fc231847b03b92ce1412aa351842e7e97932f
+  flutter_local_notifications: 0c0b1ae97e741e1521e4c1629a459d04b9aec743
   flutter_native_splash: 52501b97d1c0a5f898d687f1646226c1f93c56ef
+  flutter_native_timezone: 5f05b2de06c9776b4cc70e1839f03de178394d22
   GoogleAppMeasurement: 7e48a3249792ac35d6f18f107f63f199a7e9d0ce
   GoogleUtilities: 1d20a6ad97ef46f67bbdec158ce00563a671ebb7
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
