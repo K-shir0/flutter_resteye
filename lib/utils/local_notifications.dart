@@ -33,18 +33,18 @@ class RestEyeLocalNotifications {
     const initializationSettingsIOS = DarwinInitializationSettings(
       requestAlertPermission: true,
       requestBadgePermission: true,
-      requestSoundPermission: false,
+      requestSoundPermission: true,
     );
 
-    var initializationSettings =
-        const InitializationSettings(iOS: initializationSettingsIOS);
+    const initializationSettings =
+        InitializationSettings(iOS: initializationSettingsIOS);
 
     await _flutterLocalNotificationsPlugin.initialize(initializationSettings);
   }
 
   static Future<void> _configureLocalTimeZone() async {
     tz.initializeTimeZones();
-    final String timeZoneName = await FlutterNativeTimezone.getLocalTimezone();
+    final timeZoneName = await FlutterNativeTimezone.getLocalTimezone();
     tz.setLocalLocation(tz.getLocation(timeZoneName));
   }
 

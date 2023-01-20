@@ -73,6 +73,9 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
     // 使用時間と選択している画像の状態を初期化
     _updateUsageState();
     _initSelectedMovieState();
+
+    // ローカル通知の初期化
+    RestEyeLocalNotifications.initializeLocalNotifications();
     RestEyeLocalNotifications.scheduleNotification(
         hour: 11, minutes: 27, message: "最近開いてなくない");
   }
