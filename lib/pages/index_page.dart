@@ -14,6 +14,7 @@ import 'package:flutter_resteye/utils/_utils.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_app_badger/flutter_app_badger.dart';
 
 class IndexPage extends StatefulWidget {
   const IndexPage({Key? key}) : super(key: key);
@@ -72,6 +73,11 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
     // 使用時間と選択している画像の状態を初期化
     _updateUsageState();
     _initSelectedMovieState();
+
+    // ローカル通知の初期化
+    RestEyeLocalNotifications.initializeLocalNotifications();
+    RestEyeLocalNotifications.scheduleNotification(
+        hour: 11, minutes: 27, message: "最近開いてなくない");
   }
 
   @override
@@ -90,6 +96,7 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
       // 再開したとき
       case AppLifecycleState.resumed:
         setUsageRenewTimer();
+        FlutterAppBadger.removeBadge();
         break;
       // 止めたとき
       case AppLifecycleState.paused:

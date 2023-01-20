@@ -8,6 +8,11 @@ import Flutter
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         GeneratedPluginRegistrant.register(with: self)
+
+        /// flutter_local_notifications の設定
+        if #available(iOS 10.0, *) {
+          UNUserNotificationCenter.current().delegate = self as? UNUserNotificationCenterDelegate
+        }
         
         weak var registrar = self.registrar(forPlugin: "pinpPlugin")
 
