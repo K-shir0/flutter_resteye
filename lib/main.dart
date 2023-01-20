@@ -4,14 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:flutter_resteye/app.dart';
+import 'package:flutter_resteye/constants.dart';
 import 'package:flutter_resteye/firebase_options.dart';
 import 'package:flutter_resteye/components/number_of_times_used.dart';
 import 'package:flutter_resteye/core/_core.dart';
 
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+
+  // AdMob 初期化
+  MobileAds.instance.initialize();
+
   // Firebase 初期化
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -25,6 +31,14 @@ void main() async {
   //ステータスバーの色固定
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark
       .copyWith(statusBarBrightness: Brightness.light));
+
+  // admob の引数が無いとエラー
+  if (kAdUnitIdIndexBottom == "") {
+    throw ArgumentError(
+      'ad unit id is not defined'
+      'Set unit id using `--dart-define`.',
+    );
+  }
 
   // 最終使用時間を取得
   // 初期値(0) でないかつ差が1日以上ある場合は使用回数を増加
