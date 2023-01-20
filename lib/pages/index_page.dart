@@ -14,6 +14,7 @@ import 'package:flutter_resteye/utils/_utils.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class IndexPage extends StatefulWidget {
   const IndexPage({Key? key}) : super(key: key);
@@ -24,6 +25,12 @@ class IndexPage extends StatefulWidget {
 
 class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
   final _controller = PinPController();
+  final _banner = BannerAd(
+    size: AdSize.banner,
+    adUnitId: kAdUnitIdIndexBottom,
+    listener: const BannerAdListener(),
+    request: const AdRequest(),
+  );
 
   /// PinP がアクティブかどうか
   var _isPictureInPictureActive = false;
@@ -77,6 +84,7 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
+    _banner.dispose();
     super.dispose();
   }
 
@@ -103,6 +111,10 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
+    _banner.load();
+
+    final adBannerWidget = AdWidget(ad: _banner);
+
     return AnnotatedRegion(
       value: SystemUiOverlayStyle.dark,
       child: Scaffold(
@@ -287,7 +299,7 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
                                   ),
                                 ),
                               ),
-                              SizedBox(height: 32.h),
+                              SizedBox(height: 8.h),
                               Column(
                                 children: [
                                   Text(
@@ -342,7 +354,6 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
                                       ),
                                     ],
                                   ),
-                                  SizedBox(height: 32.h),
                                 ],
                               ),
                             ],
@@ -350,6 +361,10 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
                         ],
                       ),
                     ),
+                  ),
+                  SizedBox(
+                    height: 50.h,
+                    child: adBannerWidget,
                   ),
                 ],
               ),
