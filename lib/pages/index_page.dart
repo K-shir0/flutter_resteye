@@ -220,7 +220,7 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
                                   ),
                                 ),
                               ),
-                              SizedBox(height: 40.h),
+                              SizedBox(height: 24.h),
                               !_isPictureInPictureActive
                                   ? RestEyeMainButton(
                                       onPressed: () => _controller.toggle(),
@@ -232,7 +232,7 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
                                       text: AppLocalizations.of(context)!
                                           .endButton,
                                     ),
-                              SizedBox(height: 32.h),
+                              SizedBox(height: 20.h),
                               Card(
                                 color: AppColors.cardBgColor,
                                 elevation: 0,
