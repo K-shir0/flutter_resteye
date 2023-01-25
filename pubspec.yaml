@@ -49,6 +49,7 @@ dependencies:
   flutter_native_timezone: ^2.0.0
   flutter_app_badger: ^1.5.0
   timezone: ^0.9.1
+  app_tracking_transparency: ^2.0.3
 
 # アイコン設定
 # 以下のコマンドで実行

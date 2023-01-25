@@ -81,6 +81,10 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
     _updateUsageState();
     _initSelectedMovieState();
 
+    // 広告のトラッキング許可
+    // landing にもあるが、こちらはインストール済みの人が許可できるように追加
+    RestEyeATT.confirmATTStatus();
+
     // ローカル通知の初期化
     RestEyeLocalNotifications.initializeLocalNotifications();
     RestEyeLocalNotifications.scheduleNotification(
