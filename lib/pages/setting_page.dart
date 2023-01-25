@@ -71,6 +71,25 @@ class _SettingPageState extends State<SettingPage> {
             ),
             onTap: () => RestEyeUrlLauncher.launchInBrowserPrivacyPolicy(),
           ),
+          // TODO(k-shir0): ローカライズする
+          ListTile(
+            title: const Text('広告解除 ¥160'),
+            leading: const Icon(Icons.currency_yen),
+            trailing: const Icon(
+              Icons.arrow_forward_ios,
+              size: 16,
+            ),
+            onTap: () => {},
+          ),
+          ListTile(
+            title: const Text('購入を復元'),
+            leading: const Icon(Icons.restore),
+            trailing: const Icon(
+              Icons.arrow_forward_ios,
+              size: 16,
+            ),
+            onTap: () => {},
+          ),
         ],
       ),
     );
