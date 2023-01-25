@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 const kAdUnitIdIndexBottom = String.fromEnvironment('AD_UNIT_ID_INDEX_BOTTOM');
+const kAdUnitIdSettingTop = String.fromEnvironment('AD_UNIT_ID_SETTING_TOP');
 
 class AppColors {
   static const Color bgColor = Color(0xFFD1E9FF);
