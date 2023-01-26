@@ -45,7 +45,7 @@ class _SettingPageState extends State<SettingPage> {
           Padding(
             padding: EdgeInsets.fromLTRB(8.h, 8.w, 0, 8.h),
             child: Text(
-              '広告',
+              AppLocalizations.of(context)!.settingAdTitle,
               style: TextStyle(fontSize: 10.sp),
             ),
           ),
