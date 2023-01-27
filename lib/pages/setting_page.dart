@@ -50,7 +50,6 @@ class _SettingPageState extends State<SettingPage> {
         future: RestEyePurchases.getAdFree(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
-            // TODO(k-shir): Loading 追加
             return const ProgressOverlay(
               inProgress: true,
               child: SizedBox.shrink(),
@@ -63,7 +62,7 @@ class _SettingPageState extends State<SettingPage> {
               child: ValueListenableBuilder<bool?>(
                 valueListenable: adFreeProvider,
                 builder: (context, value, _) {
-                  final isActive = !(value ?? false);
+                  final isActive = value ?? false;
 
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -103,20 +102,20 @@ class _SettingPageState extends State<SettingPage> {
                         onTap: () =>
                             RestEyeUrlLauncher.launchInBrowserPrivacyPolicy(),
                       ),
-                      // TODO(k-shir0): ローカライズする
                       if (isActive) ...[
-                        const ListTile(
+                        ListTile(
                           title: Text(
-                            '広告解除 - 購入済み',
-                            style: TextStyle(color: Colors.green),
+                            AppLocalizations.of(context)!
+                                .settingPurchasedAdFree,
+                            style: const TextStyle(color: Colors.green),
                           ),
-                          leading: Icon(Icons.currency_yen),
+                          leading: const Icon(Icons.currency_yen),
                           onTap: null,
                         ),
                       ] else ...[
                         ListTile(
                           title: Text(
-                              '広告解除 ¥ ${adFree.storeProduct.price.toInt()}'),
+                              '${AppLocalizations.of(context)!.settingAdFree}${adFree.storeProduct.price.toInt()}'),
                           leading: const Icon(Icons.currency_yen),
                           trailing: const Icon(
                             Icons.arrow_forward_ios,
@@ -125,7 +124,10 @@ class _SettingPageState extends State<SettingPage> {
                           onTap: () => _purchase(context),
                         ),
                         ListTile(
-                          title: const Text('購入を復元'),
+                          title: Text(
+                            AppLocalizations.of(context)!
+                                .settingPurchasedRestore,
+                          ),
                           leading: const Icon(Icons.restore),
                           trailing: const Icon(
                             Icons.arrow_forward_ios,
@@ -160,12 +162,7 @@ class _SettingPageState extends State<SettingPage> {
       }
     } on PlatformException catch (e) {
       // 購入エラー
-      CupertinoDialog.show(
-        context,
-        '操作を完了できませんでした',
-        '原因不明のエラーが発生しました'
-            '${e.code}:${e.message}',
-      );
+      _showErrorDialog(context, e);
     } finally {
       setState(() {
         _isValidating = false;
@@ -188,16 +185,19 @@ class _SettingPageState extends State<SettingPage> {
       }
     } on PlatformException catch (e) {
       // 購入を復元エラー
-      CupertinoDialog.show(
-        context,
-        '操作を完了できませんでした',
-        '原因不明のエラーが発生しました'
-            '${e.code}:${e.message}',
-      );
+      _showErrorDialog(context, e);
     } finally {
       setState(() {
         _isValidating = false;
       });
     }
+  }
+
+  void _showErrorDialog(BuildContext context, PlatformException e) {
+    CupertinoDialog.show(
+      context,
+      AppLocalizations.of(context)!.settingPurchasedErrorTitle,
+      '${AppLocalizations.of(context)!.settingPurchasedErrorContent}\n${e.code}:${e.message}',
+    );
   }
 }
