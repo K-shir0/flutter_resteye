@@ -43,87 +43,90 @@ class _SettingPageState extends State<SettingPage> {
         backgroundColor: AppColors.settingAppBarColor,
       ),
       body: FutureBuilder<Package?>(
-          future: RestEyePurchases.getAdFree(),
-          builder: (context, snapshot) {
-            if (!snapshot.hasData) {
-              // TODO(k-shir): Loading 追加
-              return const SizedBox.shrink();
-            } else {
-              final adFree = snapshot.data!;
+        future: RestEyePurchases.getAdFree(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            // TODO(k-shir): Loading 追加
+            return const SizedBox.shrink();
+          } else {
+            final adFree = snapshot.data!;
 
-              return ValueListenableBuilder<bool?>(
-                  valueListenable: adFreeProvider,
-                  builder: (context, value, _) {
-                    final isActive = value ?? false;
+            return ValueListenableBuilder<bool?>(
+              valueListenable: adFreeProvider,
+              builder: (context, value, _) {
+                final isActive = value ?? false;
 
-                    return ListView(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(8.h, 8.w, 0, 8.h),
-                          child: Text(
-                            AppLocalizations.of(context)!.settingAdTitle,
-                            style: TextStyle(fontSize: 10.sp),
-                          ),
+                return Column(
+                  children: [
+                    if (!isActive) ...[
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(8.h, 8.w, 0, 8.h),
+                        child: Text(
+                          AppLocalizations.of(context)!.settingAdTitle,
+                          style: TextStyle(fontSize: 10.sp),
                         ),
-                        SizedBox(
-                          height: 118.h,
-                          child: adBannerWidget,
-                        ),
-                        ListTile(
-                          title: Text(
-                              AppLocalizations.of(context)!.settingTermsOfUse),
-                          leading: const Icon(Icons.article),
-                          trailing: const Icon(
-                            Icons.arrow_forward_ios,
-                            size: 16,
-                          ),
-                          onTap: () =>
-                              RestEyeUrlLauncher.launchInBrowserTermsOfUse(),
-                        ),
-                        ListTile(
-                          title: Text(AppLocalizations.of(context)!
-                              .settingPrivacyPolicy),
-                          leading: const Icon(Icons.pan_tool),
-                          trailing: const Icon(
-                            Icons.arrow_forward_ios,
-                            size: 16,
-                          ),
-                          onTap: () =>
-                              RestEyeUrlLauncher.launchInBrowserPrivacyPolicy(),
-                        ),
-                        // TODO(k-shir0): ローカライズする
-                        ListTile(
-                          title: isActive
-                              ? const Text(
-                                  '広告解除 - 購入済み',
-                                  style: TextStyle(color: Colors.green),
-                                )
-                              : Text(
-                                  '広告解除 ¥ ${adFree.storeProduct.price.toInt()}'),
-                          leading: const Icon(Icons.currency_yen),
-                          trailing: isActive
-                              ? null
-                              : const Icon(
-                                  Icons.arrow_forward_ios,
-                                  size: 16,
-                                ),
-                          onTap: isActive ? null : _purchase,
-                        ),
-                        if (!isActive)
-                          ListTile(
-                            title: const Text('購入を復元'),
-                            leading: const Icon(Icons.restore),
-                            trailing: const Icon(
+                      ),
+                      SizedBox(
+                        height: 118.h,
+                        child: adBannerWidget,
+                      ),
+                    ],
+                    ListTile(
+                      title:
+                          Text(AppLocalizations.of(context)!.settingTermsOfUse),
+                      leading: const Icon(Icons.article),
+                      trailing: const Icon(
+                        Icons.arrow_forward_ios,
+                        size: 16,
+                      ),
+                      onTap: () =>
+                          RestEyeUrlLauncher.launchInBrowserTermsOfUse(),
+                    ),
+                    ListTile(
+                      title: Text(
+                          AppLocalizations.of(context)!.settingPrivacyPolicy),
+                      leading: const Icon(Icons.pan_tool),
+                      trailing: const Icon(
+                        Icons.arrow_forward_ios,
+                        size: 16,
+                      ),
+                      onTap: () =>
+                          RestEyeUrlLauncher.launchInBrowserPrivacyPolicy(),
+                    ),
+                    // TODO(k-shir0): ローカライズする
+                    ListTile(
+                      title: isActive
+                          ? const Text(
+                              '広告解除 - 購入済み',
+                              style: TextStyle(color: Colors.green),
+                            )
+                          : Text('広告解除 ¥ ${adFree.storeProduct.price.toInt()}'),
+                      leading: const Icon(Icons.currency_yen),
+                      trailing: isActive
+                          ? null
+                          : const Icon(
                               Icons.arrow_forward_ios,
                               size: 16,
                             ),
-                            onTap: _restore,
-                          ),
-                      ],
-                    );
-                  });
-            }
-          }),
+                      onTap: isActive ? null : _purchase,
+                    ),
+                    if (!isActive)
+                      ListTile(
+                        title: const Text('購入を復元'),
+                        leading: const Icon(Icons.restore),
+                        trailing: const Icon(
+                          Icons.arrow_forward_ios,
+                          size: 16,
+                        ),
+                        onTap: _restore,
+                      ),
+                  ],
+                );
+              },
+            );
+          }
+        },
+      ),
     );
   }
 
