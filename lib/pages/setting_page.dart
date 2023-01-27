@@ -94,23 +94,26 @@ class _SettingPageState extends State<SettingPage> {
                           RestEyeUrlLauncher.launchInBrowserPrivacyPolicy(),
                     ),
                     // TODO(k-shir0): ローカライズする
-                    ListTile(
-                      title: isActive
-                          ? const Text(
-                              '広告解除 - 購入済み',
-                              style: TextStyle(color: Colors.green),
-                            )
-                          : Text('広告解除 ¥ ${adFree.storeProduct.price.toInt()}'),
-                      leading: const Icon(Icons.currency_yen),
-                      trailing: isActive
-                          ? null
-                          : const Icon(
-                              Icons.arrow_forward_ios,
-                              size: 16,
-                            ),
-                      onTap: isActive ? null : _purchase,
-                    ),
-                    if (!isActive)
+                    if (isActive) ...[
+                      const ListTile(
+                        title: Text(
+                          '広告解除 - 購入済み',
+                          style: TextStyle(color: Colors.green),
+                        ),
+                        leading: Icon(Icons.currency_yen),
+                        onTap: null,
+                      ),
+                    ] else ...[
+                      ListTile(
+                        title:
+                            Text('広告解除 ¥ ${adFree.storeProduct.price.toInt()}'),
+                        leading: const Icon(Icons.currency_yen),
+                        trailing: const Icon(
+                          Icons.arrow_forward_ios,
+                          size: 16,
+                        ),
+                        onTap: _purchase,
+                      ),
                       ListTile(
                         title: const Text('購入を復元'),
                         leading: const Icon(Icons.restore),
@@ -120,6 +123,7 @@ class _SettingPageState extends State<SettingPage> {
                         ),
                         onTap: _restore,
                       ),
+                    ],
                   ],
                 );
               },
