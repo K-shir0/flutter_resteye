@@ -51,6 +51,7 @@ dependencies:
   timezone: ^0.9.1
   app_tracking_transparency: ^2.0.3
   purchases_flutter: ^4.8.0
+  collection: ^1.16.0
 
 # アイコン設定
 # 以下のコマンドで実行

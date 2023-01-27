@@ -10,6 +10,7 @@ import 'package:flutter_resteye/components/number_of_times_used.dart';
 import 'package:flutter_resteye/core/_core.dart';
 
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:purchases_flutter/purchases_flutter.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 void main() async {
@@ -17,6 +18,11 @@ void main() async {
 
   // AdMob 初期化
   MobileAds.instance.initialize();
+
+  // Purchases 初期化
+  await Purchases.setDebugLogsEnabled(true);
+  final configuration = PurchasesConfiguration(kRCSDKAPIKeyIos);
+  await Purchases.configure(configuration);
 
   // Firebase 初期化
   await Firebase.initializeApp(

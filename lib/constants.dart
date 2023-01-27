@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+const kRCSDKAPIKeyIos = String.fromEnvironment('RC_SDK_API_KEY_IOS');
 const kAdUnitIdIndexBottom = String.fromEnvironment('AD_UNIT_ID_INDEX_BOTTOM');
 const kAdUnitIdSettingTop = String.fromEnvironment('AD_UNIT_ID_SETTING_TOP');
 

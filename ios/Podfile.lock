@@ -105,6 +105,12 @@ PODS:
   - nanopb/decode (2.30909.0)
   - nanopb/encode (2.30909.0)
   - PromisesObjC (2.1.1)
+  - purchases_flutter (4.8.0):
+    - Flutter
+    - PurchasesHybridCommon (= 4.10.0)
+  - PurchasesHybridCommon (4.10.0):
+    - RevenueCat (= 4.17.2)
+  - RevenueCat (4.17.2)
   - shared_preferences_ios (0.0.1):
     - Flutter
   - UIPiPView (0.1.0)
@@ -121,6 +127,7 @@ DEPENDENCIES:
   - flutter_native_splash (from `.symlinks/plugins/flutter_native_splash/ios`)
   - flutter_native_timezone (from `.symlinks/plugins/flutter_native_timezone/ios`)
   - google_mobile_ads (from `.symlinks/plugins/google_mobile_ads/ios`)
+  - purchases_flutter (from `.symlinks/plugins/purchases_flutter/ios`)
   - shared_preferences_ios (from `.symlinks/plugins/shared_preferences_ios/ios`)
   - UIPiPView (from `https://github.com/uakihir0/UIPiPView/`, branch `main`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
@@ -138,6 +145,8 @@ SPEC REPOS:
     - GoogleUtilities
     - nanopb
     - PromisesObjC
+    - PurchasesHybridCommon
+    - RevenueCat
 
 EXTERNAL SOURCES:
   app_tracking_transparency:
@@ -158,6 +167,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_native_timezone/ios"
   google_mobile_ads:
     :path: ".symlinks/plugins/google_mobile_ads/ios"
+  purchases_flutter:
+    :path: ".symlinks/plugins/purchases_flutter/ios"
   shared_preferences_ios:
     :path: ".symlinks/plugins/shared_preferences_ios/ios"
   UIPiPView:
@@ -192,6 +203,9 @@ SPEC CHECKSUMS:
   GoogleUtilities: 1d20a6ad97ef46f67bbdec158ce00563a671ebb7
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
+  purchases_flutter: 68c500192f462e5e6c754cd93f8caa97668521aa
+  PurchasesHybridCommon: 2c254caadc6b50238a79902c01abec67353b5334
+  RevenueCat: ad2623febfb1303e90a9b77c796dd1b641547096
   shared_preferences_ios: 548a61f8053b9b8a49ac19c1ffbc8b92c50d68ad
   UIPiPView: 5d60e5976a586cec12c411241aff3fcbd3ceb2ac
   url_launcher_ios: 839c58cdb4279282219f5e248c3321761ff3c4de
