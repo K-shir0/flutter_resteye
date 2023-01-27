@@ -63,7 +63,7 @@ class _SettingPageState extends State<SettingPage> {
               child: ValueListenableBuilder<bool?>(
                 valueListenable: adFreeProvider,
                 builder: (context, value, _) {
-                  final isActive = value ?? false;
+                  final isActive = !(value ?? false);
 
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -122,7 +122,7 @@ class _SettingPageState extends State<SettingPage> {
                             Icons.arrow_forward_ios,
                             size: 16,
                           ),
-                          onTap: _purchase,
+                          onTap: () => _purchase(context),
                         ),
                         ListTile(
                           title: const Text('購入を復元'),
@@ -146,7 +146,7 @@ class _SettingPageState extends State<SettingPage> {
   }
 
   /// 再購入
-  Future<void> _purchase() async {
+  Future<void> _purchase(BuildContext context) async {
     try {
       setState(() {
         _isValidating = true;
@@ -158,8 +158,14 @@ class _SettingPageState extends State<SettingPage> {
       if (isActive) {
         adFreeProvider.setAdFreeState(true);
       }
-    } on PlatformException catch (_) {
-      // TODO(k-shir0): 購入エラー
+    } on PlatformException catch (e) {
+      // 購入エラー
+      CupertinoDialog.show(
+        context,
+        '操作を完了できませんでした',
+        '原因不明のエラーが発生しました'
+            '${e.code}:${e.message}',
+      );
     } finally {
       setState(() {
         _isValidating = false;
@@ -180,8 +186,14 @@ class _SettingPageState extends State<SettingPage> {
       if (isActive) {
         adFreeProvider.setAdFreeState(true);
       }
-    } on PlatformException catch (_) {
-      // TODO(k-shir0): 購入を復元エラー
+    } on PlatformException catch (e) {
+      // 購入を復元エラー
+      CupertinoDialog.show(
+        context,
+        '操作を完了できませんでした',
+        '原因不明のエラーが発生しました'
+            '${e.code}:${e.message}',
+      );
     } finally {
       setState(() {
         _isValidating = false;
