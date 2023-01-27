@@ -109,14 +109,14 @@ class _SettingPageState extends State<SettingPage> {
                                 .settingPurchasedAdFree,
                             style: const TextStyle(color: Colors.green),
                           ),
-                          leading: const Icon(Icons.currency_yen),
+                          leading: const Icon(Icons.volunteer_activism),
                           onTap: null,
                         ),
                       ] else ...[
                         ListTile(
                           title: Text(
                               '${AppLocalizations.of(context)!.settingAdFree}${adFree.storeProduct.price.toInt()}'),
-                          leading: const Icon(Icons.currency_yen),
+                          leading: const Icon(Icons.volunteer_activism),
                           trailing: const Icon(
                             Icons.arrow_forward_ios,
                             size: 16,
@@ -128,7 +128,7 @@ class _SettingPageState extends State<SettingPage> {
                             AppLocalizations.of(context)!
                                 .settingPurchasedRestore,
                           ),
-                          leading: const Icon(Icons.restore),
+                          leading: const Icon(Icons.cloud_sync),
                           trailing: const Icon(
                             Icons.arrow_forward_ios,
                             size: 16,
@@ -172,13 +172,15 @@ class _SettingPageState extends State<SettingPage> {
 
   /// 復元
   Future<void> _restore() async {
+    var isActive = false;
+
     try {
       setState(() {
         _isValidating = true;
       });
 
       await RestEyePurchases.restorePurchases();
-      final isActive = await RestEyePurchases.isActive();
+      isActive = await RestEyePurchases.isActive();
 
       if (isActive) {
         adFreeProvider.setAdFreeState(true);
@@ -190,6 +192,15 @@ class _SettingPageState extends State<SettingPage> {
       setState(() {
         _isValidating = false;
       });
+
+      if (isActive) {
+        // 復元成功ダイアログ
+        await CupertinoDialog.show(
+          context,
+          AppLocalizations.of(context)!.settingPurchasedRestoreSuccessTitle,
+          null,
+        );
+      }
     }
   }
 

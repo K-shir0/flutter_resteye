@@ -27,6 +27,7 @@
   "settingAdFree": "広告解除 ¥",
   "settingPurchasedAdFree": "広告解除 - 購入済み",
   "settingPurchasedRestore": "購入を復元",
+  "settingPurchasedRestoreSuccessTitle": "購入を復元しました",
   "settingPurchasedErrorTitle": "操作を完了できませんでした",
   "settingPurchasedErrorContent": "原因不明のエラーが発生しました",
   "usageRecordTitle": "利用記録",

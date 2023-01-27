@@ -27,6 +27,7 @@
   "settingAdFree": "AdFree $",
   "settingPurchasedAdFree": "AdFree - Purchased",
   "settingPurchasedRestore": "Restore Purchase",
+  "settingPurchasedRestoreSuccessTitle": "Purchase restored.",
   "settingPurchasedErrorTitle": "Operation could not be completed.",
   "settingPurchasedErrorContent": "An error of unknown cause has occurred.",
   "usageRecordTitle": "Usage Record",
