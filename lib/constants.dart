@@ -11,8 +11,8 @@ class AppColors {
   static const Color cardBgColor = Color(0xFFF5FAFF);
   static const Color pinpBgColor = Color(0xFFFFFFFF);
 
-  /// 広告
-  static const Color adBgColor = Color(0xFFd9d9d9);
+  /// ローディングのぐるぐるの色
+  static const Color indicatorColor = Color(0xFF417FB8);
 
   /// 設定アイコン
   static const Color settingBgColor = Color(0xFFFFFFFF);
