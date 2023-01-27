@@ -19,6 +19,7 @@ class SettingPage extends StatefulWidget {
 }
 
 class _SettingPageState extends State<SettingPage> {
+  /// 購入中, 復元中かどうかの状態
   bool _isValidating = false;
 
   final _banner = BannerAd(
@@ -50,7 +51,10 @@ class _SettingPageState extends State<SettingPage> {
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             // TODO(k-shir): Loading 追加
-            return const SizedBox.shrink();
+            return const ProgressOverlay(
+              inProgress: true,
+              child: SizedBox.shrink(),
+            );
           } else {
             final adFree = snapshot.data!;
 
@@ -141,6 +145,7 @@ class _SettingPageState extends State<SettingPage> {
     );
   }
 
+  /// 再購入
   Future<void> _purchase() async {
     try {
       setState(() {
@@ -162,6 +167,7 @@ class _SettingPageState extends State<SettingPage> {
     }
   }
 
+  /// 復元
   Future<void> _restore() async {
     try {
       setState(() {
