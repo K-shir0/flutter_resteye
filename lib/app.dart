@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_resteye/core/_core.dart';
+import 'package:flutter_resteye/notifiers/ad_free_provider.dart';
+import 'package:flutter_resteye/utils/_utils.dart';
 import 'package:flutter_resteye/pages/index_page.dart';
 import 'package:flutter_resteye/pages/landing_page.dart';
 
@@ -73,6 +75,9 @@ class _Body extends StatelessWidget {
 
     // まばたき画像のアセットをセットしておく
     PinPController().setAsset(await getSelectedAssetsNumber());
+
+    // 広告削除に課金済みかどうか
+    adFreeProvider.setAdFreeState(await RestEyePurchases.isActive());
 
     // スプラッシュを削除
     FlutterNativeSplash.remove();

@@ -7,6 +7,7 @@ import 'package:flutter_resteye/components/number_of_times_used.dart';
 import 'package:flutter_resteye/core/_core.dart';
 import 'package:flutter_resteye/components/_components.dart';
 import 'package:flutter_resteye/constants.dart';
+import 'package:flutter_resteye/notifiers/ad_free_provider.dart';
 import 'package:flutter_resteye/pages/setting_page.dart';
 import 'package:flutter_resteye/pages/tutorial_page/tutorial_page.dart';
 import 'package:flutter_resteye/utils/_utils.dart';
@@ -373,9 +374,18 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 50.h,
-                    child: adBannerWidget,
+                  ValueListenableBuilder<bool?>(
+                    valueListenable: adFreeProvider,
+                    builder: (context, value, _) {
+                      final isActive = value ?? false;
+
+                      return isActive
+                          ? const SizedBox.shrink()
+                          : SizedBox(
+                              height: 50.h,
+                              child: adBannerWidget,
+                            );
+                    },
                   ),
                 ],
               ),
