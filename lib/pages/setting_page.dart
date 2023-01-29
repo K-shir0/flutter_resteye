@@ -57,6 +57,8 @@ class _SettingPageState extends State<SettingPage> {
           } else {
             final adFree = snapshot.data!;
 
+            print(adFree);
+
             return ProgressOverlay(
               inProgress: _isValidating,
               child: ValueListenableBuilder<bool?>(
@@ -115,7 +117,7 @@ class _SettingPageState extends State<SettingPage> {
                       ] else ...[
                         ListTile(
                           title: Text(
-                              '${AppLocalizations.of(context)!.settingAdFree}${adFree.storeProduct.price.toInt()}'),
+                              '${AppLocalizations.of(context)!.settingAdFree} ${adFree.storeProduct.priceString}'),
                           leading: const Icon(Icons.volunteer_activism),
                           trailing: const Icon(
                             Icons.arrow_forward_ios,
