@@ -10,6 +10,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:flutter_resteye/constants.dart';
 import 'package:flutter_resteye/notifiers/ad_free_provider.dart';
 import 'package:flutter_resteye/utils/_utils.dart';
+import 'package:purchases_flutter/purchases_flutter.dart';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({super.key});
@@ -163,7 +164,13 @@ class _SettingPageState extends State<SettingPage> {
         adFreeProvider.setAdFreeState(true);
       }
     } on PlatformException catch (e) {
-      // 購入エラー
+      // 購入しない意外
+      final code = PurchasesErrorHelper.getErrorCode(e);
+
+      if (code == PurchasesErrorCode.purchaseCancelledError) {
+        return;
+      }
+
       _showErrorDialog(context, e);
     } finally {
       setState(() {
