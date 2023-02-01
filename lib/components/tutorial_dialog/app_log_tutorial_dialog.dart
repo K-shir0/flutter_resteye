@@ -53,7 +53,7 @@ class AppLogTutorialDialog {
                             Text(
                               AppLocalizations.of(context)!
                                   .indexTutorialDialogMessage2,
-                              style: TextStyle(fontSize: 16.sp),
+                              style: const TextStyle(fontSize: 16),
                               textAlign: TextAlign.left,
                             ),
                             SizedBox(height: 16.h),

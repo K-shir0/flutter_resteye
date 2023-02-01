@@ -53,7 +53,7 @@ class AnimationChangeTutorialDialog {
                             Text(
                               AppLocalizations.of(context)!
                                   .indexTutorialDialogMessage3,
-                              style: TextStyle(fontSize: 16.sp),
+                              style: const TextStyle(fontSize: 16),
                               textAlign: TextAlign.left,
                             ),
                             SizedBox(height: 16.h),
