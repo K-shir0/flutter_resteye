@@ -36,5 +36,10 @@
   "usageRecordLabel2": "今日の利用時間",
   "usageRecordUtil2": "分",
   "usageRecordLabel3": "まばたき出来た量",
-  "usageRecordUtil3": "回"
+  "usageRecordUtil3": "回",
+  "indexTutorialDialogNext": "次へ",
+  "indexTutorialDialogMessage1": "このボタンを押すとまばたきの\nアニメーションが始まります。",
+  "indexTutorialDialogMessage2": "アプリを使用した履歴を見ることが\nできます。",
+  "indexTutorialDialogMessage3": "タップするとアニメーションを\n変更することができます。"
+
 }
