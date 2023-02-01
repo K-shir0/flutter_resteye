@@ -97,7 +97,10 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
 
     WidgetsBinding.instance.addPostFrameCallback(
       (_) async {
-        _showTutorial();
+        if (!(await getInitializeStatus())) {
+          saveInitializeStatus(true);
+          _showTutorial();
+        }
       },
     );
   }
