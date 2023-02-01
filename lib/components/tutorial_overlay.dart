@@ -59,22 +59,3 @@ class TutorialOverlay {
   }
 }
 
-class TrianglePainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    var paint = Paint();
-
-    // 三角（塗りつぶし）
-    paint.color = Colors.white;
-    var path = Path()
-      ..moveTo(0, size.height)
-      ..lineTo(size.width / 2, 0)
-      ..lineTo(size.width, size.height)
-      ..lineTo(0, size.height)
-      ..close();
-    canvas.drawPath(path, paint);
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => false;
-}

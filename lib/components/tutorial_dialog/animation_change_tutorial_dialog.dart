@@ -71,10 +71,7 @@ class AnimationChangeTutorialDialog {
                       angle: math.pi / 1,
                       child: Transform.translate(
                         offset: Offset(80.w, 16.h),
-                        child: CustomPaint(
-                          painter: TrianglePainter(),
-                          child: SizedBox(height: 32.h, width: 32.w),
-                        ),
+                        child: const Arrow(),
                       ),
                     ),
                   ],
