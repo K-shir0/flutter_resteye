@@ -14,6 +14,8 @@ class AnimationChangeTutorialDialog {
     BuildContext context,
     GlobalKey key,
   ) async {
+    final size = MediaQuery.of(context).size;
+
     final target = key.currentContext?.findRenderObject() as RenderBox;
     final offset = target.localToGlobal(Offset.zero);
 
@@ -44,47 +46,50 @@ class AnimationChangeTutorialDialog {
           ),
           Positioned.fill(
             top: offset.dy - 240.h,
-            child: Column(
-              children: [
-                Column(
-                  children: [
-                    Card(
-                      child: Padding(
-                        padding: EdgeInsets.fromLTRB(32.w, 16.h, 32.w, 24.h),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              AppLocalizations.of(context)!
-                                  .indexTutorialDialogMessage3,
-                              style: const TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
+            child: SizedBox(
+              width: size.width - 60.w,
+              child: Column(
+                children: [
+                  Column(
+                    children: [
+                      Card(
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(32.w, 16.h, 32.w, 24.h),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                AppLocalizations.of(context)!
+                                    .indexTutorialDialogMessage3,
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                                textAlign: TextAlign.left,
                               ),
-                              textAlign: TextAlign.left,
-                            ),
-                            SizedBox(height: 16.h),
-                            SubOutlineButton(
-                              text: 'OK',
-                              onPressed: () {
-                                Navigator.of(context).pop(true);
-                              },
-                            ),
-                          ],
+                              SizedBox(height: 16.h),
+                              SubOutlineButton(
+                                text: 'OK',
+                                onPressed: () {
+                                  Navigator.of(context).pop(true);
+                                },
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    Transform.rotate(
-                      angle: math.pi / 1,
-                      child: Transform.translate(
-                        offset: Offset(98.w, 16.h),
-                        child: const Arrow(),
+                      Transform.rotate(
+                        angle: math.pi / 1,
+                        child: Transform.translate(
+                          offset: Offset(98.w, 16.h),
+                          child: const Arrow(),
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ],

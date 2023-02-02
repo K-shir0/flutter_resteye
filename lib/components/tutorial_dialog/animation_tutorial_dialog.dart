@@ -12,6 +12,8 @@ class AnimationTutorialDialog {
     BuildContext context,
     GlobalKey key,
   ) async {
+    final size = MediaQuery.of(context).size;
+
     final target = key.currentContext?.findRenderObject() as RenderBox;
     final offset = target.localToGlobal(Offset.zero);
 
@@ -42,45 +44,48 @@ class AnimationTutorialDialog {
           ),
           Positioned.fill(
             top: offset.dy,
-            child: Column(
-              children: [
-                Column(
-                  children: [
-                    Transform.translate(
-                      offset: Offset(0, 16.h),
-                      child: const Arrow(),
-                    ),
-                    Card(
-                      child: Padding(
-                        padding: EdgeInsets.fromLTRB(32.w, 16.h, 32.w, 24.h),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              AppLocalizations.of(context)!
-                                  .indexTutorialDialogMessage1,
-                              style: const TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
+            child: SizedBox(
+              width: size.width - 60.w,
+              child: Column(
+                children: [
+                  Column(
+                    children: [
+                      Transform.translate(
+                        offset: Offset(0, 16.h),
+                        child: const Arrow(),
+                      ),
+                      Card(
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(32.w, 16.h, 32.w, 24.h),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                AppLocalizations.of(context)!
+                                    .indexTutorialDialogMessage1,
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                                textAlign: TextAlign.left,
                               ),
-                              textAlign: TextAlign.left,
-                            ),
-                            SizedBox(height: 16.h),
-                            SubOutlineButton(
-                              text: AppLocalizations.of(context)!
-                                  .indexTutorialDialogNext,
-                              onPressed: () {
-                                Navigator.of(context).pop(true);
-                              },
-                            ),
-                          ],
+                              SizedBox(height: 16.h),
+                              SubOutlineButton(
+                                text: AppLocalizations.of(context)!
+                                    .indexTutorialDialogNext,
+                                onPressed: () {
+                                  Navigator.of(context).pop(true);
+                                },
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ],
