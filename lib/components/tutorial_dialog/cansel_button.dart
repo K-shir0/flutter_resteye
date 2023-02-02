@@ -19,5 +19,4 @@ class CanselButton extends StatelessWidget {
       },
     );
   }
-
 }
