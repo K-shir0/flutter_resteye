@@ -46,13 +46,13 @@ class AppLogTutorialDialog {
           ),
           Positioned.fill(
             top: offset.dy - 240.h,
-            child: SizedBox(
-              width: size.width - 60.w,
-              child: Column(
-                children: [
-                  Column(
-                    children: [
-                      Card(
+            child: Column(
+              children: [
+                Column(
+                  children: [
+                    Card(
+                      child: SizedBox(
+                        width: size.width - 68.w,
                         child: Padding(
                           padding: EdgeInsets.fromLTRB(32.w, 16.h, 32.w, 24.h),
                           child: Column(
@@ -80,17 +80,17 @@ class AppLogTutorialDialog {
                           ),
                         ),
                       ),
-                      Transform.rotate(
-                        angle: math.pi / 1,
-                        child: Transform.translate(
-                          offset: Offset(0, 16.h),
-                          child: const Arrow(),
-                        ),
+                    ),
+                    Transform.rotate(
+                      angle: math.pi / 1,
+                      child: Transform.translate(
+                        offset: Offset(0, 16.h),
+                        child: const Arrow(),
                       ),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ],

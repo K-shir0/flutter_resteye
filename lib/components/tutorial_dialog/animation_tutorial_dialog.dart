@@ -44,17 +44,17 @@ class AnimationTutorialDialog {
           ),
           Positioned.fill(
             top: offset.dy,
-            child: SizedBox(
-              width: size.width - 60.w,
-              child: Column(
-                children: [
-                  Column(
-                    children: [
-                      Transform.translate(
-                        offset: Offset(0, 16.h),
-                        child: const Arrow(),
-                      ),
-                      Card(
+            child: Column(
+              children: [
+                Column(
+                  children: [
+                    Transform.translate(
+                      offset: Offset(0, 16.h),
+                      child: const Arrow(),
+                    ),
+                    Card(
+                      child: SizedBox(
+                        width: size.width - 68.w,
                         child: Padding(
                           padding: EdgeInsets.fromLTRB(32.w, 16.h, 32.w, 24.h),
                           child: Column(
@@ -82,10 +82,10 @@ class AnimationTutorialDialog {
                           ),
                         ),
                       ),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ],
