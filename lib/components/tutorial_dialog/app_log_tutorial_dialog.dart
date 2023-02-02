@@ -37,6 +37,11 @@ class AppLogTutorialDialog {
       ),
       Stack(
         children: [
+          Positioned(
+            top: 64.h,
+            left: 32.w,
+            child: const CanselButton(),
+          ),
           Positioned.fill(
             top: offset.dy - 240.h,
             child: Column(

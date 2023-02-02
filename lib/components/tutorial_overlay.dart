@@ -44,14 +44,17 @@ class TutorialOverlay {
           ),
         ),
         SizedBox.expand(
-          child: Column(
-            children: [
-              Expanded(
-                child: SafeArea(
-                  child: overlay,
+          child: Material(
+            color: Colors.transparent,
+            child: Column(
+              children: [
+                Expanded(
+                  child: SafeArea(
+                    child: overlay,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         )
       ],
