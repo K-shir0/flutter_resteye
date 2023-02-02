@@ -78,7 +78,7 @@ class AnimationChangeTutorialDialog {
                     Transform.rotate(
                       angle: math.pi / 1,
                       child: Transform.translate(
-                        offset: Offset(80.w, 16.h),
+                        offset: Offset(98.w, 16.h),
                         child: const Arrow(),
                       ),
                     ),
