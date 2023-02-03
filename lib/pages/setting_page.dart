@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_resteye/components/_components.dart';
 
-import 'package:purchases_flutter/models/package_wrapper.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:purchases_flutter/purchases_flutter.dart';
 
+import 'package:flutter_resteye/components/_components.dart';
 import 'package:flutter_resteye/constants.dart';
 import 'package:flutter_resteye/notifiers/ad_free_provider.dart';
 import 'package:flutter_resteye/utils/_utils.dart';
-import 'package:purchases_flutter/purchases_flutter.dart';
+import 'package:flutter_resteye/core/_core.dart';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({super.key});
@@ -46,6 +46,14 @@ class _SettingPageState extends State<SettingPage> {
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.settingAppBar),
         backgroundColor: AppColors.settingAppBarColor,
+        flexibleSpace: InkWell(
+          onDoubleTap: () {
+            // 初期化無効化
+            saveInitializeStatus(false);
+            // 広告非表示を無効化
+            adFreeProvider.setAdFreeState(false);
+          },
+        ),
       ),
       body: FutureBuilder<Package?>(
         future: RestEyePurchases.getAdFree(),
