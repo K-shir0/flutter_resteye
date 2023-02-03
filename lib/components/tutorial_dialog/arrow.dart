@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_resteye/constants.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -19,8 +20,7 @@ class _TrianglePainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     var paint = Paint();
 
-    // 三角（塗りつぶし）
-    paint.color = Colors.white;
+    paint.color = AppColors.tutorialOverlayCardColor;
     var path = Path()
       ..moveTo(0, size.height)
       ..lineTo(size.width / 2, 0)

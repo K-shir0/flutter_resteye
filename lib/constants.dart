@@ -44,4 +44,7 @@ class AppColors {
   static const Color carouselUnselectedDotColor = Color(0xFFBBDEFF);
 
   static const Color movieSelectedColor = Color(0xFF417FB8);
+
+  /// チュートリアルで表示されるテキストの色
+  static const Color tutorialOverlayCardColor = Colors.white;
 }
