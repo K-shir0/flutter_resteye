@@ -53,6 +53,10 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
   /// 使用時間の状態を更新するタイマー
   Timer? _usageTimeRenewTimer;
 
+  final _toggleButtonKey = GlobalKey();
+  final _usageRecordCardKey = GlobalKey();
+  final _restEyeCardKey = GlobalKey();
+
   @override
   void initState() {
     super.initState();
@@ -90,6 +94,15 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
     RestEyeLocalNotifications.initializeLocalNotifications();
     RestEyeLocalNotifications.scheduleNotification(
         hour: 11, minutes: 27, message: "最近開いてなくない");
+
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) async {
+        if (!(await getInitializeStatus())) {
+          saveInitializeStatus(true);
+          _showTutorial();
+        }
+      },
+    );
   }
 
   @override
@@ -119,6 +132,26 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
       case AppLifecycleState.detached:
         break;
     }
+  }
+
+  Future<void> _showTutorial() async {
+    setState(() => _showPinP = false);
+
+    var next =
+        await AnimationTutorialDialog.show(context, _toggleButtonKey) ?? false;
+    if (next) {
+      // ignore: use_build_context_synchronously
+      next = await AppLogTutorialDialog.show(context, _usageRecordCardKey) ??
+          false;
+    }
+    if (next) {
+      next =
+          // ignore: use_build_context_synchronously
+          await AnimationChangeTutorialDialog.show(context, _restEyeCardKey) ??
+              false;
+    }
+
+    setState(() => _showPinP = true);
   }
 
   @override
@@ -235,6 +268,7 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
                               SizedBox(height: 24.h),
                               !_isPictureInPictureActive
                                   ? RestEyeMainButton(
+                                      key: _toggleButtonKey,
                                       onPressed: () => _controller.toggle(),
                                       text: AppLocalizations.of(context)!
                                           .startButton,
@@ -246,6 +280,7 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
                                     ),
                               SizedBox(height: 20.h),
                               Card(
+                                key: _usageRecordCardKey,
                                 color: AppColors.cardBgColor,
                                 elevation: 0,
                                 child: Padding(
@@ -336,6 +371,7 @@ class _IndexPageState extends State<IndexPage> with WidgetsBindingObserver {
                                           setState(() => _selectedMovie = 0);
                                         },
                                         child: RestEyeCard(
+                                          key: _restEyeCardKey,
                                           asset: 'assets/images/open@3x.png',
                                           selected: _selectedMovie == 0,
                                         ),

@@ -36,5 +36,9 @@
   "usageRecordLabel2": "Today's usage time",
   "usageRecordUtil2": "min.",
   "usageRecordLabel3": "Amount of blinking done",
-  "usageRecordUtil3": "times"
+  "usageRecordUtil3": "times",
+  "indexTutorialDialogNext": "Next",
+  "indexTutorialDialogMessage1": "Pressing this button starts\na flashing animation.",
+  "indexTutorialDialogMessage2": "You can view your application \nusage history.You can view your\napplication usage history.",
+  "indexTutorialDialogMessage3": "Tap to change the animation.\n"
 }

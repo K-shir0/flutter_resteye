@@ -206,8 +206,6 @@ class _TutorialPageState extends State<TutorialPage> {
   /// ページの最後になったら [Navigator] で [IndexPage] に遷移する
   void _onNext() {
     if (_current == 2) {
-      saveInitializeStatus(true);
-
       Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(

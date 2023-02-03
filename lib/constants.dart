@@ -31,6 +31,9 @@ class AppColors {
   static const Color subButtonBgColor = Color(0xFFF5FAFF);
   static const Color subButtonTextColor = Color(0xFF417FB8);
 
+  static const Color subOutlineButtonFrameColor = Color(0xFFFFBD3E);
+  static const Color subOutlineButtonFrameTextColor = Color(0xFFFFBD3E);
+
   static const Color addButtonBgColor = Color(0xFFFFBD3E);
   static const Color addButtonTextColor = Color(0xFFF5FAFF);
 
